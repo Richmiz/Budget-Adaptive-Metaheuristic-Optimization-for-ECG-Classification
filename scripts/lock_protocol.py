@@ -15,7 +15,7 @@ from pathlib import Path
 
 import yaml
 
-from bamo.config import PROJECT_ROOT, config_hash, load_config
+from bamo.config import PROJECT_ROOT, config_hash, load_config, load_yaml
 from bamo.utils import read_json, sha256_file, write_json
 
 PROTOCOL = PROJECT_ROOT / "protocol"
@@ -23,6 +23,11 @@ REQUIRED = [("budgets", "t_ref_seconds"), ("controller", "reeval_tolerance"), ("
 
 
 def freeze() -> None:
+    decision_path = PROJECT_ROOT / "configs" / "decision_status.yaml"
+    if decision_path.exists():
+        decision = load_yaml(decision_path)
+        if not decision.get("approved_for_freeze", False):
+            raise SystemExit(f"cannot freeze: {decision['reason']}")
     cfg = load_config()
     missing = [".".join(k) for k in REQUIRED if cfg[k[0]][k[1]] is None]
     if missing:

@@ -43,11 +43,18 @@ class ControllerSettings:
     cost_normalization: bool = True    # False: delta_c = number of evaluations in the round (D23)
     mandatory_probes: bool = True
     confirmation: bool = True
+    stop_rule: str = "utility"         # matched controls: utility or simple evaluation patience
+    patience_evals: int = 16
+    confirmation_rule: str = "utility"  # legacy; matched controls all use any-improvement veto
 
     def __post_init__(self) -> None:
         self.blocks = tuple(self.blocks)
         if self.trials_per_round < 1 or self.window < 1:
             raise ValueError("trials_per_round and window must be positive")
+        if self.stop_rule not in ("utility", "patience") or self.confirmation_rule not in ("utility", "improvement"):
+            raise ValueError("unknown stopping or confirmation rule")
+        if self.patience_evals < 1:
+            raise ValueError("patience_evals must be positive")
 
     @property
     def hysteresis(self) -> float:
@@ -165,6 +172,7 @@ class MarginalUtilitySearch(SearchMethod):
         self.confirmations: list[dict] = []
         self.confirmation_infeasible_at: float | None = None
         self.action_counts: dict[str, int] = {}
+        self.evals_since_improvement = 0
 
     # ------------------------------------------------------------------ helpers
     def _trial(self, ctx: SearchContext, target: int, active: np.ndarray) -> tuple[np.ndarray, bool]:
@@ -197,6 +205,12 @@ class MarginalUtilitySearch(SearchMethod):
             repaired += forced
             result = ctx.tracker.evaluate(x=trial, tag=f"{tag}:{block}")
             improved += self.de.select(target, trial, result.fitness if result.valid else None)
+            # Count completed distinct search evaluations, not cached duplicates or confirmation.
+            if tag != "confirm" and ctx.tracker.records[-1]["source"] != "run_cache":
+                if ctx.tracker.records[-1]["new_incumbent"]:
+                    self.evals_since_improvement = 0
+                else:
+                    self.evals_since_improvement += 1
         seconds = ctx.clock.elapsed() - since
         m_after = ctx.tracker.best
         delta_m = 0.0 if not math.isfinite(m_before) else max(0.0, m_after - m_before)
@@ -243,7 +257,8 @@ class MarginalUtilitySearch(SearchMethod):
             self.policy.record(block, out.reward, count_for_stop=False)
             attempt["probes"].append({"block": block, "reward": out.reward})
             self._log(ctx, "confirm", "confirm_probe", scores, out)
-            if out.reward >= s.tau:
+            veto = out.reward >= s.tau if s.confirmation_rule == "utility" else out.delta_m > 0
+            if veto:
                 attempt["outcome"] = f"resume_probe_{block}"
                 return False
         inc = ctx.tracker.incumbent
@@ -262,6 +277,15 @@ class MarginalUtilitySearch(SearchMethod):
             return False
         attempt["outcome"] = "confirmed"
         return True
+
+    def _stop_proposed(self, ctx: SearchContext) -> bool:
+        s = self.settings
+        if s.stop_rule == "utility":
+            return self.policy.stop_proposed(ctx.clock.elapsed(), ctx.clock.limit_s)
+        return (not self.policy.in_warmup
+                and all(n >= s.min_rounds_per_block for n in self.policy.rounds.values())
+                and self.evals_since_improvement >= s.patience_evals
+                and ctx.clock.elapsed() >= s.min_budget_fraction * ctx.clock.limit_s)
 
     # --------------------------------------------------------------------- main
     def budget_reason(self) -> str:
@@ -291,7 +315,7 @@ class MarginalUtilitySearch(SearchMethod):
             self.policy.record(block, out.reward)
             self._log(ctx, phase, action, scores, out)
 
-            if not self.policy.stop_proposed(ctx.clock.elapsed(), ctx.clock.limit_s):
+            if not self._stop_proposed(ctx):
                 continue
             if not s.global_termination:
                 if self.shadow_stop is None:  # D24: hypothetical stop for the premature-termination analysis
@@ -301,7 +325,7 @@ class MarginalUtilitySearch(SearchMethod):
                 continue
             if not s.confirmation:
                 self._log(ctx, "stop", "stop_unconfirmed", self.policy.scores(), None)
-                return "utility_stop_unconfirmed"
+                return f"{s.stop_rule}_stop_unconfirmed"
             if self.unstable_incumbent is not None and self.unstable_incumbent == self._incumbent_key(ctx):
                 continue
             if not self._confirmation_feasible(ctx):  # D22: finish as budget exhaustion
@@ -314,8 +338,9 @@ class MarginalUtilitySearch(SearchMethod):
             last_end = ctx.clock.elapsed()
             if confirmed:
                 self._log(ctx, "stop", "confirm_stop", self.policy.scores(), None)
-                return "utility_stop_confirmed"
+                return f"{s.stop_rule}_stop_confirmed"
             self.policy.reset_streak()
+            self.evals_since_improvement = 0
 
     def summary_extra(self) -> dict:
         p = self.policy
@@ -326,4 +351,5 @@ class MarginalUtilitySearch(SearchMethod):
             "shadow_stop": self.shadow_stop,
             "confirmations": self.confirmations,
             "confirmation_infeasible_at": self.confirmation_infeasible_at,
+            "evals_since_improvement": self.evals_since_improvement,
         }

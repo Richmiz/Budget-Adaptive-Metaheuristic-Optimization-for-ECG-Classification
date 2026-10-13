@@ -1,0 +1,17 @@
+# Development assessment separated from search and checkpoint selection.
+search: {train: [1, 2, 3, 4], val: [5]}
+refit: {train: [1, 2, 3, 4, 5], val: [6], assessment: [7]}
+seeds: [9401, 9402, 9403, 9404, 9405]
+methods: [adaptive_utility, dehb_native]
+budget_units: 160
+n_timing_configs: 16
+timing_design_seed: 2026101501
+noise_configs: 4
+noise_seeds: [2026101601, 2026101602, 2026101603, 2026101604, 2026101605]
+bootstrap_replicates: 2000
+planning_margins: [0.002, 0.0025, 0.005]
+planning_seed_counts: [10, 20, 30]
+matched_smoke:
+  methods: [adaptive_utility, rr_utility, adaptive_patience, rr_patience]
+  seeds: [9401, 9402]
+  budget_units: 80

@@ -1,0 +1,7 @@
+# Common development workload for final task-specific time units. No folds 8-10.
+partition: {train: [1, 2, 3, 4, 5, 6], val: [7]}
+n_timing_configs: 16
+design_seed: 2026101701
+timing_train_seed: 2026101702
+noise_configs: 4
+noise_seeds: [2026101801, 2026101802, 2026101803, 2026101804, 2026101805]

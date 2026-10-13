@@ -2,6 +2,8 @@
 
 **Study:** Budget-Adaptive Metaheuristic Optimization for ECG Classification Using Marginal Utility-Based Search Allocation (Article 1)
 **Version:** 1.1, 13 October 2026. Supersedes proposal v1.0 (7 October 2026) where they differ; all differences are listed in §7.
+**Assessor disposition:** v1.1 is retained as history. The researcher authorized the decision
+phase in doc 18; doc 19 is the revised design draft. The 300-run matrix is not approved to start.
 **Status:** pilot complete on the confirmatory hardware; **protocol not yet frozen**. Gate G2 is pending the open decisions in §9 and the timing drift check. No confirmatory run has started and the test fold (PTB-XL fold 10) has never been read.
 **Detail:** this document summarizes docs 00–15; section numbers in brackets point to them.
 

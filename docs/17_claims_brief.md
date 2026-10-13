@@ -2,6 +2,10 @@
 
 Full protocol: `docs/16_protocol_v1_1.md`. Evidence review with literature: `docs/15_evidence_review.md`.
 
+**Assessor revision:** This v1.1 brief is a historical hypothesis. The decision phase in
+`docs/18_decision_phase.md` precedes the protocol freeze. Its margin remains unresolved,
+and controller attribution requires the matched controls specified there.
+
 ## 1. The claim the study will test
 
 > A controller that allocates Differential Evolution search time across hyperparameter blocks according to measured validation improvement per second, and stops after a confirmation step, finds ECG classifiers that are **not worse** (test macro AUROC) than those found by DEHB while using **less search time**, and this saving comes from the controller's decisions rather than from simply being allowed to stop.
@@ -16,7 +20,7 @@ If any condition fails, the paper reports the negative or mixed result.
 ## 2. Why the question is worth testing
 
 * The project's systematic review found a favourable gain-versus-compute trade-off in only **10 of 44** structured studies of metaheuristic optimization in biomedical deep learning; 19 were uncertain. Search cost is rarely measured against the gain.
-* This study measures cost directly, under one fixed GPU type, matched time caps, patient-separated data and a pre-registered analysis, with the test fold locked until the end.
+* This study plans to measure cost directly under one GPU type, matched caps and patient-separated data. Its analysis is written in advance, but the protocol is not frozen or externally preregistered.
 
 ## 3. What is already established (evidence in hand)
 
@@ -25,7 +29,7 @@ If any condition fails, the paper reports the negative or mixed result.
 | Data integrity | PTB-XL v1.0.3: 21,388 records, 18,617 patients, **0 patients across folds**. Every file checked against PhysioNet SHA-256 sums |
 | Reproducibility | Data rebuilt on Colab is byte-identical to the local preparation; the pilot export of 81 files is hash-verified; 64 automated tests pass |
 | Hardware and time unit | Colab G4 (RTX PRO 6000 Blackwell); T_ref = **9.8 s** per evaluation |
-| All 7 methods work on real data | Each stayed within its time cap in the pilot |
+| All 7 methods run on real data | Short pilot checks executed candidate evaluations and budget guards. Legacy elapsed summaries were clamped to the cap, so they do not independently verify zero deadline overshoot; the revised runner records actual elapsed and late-result discards |
 | Measurement noise | Seed-to-seed SD of validation AUROC = **0.0012** |
 | Controller behaves as specified | In the τ/κ sweep, **9 of 10** runs stopped and confirmed on their own (the 10th ran to the cap); the 11th controller run, the short P6 check, ended in warm-up as expected. Decision logs recorded. *(Corrected 13 Oct after assessor review: an earlier version said "16 of 20", which was a miscount.)* |
 
@@ -53,6 +57,11 @@ If any condition fails, the paper reports the negative or mixed result.
 **Cost and time to complete (estimate, not a guaranteed bound):** about 148 G4-hours (≈ 1,320 Colab compute units, ≈ $130) at the pilot T_ref of 9.79 s. The timing drift check and protocol freeze are pending, and reruns or slower sessions would increase it. About 3–4 months to submission.
 
 ## References
+
+**Pilot selection amendment:** The immutable Colab export selected tau = 0.001 by the original
+minimum-cost rule. A five-percentage-point budget tie threshold was introduced after examining
+the pilot, retaining tau = 0.0005 and kappa = 1. This is a post-pilot amendment, made before
+any confirmatory run, rather than the result of a fully prespecified numerical tie rule.
 
 De Rainville, F.-M., Sebag, M., Gagné, C., Schoenauer, M., & Laurendeau, D. (2013). *Sustainable cooperative coevolution with a multi-armed bandit*. arXiv. https://doi.org/10.48550/arxiv.1304.3138
 Jia, Y.-H., Chen, W.-N., Gu, T., et al. (2019). Distributed cooperative co-evolution with adaptive computing resource allocation for large scale optimization. *IEEE Transactions on Evolutionary Computation, 23*(2), 188–202. https://doi.org/10.1109/tevc.2018.2817889

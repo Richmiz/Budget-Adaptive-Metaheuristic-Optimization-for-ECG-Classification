@@ -1,5 +1,9 @@
 # 14 — Critical review of the study design (8 Oct 2026)
 
+**13 October assessor update:** this is the historical design review. A written advance analysis
+plan existed; no external preregistration or G2 freeze was verified. Docs 18-20 record the current
+development phase, corrected timing claims, matched controls and closer literature precedents.
+
 Written after session 1 on the G4, prompted by the question "why train 51,000 CNNs?". This reviews the **proposal's design** and my implementation of it. It does not review the code.
 
 ## 14.1 Verdict

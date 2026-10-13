@@ -1,0 +1,5 @@
+# Development comparison only. Does not unlock any confirmatory experiment.
+name: matched_pilot
+partition: pilot
+methods: [adaptive_utility, rr_utility, adaptive_patience, rr_patience, adaptive_full, rr_full]
+budgets: [mid]

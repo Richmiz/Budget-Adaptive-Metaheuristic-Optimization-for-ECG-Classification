@@ -23,6 +23,7 @@ CLASSES = {
 def build_method(name: str, cfg: dict) -> SearchMethod:
     spec = dict(cfg["methods"][name])
     cls = CLASSES[spec.pop("class")]
+    spec.pop("rng_group", None)  # runner metadata for common random numbers in matched controls
     if cls is MarginalUtilitySearch:
         kwargs = dict(cfg["controller"])
         kwargs.update(cfg["de"])

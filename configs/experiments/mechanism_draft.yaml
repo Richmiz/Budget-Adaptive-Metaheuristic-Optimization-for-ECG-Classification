@@ -1,0 +1,5 @@
+# Draft inventory only: requires final task preparation, timing and G2 approval.
+name: mechanism_draft
+partition: search
+methods: [adaptive_utility, rr_utility, adaptive_patience, rr_patience]
+budgets: [mid]

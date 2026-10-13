@@ -1,0 +1,100 @@
+{
+  "hardware": {
+    "python": "3.13.15",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "host": "7b5aa0d7acdc",
+    "colab": true,
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "cudnn": 92700,
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "gpu_memory_gb": 95.0
+  },
+  "summary": {
+    "median_s": 9.793523718000074,
+    "q1_s": 7.407525957500013,
+    "q3_s": 15.800455156999988,
+    "max_s": 26.704026017999922,
+    "n_ok": 16,
+    "projected_search_gpu_hours": 132.75665484400102
+  },
+  "evaluations": [
+    {
+      "config": {
+        "learning_rate": 0.0010392620186193767,
+        "batch_size": 32,
+        "weight_decay": 7.860813490768079e-05,
+        "dropout": 0.35816093205372707,
+        "width_multiplier": 0.5,
+        "blocks_per_group": 1,
+        "kernel_size": 9,
+        "dilation": 2,
+        "stem_stride": 1
+      },
+      "seed": 1488414749,
+      "fitness": 0.9336773704014274,
+      "cost_s": 11.426005954999937,
+      "status": "ok",
+      "epochs_run": 16,
+      "best_epoch": 10
+    },
+    {
+      "config": {
+        "learning_rate": 0.0009110772359146549,
+        "batch_size": 128,
+        "weight_decay": 3.4589179204600734e-05,
+        "dropout": 0.16188908376552907,
+        "width_multiplier": 1.5,
+        "blocks_per_group": 2,
+        "kernel_size": 15,
+        "dilation": 1,
+        "stem_stride": 2
+      },
+      "seed": 1488414749,
+      "fitness": 0.9345343461909573,
+      "cost_s": 8.080179261000012,
+      "status": "ok",
+      "epochs_run": 18,
+      "best_epoch": 12
+    },
+    {
+      "config": {
+        "learning_rate": 0.00010576557427483694,
+        "batch_size": 64,
+        "weight_decay": 1.508306217874997e-05,
+        "dropout": 0.3124180855532425,
+        "width_multiplier": 1.5,
+        "blocks_per_group": 1,
+        "kernel_size": 15,
+        "dilation": 1,
+        "stem_stride": 1
+      },
+      "seed": 1488414749,
+      "fitness": 0.9345729454872481,
+      "cost_s": 8.438610480999841,
+      "status": "ok",
+      "epochs_run": 14,
+      "best_epoch": 8
+    },
+    {
+      "config": {
+        "learning_rate": 0.0020748374048761326,
+        "batch_size": 128,
+        "weight_decay": 1.4986759617069943e-06,
+        "dropout": 0.024121193574274735,
+        "width_multiplier": 0.5,
+        "blocks_per_group": 2,
+        "kernel_size": 15,
+        "dilation": 1,
+        "stem_stride": 2
+      },
+      "seed": 1488414749,
+      "fitness": 0.9309228644467803,
+      "cost_s": 4.754746497000042,
+      "status": "ok",
+      "epochs_run": 14,
+      "best_epoch": 8
+    }
+  ],
+  "source": "Colab pilot session 1, 13 October 2026"
+}

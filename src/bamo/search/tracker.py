@@ -12,7 +12,7 @@ from typing import Callable
 
 import numpy as np
 
-from .budget import BudgetClock
+from .budget import BudgetClock, BudgetExhausted
 from .evaluator import EvalResult, Evaluator, SharedInitCache
 from .space import SearchSpace
 
@@ -32,6 +32,8 @@ class SearchTracker:
         self.trajectory: list[tuple[float, float]] = []
         self.incumbent: dict | None = None
         self.evaluation_wall_s = 0.0
+        self.interrupted_evaluation_wall_s = 0.0
+        self.late_results: list[dict] = []
         self._memo: dict[str, EvalResult] = {}
 
     @property
@@ -60,13 +62,22 @@ class SearchTracker:
             self.clock.charge(hit.cost_s)
             result, source = hit, "shared_cache"
         else:
-            result = self.evaluator.evaluate(config, fidelity, seed, self.clock)
+            try:
+                result = self.evaluator.evaluate(config, fidelity, seed, self.clock)
+            except BudgetExhausted:
+                self.interrupted_evaluation_wall_s += max(self.clock.elapsed() - t_start, 0.0)
+                raise
             self.evaluation_wall_s += result.cost_s
             source = "evaluated"
-            if shared is not None:
-                shared.put(key, result)
-        self._memo[key] = result
         t_end = self.clock.elapsed()
+        if t_end > self.clock.limit_s:
+            self.late_results.append({"config": dict(config), "seed": seed, "fidelity": fidelity,
+                                      "completed_s": t_end, "source": source,
+                                      "overshoot_s": t_end - self.clock.limit_s})
+            raise BudgetExhausted("evaluation finished after the cap; result discarded")
+        if shared is not None and source == "evaluated":
+            shared.put(key, result)
+        self._memo[key] = result
 
         improved = (result.valid and fidelity == self.max_fidelity and seed == self.train_seed
                     and result.fitness > self.best)

@@ -1,0 +1,1238 @@
+{
+  "date": "2026-10-13",
+  "limitations": "Ranked returned records, duplicates retained. Counts are batch counts, not systematic database totals. SciSpace abstracts/metadata require primary verification; author mismatches observed. Scite quota prevented retrieval.",
+  "searches": [
+    {
+      "provider": "Consensus",
+      "query": "ECG PTB-XL hyperparameter optimization search computational cost gain tunability domain:cs,med year:2015-2026",
+      "returned": [
+        {
+          "id": "348a98c191cb5d23821a480c68310455",
+          "title": "Deep Learning for ECG Analysis: Benchmarks and Insights from PTB-XL",
+          "url": "https://consensus.app/papers/details/348a98c191cb5d23821a480c68310455/?utm_source=chatgpt"
+        },
+        {
+          "id": "87ed48bb0ef15089b20948830d845d06",
+          "title": "Systematic benchmark of reduced-lead configurations for 12-lead ECG reconstruction: multi-model evaluation across all possible subsets",
+          "url": "https://consensus.app/papers/details/87ed48bb0ef15089b20948830d845d06/?utm_source=chatgpt"
+        },
+        {
+          "id": "2e4790e1f4805c58a537383188335a84",
+          "title": "Tuning the Tuner: Introducing Hyperparameter Optimization for Auto-Tuning",
+          "url": "https://consensus.app/papers/details/2e4790e1f4805c58a537383188335a84/?utm_source=chatgpt"
+        },
+        {
+          "id": "5651a686cb2b5ea3b3057502f58629c1",
+          "title": "Toward robust automated cardiovascular arrhythmia detection using self-supervised learning and 1-dimensional vision transformers",
+          "url": "https://consensus.app/papers/details/5651a686cb2b5ea3b3057502f58629c1/?utm_source=chatgpt"
+        },
+        {
+          "id": "c0284668904b5ca696b3c81b88606768",
+          "title": "Learning ECG Representations via Poly-Window Contrastive Learning",
+          "url": "https://consensus.app/papers/details/c0284668904b5ca696b3c81b88606768/?utm_source=chatgpt"
+        },
+        {
+          "id": "5f13739b800853369db992aaabb58a37",
+          "title": "ECG Classification on PTB-XL: A Data-Centric Approach with Simplified CNN-VAE",
+          "url": "https://consensus.app/papers/details/5f13739b800853369db992aaabb58a37/?utm_source=chatgpt"
+        },
+        {
+          "id": "4ef82336b8f6552db0d46e425fa0f87c",
+          "title": "A hybrid learning framework for automated multiclass electrocardiogram classification with SimCardioNet",
+          "url": "https://consensus.app/papers/details/4ef82336b8f6552db0d46e425fa0f87c/?utm_source=chatgpt"
+        },
+        {
+          "id": "66de23a0f0855bd4a6be02fc0f39e8d0",
+          "title": "Atrial Fibrillation and Atrial Flutter Detection Using Deep Learning",
+          "url": "https://consensus.app/papers/details/66de23a0f0855bd4a6be02fc0f39e8d0/?utm_source=chatgpt"
+        },
+        {
+          "id": "3b8270224c5255b49ac89fef3812f7e0",
+          "title": "From Foundation ECG Models to NISQ Learners: Distilling ECGFounder into a VQC Student",
+          "url": "https://consensus.app/papers/details/3b8270224c5255b49ac89fef3812f7e0/?utm_source=chatgpt"
+        },
+        {
+          "id": "3d8f7d0790ba5fc9959c3e3e5e22eb75",
+          "title": "Hyperparameter optimization: Foundations, algorithms, best practices, and open challenges",
+          "url": "https://consensus.app/papers/details/3d8f7d0790ba5fc9959c3e3e5e22eb75/?utm_source=chatgpt"
+        },
+        {
+          "id": "0d0f7c9f9bea53e1b619d62e872793d5",
+          "title": "Multi-Objective Hyperparameter Optimization in Machine Learning—An Overview",
+          "url": "https://consensus.app/papers/details/0d0f7c9f9bea53e1b619d62e872793d5/?utm_source=chatgpt"
+        },
+        {
+          "id": "92602463266e58fd95f2c1901ddb42d9",
+          "title": "Bridging Performance Gaps for ECG Foundation Models: A Post-Training Strategy",
+          "url": "https://consensus.app/papers/details/92602463266e58fd95f2c1901ddb42d9/?utm_source=chatgpt"
+        },
+        {
+          "id": "a888839d6a085db6b6e84656b4e0c1d6",
+          "title": "Leveraging electrocardiography signals for deep learning-driven cardiovascular disease classification model",
+          "url": "https://consensus.app/papers/details/a888839d6a085db6b6e84656b4e0c1d6/?utm_source=chatgpt"
+        },
+        {
+          "id": "e85c0af4ae5f5a93a1e961e9d0b35a3c",
+          "title": "NeuroHD-RA: Neural-distilled Hyperdimensional Model with Rhythm Alignment",
+          "url": "https://consensus.app/papers/details/e85c0af4ae5f5a93a1e961e9d0b35a3c/?utm_source=chatgpt"
+        },
+        {
+          "id": "56374ebe3426515b89cea41e205e605a",
+          "title": "Meta-Learning to Improve Pre-Training",
+          "url": "https://consensus.app/papers/details/56374ebe3426515b89cea41e205e605a/?utm_source=chatgpt"
+        },
+        {
+          "id": "7d75b90c89ad5becbf9fb7d19fce38a2",
+          "title": "Comparative evaluation of deep learning models for cardiovascular disease diagnosis and classification",
+          "url": "https://consensus.app/papers/details/7d75b90c89ad5becbf9fb7d19fce38a2/?utm_source=chatgpt"
+        },
+        {
+          "id": "fd1ef9dc26eb5c869389191f60c60606",
+          "title": "Learning Periodic Patterns in ECG Signals Using TimesNet for Automated Cardiac Classification",
+          "url": "https://consensus.app/papers/details/fd1ef9dc26eb5c869389191f60c60606/?utm_source=chatgpt"
+        },
+        {
+          "id": "2efb9fe8ee015e2382b227b5ec0a85ba",
+          "title": "AI-Assisted Multilabel Diagnosis of 12-Lead Electrocardiograms Using an Interpretable Stacked Deep Learning Model with External Validation",
+          "url": "https://consensus.app/papers/details/2efb9fe8ee015e2382b227b5ec0a85ba/?utm_source=chatgpt"
+        },
+        {
+          "id": "bebed6d1927c5e1799aa7c87e3519194",
+          "title": "FADLEC: feature extraction and arrhythmia classification using deep learning from electrocardiograph signals",
+          "url": "https://consensus.app/papers/details/bebed6d1927c5e1799aa7c87e3519194/?utm_source=chatgpt"
+        },
+        {
+          "id": "9cbb65d8f8915d10aac6676405d0cd81",
+          "title": "Random Search and Reproducibility for Neural Architecture Search",
+          "url": "https://consensus.app/papers/details/9cbb65d8f8915d10aac6676405d0cd81/?utm_source=chatgpt"
+        }
+      ]
+    },
+    {
+      "provider": "SciSpace",
+      "query": "Which peer-reviewed studies measure improvement over an untuned baseline against total hyperparameter-search compute for deep ECG classification, especially PTB-XL, and compare search algorithms using patient-separated test data?",
+      "returned": [
+        {
+          "id": 4049948091,
+          "title": "ECG-Lense: Benchmarking ML &amp; DL Models on PTB-XL Dataset",
+          "doi": "10.1109/etncc63262.2024.10767459",
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Saloni Garg",
+                "full_slug": null
+              },
+              {
+                "display_name": "Ukant Jadia",
+                "full_slug": null
+              },
+              {
+                "display_name": "Amit Sagtani",
+                "full_slug": null
+              },
+              {
+                "display_name": "Kamal Kant Hiran",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Automated classification of electrocardiogram (ECG) signals is a useful tool for diagnosing and monitoring cardiovascular diseases. The process can be aided by the use of machine learning (ML) and deep learning (DL) techniques. This study compares three traditional machine learning algorithms (Decision Tree Classifier, Random Forest Classifier, and Logistic Regression) and three deep learning models (Simple Convolutional Neural Network (CNN), Long Short-Term Memory (LSTM), and Complex CNN (ECG-Lense)) for the precise classification of ECG signals from the PTB-XL dataset. This dataset has 12-lead ECG recordings from normal patients and patients with various cardiac conditions. The DL models were trained on raw ECG signals, allowing them to automatically extract important features. Additionally, data augmentation techniques were used to enhance model performance increase the diversity of training samples, and maintain the essential characteristics of the ECG signal data. The models were thoroughly evaluated using multiple metrics, such as precision, recall, precision, F1-score, and ROC-AVC. The results indicate that the Complex CNN (ECG-Lense) model surpassed the other algorithms with an 80% classification accuracy and a 90% ROC-AUC. This research not only highlights the best heart ECG-based classification model but also sheds light on the strengths and limitations of the machine and deep learning methods in this area. Healthcare professionals can utilize these findings to automate ECG interpretation and enhance patient care strategies. Additionally, the comparative analysis paves the way for future research to create more advanced and specialized models for specific cardiac conditions, ultimately leading to the early detection and effective management of heart-related disorders."
+        },
+        {
+          "id": 4093196940,
+          "title": "Enhanced ECG Beat Classification using A Hybrid Transformer-CNN Model on the PTB-Xl Dataset",
+          "doi": "10.1109/icimia67127.2025.11200891",
+          "authors": {
+            "total": 2,
+            "data": [
+              {
+                "display_name": "Rakesh Ramakrishna Pai",
+                "full_slug": null
+              },
+              {
+                "display_name": "Ranjith Bhat",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "This article presents a Hybrid Transformer-CNN model designed for the classification of 12-lead ECG signals, combining Convolutional Neural Networks (CNNs) and Transformer-based self-attention mechanisms to effectively capture local morphological aspects and long-range temporal relationships. The model uses the PTB-XL dataset, consisting of a variety of annotated ECG recordings, to analyze pre-segmented multi lead signals for precise identification of cardiac anomalies. The CNN layers function as the principal extractor of localized waveform components, including QRS complexes and P waves, while the Transformer encoder contextualizes these characteristics throughout time, facilitating comprehensive rhythm analysis. Positional encoding, residual connections, and layer normalization are utilized to enhance the stability of the learning process. The architecture utilized the Adam optimizer and incorporated regularization methods, including dropout and early stopping, to mitigate overfitting. Assessment of patient-specific test cases demonstrated good accuracy (~98%), accompanied by favorable sensitivity and specificity metrics. With the comparative study and initial results suggest that the proposed hybrid model possesses considerable potential for implementation in clinical decision support systems. Future endeavors will concentrate on benchmarking against known methodologies and enhancing the framework for real-time ECG interpretation in wearable and remote monitoring applications."
+        },
+        {
+          "id": 3084949122,
+          "title": "Deep Learning for ECG Analysis: Benchmarks and Insights from PTB-XL",
+          "doi": "10.1109/JBHI.2020.3022989",
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Nils Strodthoff",
+                "id": 190702033,
+                "slug": "nils-strodthoff",
+                "unique_id": "3xtg0twisu",
+                "full_slug": "nils-strodthoff-3xtg0twisu",
+                "affiliation_full_slug": "heinrich-hertz-institute-16p8c30n"
+              },
+              {
+                "display_name": "Patrick Wagner",
+                "id": 2962510572,
+                "slug": "patrick-wagner",
+                "unique_id": "4vmax6h7iv",
+                "full_slug": "patrick-wagner-4vmax6h7iv",
+                "affiliation_full_slug": "heinrich-hertz-institute-16p8c30n"
+              },
+              {
+                "display_name": "Tobias Schaeffter",
+                "id": 2188398935,
+                "slug": "tobias-schaeffter",
+                "unique_id": "1qsebydjk7",
+                "full_slug": "tobias-schaeffter-1qsebydjk7",
+                "affiliation_full_slug": "german-national-metrology-institute-1epmm3pd"
+              },
+              {
+                "display_name": "Wojciech Samek",
+                "id": 2786373057,
+                "slug": "wojciech-samek",
+                "unique_id": "1wr4tmrnhm",
+                "full_slug": "wojciech-samek-1wr4tmrnhm",
+                "affiliation_full_slug": "heinrich-hertz-institute-16p8c30n"
+              }
+            ]
+          },
+          "abstract": "Electrocardiography (ECG) is a very common, non-invasive diagnostic procedure and its interpretation is increasingly supported by algorithms. The progress in the field of automatic ECG analysis has up to now been hampered by a lack of appropriate datasets for training as well as a lack of well-defined evaluation procedures to ensure comparability of different algorithms. To alleviate these issues, we put forward first benchmarking results for the recently published, freely accessible clinical 12-lead ECG dataset PTB-XL, covering a variety of tasks from different ECG statement prediction tasks to age and sex prediction. Among the investigated deep-learning-based timeseries classification algorithms, we find that convolutional neural networks, in particular resnet- and inception-based architectures, show the strongest performance across all tasks. We find consistent results on the ICBEB2018 challenge ECG dataset and discuss prospects of transfer learning using classifiers pretrained on PTB-XL. These benchmarking results are complemented by deeper insights into the classification algorithm in terms of hidden stratification, model uncertainty and an exploratory interpretability analysis, which provide connecting points for future research on the dataset. Our results emphasize the prospects of deep-learning-based algorithms in the field of ECG analysis, not only in terms of quantitative accuracy but also in terms of clinically equally important further quality metrics such as uncertainty quantification and interpretability. With this resource, we aim to establish the PTB-XL dataset as a resource for structured benchmarking of ECG analysis algorithms and encourage other researchers in the field to join these efforts."
+        },
+        {
+          "id": 3021394814,
+          "title": "Deep Learning for ECG Analysis: Benchmarks and Insights from PTB-XL",
+          "doi": null,
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Nils Strodthoff",
+                "id": 190702033,
+                "slug": "nils-strodthoff",
+                "unique_id": "3xtg0twisu",
+                "full_slug": "nils-strodthoff-3xtg0twisu",
+                "affiliation_full_slug": "heinrich-hertz-institute-16p8c30n"
+              },
+              {
+                "display_name": "Patrick Wagner",
+                "id": 2962510572,
+                "slug": "patrick-wagner",
+                "unique_id": "4vmax6h7iv",
+                "full_slug": "patrick-wagner-4vmax6h7iv",
+                "affiliation_full_slug": "heinrich-hertz-institute-16p8c30n"
+              },
+              {
+                "display_name": "Tobias Schaeffter",
+                "id": 2188398935,
+                "slug": "tobias-schaeffter",
+                "unique_id": "1qsebydjk7",
+                "full_slug": "tobias-schaeffter-1qsebydjk7",
+                "affiliation_full_slug": "german-national-metrology-institute-1epmm3pd"
+              },
+              {
+                "display_name": "Wojciech Samek",
+                "id": 2786373057,
+                "slug": "wojciech-samek",
+                "unique_id": "1wr4tmrnhm",
+                "full_slug": "wojciech-samek-1wr4tmrnhm",
+                "affiliation_full_slug": "heinrich-hertz-institute-16p8c30n"
+              }
+            ]
+          },
+          "abstract": "Electrocardiography is a very common, non-invasive diagnostic procedure and its interpretation is increasingly supported by automatic interpretation algorithms. The progress in the field of automatic ECG interpretation has up to now been hampered by a lack of appropriate datasets for training as well as a lack of well-defined evaluation procedures to ensure comparability of different algorithms. To alleviate these issues, we put forward first benchmarking results for the recently published, freely accessible PTB-XL dataset, covering a variety of tasks from different ECG statement prediction tasks over age and gender prediction to signal quality assessment. We find that convolutional neural networks, in particular resnet- and inception-based architectures, show the strongest performance across all tasks outperforming feature-based algorithms by a large margin. These results are complemented by deeper insights into the classification algorithm in terms of hidden stratification, model uncertainty and an exploratory interpretability analysis. We also put forward benchmarking results for the ICBEB2018 challenge ECG dataset and discuss prospects of transfer learning using classifiers pretrained on PTB-XL. With this resource, we aim to establish the PTB-XL dataset as a resource for structured benchmarking of ECG analysis algorithms and encourage other researchers in the field to join these efforts."
+        },
+        {
+          "id": 3197632104,
+          "title": "ECG Signal Classification Using Deep Learning Techniques Based on the PTB-XL Dataset.",
+          "doi": "10.3390/E23091121",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Sandra Śmigiel",
+                "id": 3203158257,
+                "slug": "sandra-smigiel",
+                "unique_id": "2uj56gj8vk",
+                "full_slug": "sandra-smigiel-2uj56gj8vk",
+                "affiliation_full_slug": "university-of-technology-and-life-sciences-in-bydgoszcz-2eylmi40"
+              },
+              {
+                "display_name": "Krzysztof Pałczyński",
+                "id": 3196766607,
+                "slug": "krzysztof-palczynski",
+                "unique_id": "11sse8wel2",
+                "full_slug": "krzysztof-palczynski-11sse8wel2",
+                "affiliation_full_slug": "university-of-technology-and-life-sciences-in-bydgoszcz-2eylmi40"
+              },
+              {
+                "display_name": "Damian Ledziński",
+                "id": 1913452513,
+                "slug": "damian-ledzinski",
+                "unique_id": "2q1vt9xp2i",
+                "full_slug": "damian-ledzinski-2q1vt9xp2i",
+                "affiliation_full_slug": "university-of-technology-and-life-sciences-in-bydgoszcz-2eylmi40"
+              }
+            ]
+          },
+          "abstract": "The analysis and processing of ECG signals are a key approach in the diagnosis of cardiovascular diseases. The main field of work in this area is classification, which is increasingly supported by machine learning-based algorithms. In this work, a deep neural network was developed for the automatic classification of primary ECG signals. The research was carried out on the data contained in a PTB-XL database. Three neural network architectures were proposed: the first based on the convolutional network, the second on SincNet, and the third on the convolutional network, but with additional entropy-based features. The dataset was divided into training, validation, and test sets in proportions of 70%, 15%, and 15%, respectively. The studies were conducted for 2, 5, and 20 classes of disease entities. The convolutional network with entropy features obtained the best classification result. The convolutional network without entropy-based features obtained a slightly less successful result, but had the highest computational efficiency, due to the significantly lower number of neurons."
+        },
+        {
+          "id": 4110824142,
+          "title": "Enhancing Classification Performance for Arrhythmia using Transfer Learning in Deep Neural Networks",
+          "doi": "10.1109/iccca66364.2025.11325537",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "A. PeriyaNayaki",
+                "full_slug": null
+              },
+              {
+                "display_name": "S. V. VishwaShree",
+                "full_slug": null
+              },
+              {
+                "display_name": "C. PriyaDharshini",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "The analysis of electrocardiograms (ECGs) is crucial for identifying and treating heart problems early. However, differences in recording conditions and how classes are distributed make it hard to create deep learning models that work well across different datasets. In this study, we looked at classifying ECG signals using deep Residual Convolutional Neural Networks (ResNet) along with transfer learning. First, we trained a baseline ResNet system from scratch to differentiate between normal and abnormal signals using the PTB-XL (PTBDB) dataset. Then, the pre-trained ResNet model was adapted with the MIT-BIH Arrhythmia dataset, which classifies arrhythmia types into five categories (N, S, V, F, and Q), to apply transfer learning in a more complex scenario. Experimental results show that transfer learning significantly improves deep models' ability to generalize across datasets. This method looks promising for reliable ECG-based arrhythmia detection in real-time Clinical Decision Support Systems. "
+        },
+        {
+          "id": 4098129766,
+          "title": "Cardioformer: Advancing AI in ECG Analysis with Multi-Granularity Patching and ResNet",
+          "doi": "10.48550/arxiv.2505.05538",
+          "authors": {
+            "total": 2,
+            "data": [
+              {
+                "display_name": "Islam, Md Saiful",
+                "full_slug": null
+              },
+              {
+                "display_name": "MASUM MD",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Electrocardiogram (ECG) classification is crucial for automated cardiac disease diagnosis, yet existing methods often struggle to capture local morphological details and long-range temporal dependencies simultaneously. To address these challenges, we propose Cardioformer, a novel multi-granularity hybrid model that integrates cross-channel patching, hierarchical residual learning, and a two-stage self-attention mechanism. Cardioformer first encodes multi-scale token embeddings to capture fine-grained local features and global contextual information and then selectively fuses these representations through intra- and inter-granularity self-attention. Extensive evaluations on three benchmark ECG datasets under subject-independent settings demonstrate that model consistently outperforms four state-of-the-art baselines. Our Cardioformer model achieves the AUROC of 96.34$\\pm$0.11, 89.99$\\pm$0.12, and 95.59$\\pm$1.66 in MIMIC-IV, PTB-XL and PTB dataset respectively outperforming PatchTST, Reformer, Transformer, and Medformer models. It also demonstrates strong cross-dataset generalization, achieving 49.18% AUROC on PTB and 68.41% on PTB-XL when trained on MIMIC-IV. These findings underscore the potential of Cardioformer to advance automated ECG analysis, paving the way for more accurate and robust cardiovascular disease diagnosis. We release the source code at https://github.com/KMobin555/Cardioformer. "
+        },
+        {
+          "id": 4111868786,
+          "title": "Learning from Leads: A 1D Dilated ResNet for ECG Chagas Disease Screening",
+          "doi": "10.22489/cinc.2025.408",
+          "authors": {
+            "total": 2,
+            "data": [
+              {
+                "display_name": "Somesh Saini",
+                "full_slug": null
+              },
+              {
+                "display_name": "Matheus Araujo",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Chagas disease, caused by the parasite Trypanosoma cruzi, presents significant diagnostic challenges due to asymptomatic impacts on heart health and limited resources in the affected areas. We leverage a deep-learning-based artificial neural network model to automate Cha-gas disease screening using 12-lead electrocardiograms from multiple datasets, including CODE-15, PTB-XL, and SamiTrop. We incorporate an automatic hyperparameter optimization and class imbalance solution combined with 1D dilated residual neural network with squeeze-and-excitation blocks. This approach is applied to the Phy-sioNet 2025 Computing in Cardiology Challenge. Our model, achieved a challenge score of 0.271, demonstrating a ~4-fold improvement over traditional machine learning approaches, which achieved a baseline of 0.062. Our findings support the use of deep-learning based approaches as a viable tool for scalable, automated Chagas disease screening, particularly in low-resource clinical environments where traditional diagnostics are unavailable."
+        },
+        {
+          "id": 4070385813,
+          "title": "Interpretable Deep Learning Models for Arrhythmia Classification Based on ECG Signals Using PTB-X Dataset",
+          "doi": "10.3390/diagnostics15151950",
+          "authors": {
+            "total": 6,
+            "data": [
+              {
+                "display_name": "Ahmed E. Mansour Atwa",
+                "full_slug": null
+              },
+              {
+                "display_name": "El-Sayed Atlam",
+                "full_slug": null
+              },
+              {
+                "display_name": "Ali Ahmed",
+                "full_slug": null
+              },
+              {
+                "display_name": "Mohamed ElSayed Atwa",
+                "full_slug": null
+              },
+              {
+                "display_name": "Elsaid Md. Abdelrahim",
+                "full_slug": null
+              },
+              {
+                "display_name": "Ali I. Siam",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Background/Objectives: Automatic classification of ECG signal arrhythmias plays a vital role in early cardiovascular diagnostics by enabling prompt detection of life-threatening conditions. Manual ECG interpretation is labor-intensive and susceptible to errors, highlighting the demand for automated, scalable approaches. Deep learning (DL) methods are effective in ECG analysis due to their ability to learn complex patterns from raw signals. Methods: This study introduces two models: a custom convolutional neural network (CNN) with a dual-branch architecture for processing ECG signals and demographic data (e.g., age, gender), and a modified VGG16 model adapted for multi-branch input. Using the PTB-XL dataset, a widely adopted large-scale ECG database with over 20,000 recordings, the models were evaluated on binary, multiclass, and subclass classification tasks across 2, 5, 10, and 15 disease categories. Advanced preprocessing techniques, combined with demographic features, significantly enhanced performance. Results: The CNN model achieved up to 97.78% accuracy in binary classification and 79.7% in multiclass tasks, outperforming the VGG16 model (97.38% and 76.53%, respectively) and state-of-the-art benchmarks like CNN-LSTM and CNN entropy features. This study also emphasizes interpretability, providing lead-specific insights into ECG contributions to promote clinical transparency. Conclusions: These results confirm the models’ potential for accurate, explainable arrhythmia detection and their applicability in real-world healthcare diagnostics. "
+        },
+        {
+          "id": 4073278038,
+          "title": "Learning ECG Representations via Poly-Window Contrastive Learning",
+          "doi": "10.48550/arxiv.2508.15225",
+          "authors": {
+            "total": 10,
+            "data": [
+              {
+                "display_name": "Yi Yuan",
+                "full_slug": null
+              },
+              {
+                "display_name": "Joseph Van Duyn",
+                "full_slug": null
+              },
+              {
+                "display_name": "Runze Yan",
+                "full_slug": null
+              },
+              {
+                "display_name": "Zhuoyi Huang",
+                "full_slug": null
+              },
+              {
+                "display_name": "Sulaiman Vesal",
+                "id": 2737672877,
+                "slug": "sulaiman-vesal",
+                "unique_id": "169hti5rtc",
+                "full_slug": "sulaiman-vesal-169hti5rtc",
+                "affiliation_full_slug": "university-of-erlangen-nuremberg-3tbb1h8m"
+              },
+              {
+                "display_name": "Sergey M. Plis",
+                "full_slug": null
+              },
+              {
+                "display_name": "Xiao Hu",
+                "full_slug": null
+              },
+              {
+                "display_name": "Gloria Hyun-Jung Kwak",
+                "full_slug": null
+              },
+              {
+                "display_name": "Ran Xiao",
+                "full_slug": null
+              },
+              {
+                "display_name": "Alex Fedorov",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Electrocardiogram (ECG) analysis is foundational for cardiovascular disease diagnosis, yet the performance of deep learning models is often constrained by limited access to annotated data. Self-supervised contrastive learning has emerged as a powerful approach for learning robust ECG representations from unlabeled signals. However, most existing methods generate only pairwise augmented views and fail to leverage the rich temporal structure of ECG recordings. In this work, we present a poly-window contrastive learning framework. We extract multiple temporal windows from each ECG instance to construct positive pairs and maximize their agreement via statistics. Inspired by the principle of slow feature analysis, our approach explicitly encourages the model to learn temporally invariant and physiologically meaningful features that persist across time. We validate our approach through extensive experiments and ablation studies on the PTB-XL dataset. Our results demonstrate that poly-window contrastive learning consistently outperforms conventional two-view methods in multi-label superclass classification, achieving higher AUROC (0.891 vs. 0.888) and F1 scores (0.680 vs. 0.679) while requiring up to four times fewer pre-training epochs (32 vs. 128) and 14.8% in total wall clock pre-training time reduction. Despite processing multiple windows per sample, we achieve a significant reduction in the number of training epochs and total computation time, making our method practical for training foundational models. Through extensive ablations, we identify optimal design choices and demonstrate robustness across various hyperparameters. These findings establish poly-window contrastive learning as a highly efficient and scalable paradigm for automated ECG analysis and provide a promising general framework for self-supervised representation learning in biomedical time-series data."
+        }
+      ]
+    },
+    {
+      "provider": "Consensus",
+      "query": "hyperparameter optimization adaptive allocation bandit variable groups cost termination domain:cs",
+      "returned": [
+        {
+          "id": "728de9e5ea4b5845a0de7fb2e34aa544",
+          "title": "Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization",
+          "url": "https://consensus.app/papers/details/728de9e5ea4b5845a0de7fb2e34aa544/?utm_source=chatgpt"
+        },
+        {
+          "id": "3d8f7d0790ba5fc9959c3e3e5e22eb75",
+          "title": "Hyperparameter optimization: Foundations, algorithms, best practices, and open challenges",
+          "url": "https://consensus.app/papers/details/3d8f7d0790ba5fc9959c3e3e5e22eb75/?utm_source=chatgpt"
+        },
+        {
+          "id": "80501391f65f599eb55bd9d531671952",
+          "title": "Basic Enhancement Strategies When Using Bayesian Optimization for Hyperparameter Tuning of Deep Neural Networks",
+          "url": "https://consensus.app/papers/details/80501391f65f599eb55bd9d531671952/?utm_source=chatgpt"
+        },
+        {
+          "id": "b4064803a7625498802325f813a4e317",
+          "title": "Automatic Termination for Hyperparameter Optimization",
+          "url": "https://consensus.app/papers/details/b4064803a7625498802325f813a4e317/?utm_source=chatgpt"
+        },
+        {
+          "id": "c7e021be9cf356cc88d42e4817d224eb",
+          "title": "Bayesian Contextual Bandits for Hyper Parameter Optimization",
+          "url": "https://consensus.app/papers/details/c7e021be9cf356cc88d42e4817d224eb/?utm_source=chatgpt"
+        },
+        {
+          "id": "2be0f2c6e9a35721b4fae0ca1cb3543a",
+          "title": "BOHB: Robust and Efficient Hyperparameter Optimization at Scale",
+          "url": "https://consensus.app/papers/details/2be0f2c6e9a35721b4fae0ca1cb3543a/?utm_source=chatgpt"
+        },
+        {
+          "id": "2fbb0f09488259cba82a7e4cc8e085c7",
+          "title": "HyperArm Bandit Optimization: A Novel approach to Hyperparameter Optimization and an Analysis of Bandit Algorithms in Stochastic and Adversarial Settings",
+          "url": "https://consensus.app/papers/details/2fbb0f09488259cba82a7e4cc8e085c7/?utm_source=chatgpt"
+        },
+        {
+          "id": "6e872289ca0a540abfbb62410385b002",
+          "title": "On Hyperparameter Optimization of Machine Learning Algorithms: Theory and Practice",
+          "url": "https://consensus.app/papers/details/6e872289ca0a540abfbb62410385b002/?utm_source=chatgpt"
+        },
+        {
+          "id": "826052dd84b15ffb862216c6ad242896",
+          "title": "Hyperparameter Optimization in Machine Learning",
+          "url": "https://consensus.app/papers/details/826052dd84b15ffb862216c6ad242896/?utm_source=chatgpt"
+        },
+        {
+          "id": "c6037ec1e6f650b59cb231fe01223736",
+          "title": "A Lipschitz Bandits Approach for Continuous Hyperparameter Optimization",
+          "url": "https://consensus.app/papers/details/c6037ec1e6f650b59cb231fe01223736/?utm_source=chatgpt"
+        },
+        {
+          "id": "b48bcaa9c37b5dd598dcd1eca0c5baa0",
+          "title": "Fast Model Selection and Hyperparameter Tuning for Generative Models",
+          "url": "https://consensus.app/papers/details/b48bcaa9c37b5dd598dcd1eca0c5baa0/?utm_source=chatgpt"
+        },
+        {
+          "id": "2c7c729588c0504c9f85b0f1c2c78185",
+          "title": "Put CASH on Bandits: A Max K-Armed Problem for Automated Machine Learning",
+          "url": "https://consensus.app/papers/details/2c7c729588c0504c9f85b0f1c2c78185/?utm_source=chatgpt"
+        },
+        {
+          "id": "fb7c1cb93338548381ed422fd485d03f",
+          "title": "Provably Efficient Online Hyperparameter Optimization with Population-Based Bandits",
+          "url": "https://consensus.app/papers/details/fb7c1cb93338548381ed422fd485d03f/?utm_source=chatgpt"
+        },
+        {
+          "id": "40898e30074057e5ada68b72cff00b62",
+          "title": "SMAC3: A Versatile Bayesian Optimization Package for Hyperparameter Optimization",
+          "url": "https://consensus.app/papers/details/40898e30074057e5ada68b72cff00b62/?utm_source=chatgpt"
+        },
+        {
+          "id": "328eafc48b5a5df7a3e209d0ef536467",
+          "title": "Hyperparameter optimization: Classics, acceleration, online, multi-objective, and tools.",
+          "url": "https://consensus.app/papers/details/328eafc48b5a5df7a3e209d0ef536467/?utm_source=chatgpt"
+        },
+        {
+          "id": "cc56ed452ed451c6a03dfcd883c4e77c",
+          "title": "An Online Incremental Learning Approach for Configuring Multi-arm Bandits Algorithms",
+          "url": "https://consensus.app/papers/details/cc56ed452ed451c6a03dfcd883c4e77c/?utm_source=chatgpt"
+        },
+        {
+          "id": "c885cd2a807a5328a028580635911183",
+          "title": "Frugal Optimization for Cost-related Hyperparameters",
+          "url": "https://consensus.app/papers/details/c885cd2a807a5328a028580635911183/?utm_source=chatgpt"
+        },
+        {
+          "id": "ca168fb892bb581492b5de9a1c6ed4c9",
+          "title": "Algorithm Design and Stronger Guarantees for the Improving Multi-Armed Bandits Problem",
+          "url": "https://consensus.app/papers/details/ca168fb892bb581492b5de9a1c6ed4c9/?utm_source=chatgpt"
+        },
+        {
+          "id": "5d3a29222f93561fb7c2ffb3f05db3ed",
+          "title": "Fast Bayesian hyperparameter optimization on large datasets",
+          "url": "https://consensus.app/papers/details/5d3a29222f93561fb7c2ffb3f05db3ed/?utm_source=chatgpt"
+        },
+        {
+          "id": "4222fb68ac695d79b0d9c7fbd8157dd2",
+          "title": "Resource-Adaptive Successive Doubling for Hyperparameter Optimization with Large Datasets on High-Performance Computing Systems",
+          "url": "https://consensus.app/papers/details/4222fb68ac695d79b0d9c7fbd8157dd2/?utm_source=chatgpt"
+        }
+      ]
+    },
+    {
+      "provider": "SciSpace",
+      "query": "Which published hyperparameter optimization or cooperative coevolution methods allocate search effort across variable groups using improvement per measured time and automatically terminate the search after confirmation?",
+      "returned": [
+        {
+          "id": 4014318075,
+          "title": "Agent-based Collaborative Random Search for Hyper-parameter Tuning and\n  Global Function Optimization",
+          "doi": "10.48550/arxiv.2303.03394",
+          "abstract": "Hyper-parameter optimization is one of the most tedious yet crucial steps in training machine learning models. There are numerous methods for this vital model-building stage, ranging from domain-specific manual tuning guidelines suggested by the oracles to the utilization of general-purpose black-box optimization techniques. This paper proposes an agent-based collaborative technique for finding near-optimal values for any arbitrary set of hyper-parameters (or decision variables) in a machine learning model (or general function optimization problem). The developed method forms a hierarchical agent-based architecture for the distribution of the searching operations at different dimensions and employs a cooperative searching procedure based on an adaptive width-based random sampling technique to locate the optima. The behavior of the presented model, specifically against the changes in its design parameters, is investigated in both machine learning and global function optimization applications, and its performance is compared with that of two randomized tuning strategies that are commonly used in practice. According to the empirical results, the proposed model outperformed the compared methods in the experimented classification, regression, and multi-dimensional function optimization tasks, notably in a higher number of dimensions and in the presence of limited on-device computational resources. "
+        },
+        {
+          "id": 3046614234,
+          "title": "Cooperative coevolutionary genetic algorithm using hierarchical clustering of linkage tree",
+          "doi": "10.1145/3377929.3390075",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Takatoshi Niwa",
+                "id": 2958730029,
+                "slug": "takatoshi-niwa",
+                "unique_id": "4appsqxym2",
+                "full_slug": "takatoshi-niwa-4appsqxym2",
+                "affiliation_full_slug": "nagoya-institute-of-technology-1x2unahs"
+              },
+              {
+                "display_name": "Koya Ihara",
+                "id": 2749537680,
+                "slug": "koya-ihara",
+                "unique_id": "3gw80fl4of",
+                "full_slug": "koya-ihara-3gw80fl4of",
+                "affiliation_full_slug": "nagoya-institute-of-technology-1x2unahs"
+              },
+              {
+                "display_name": "Shohei Kato",
+                "id": 2343381091,
+                "slug": "shohei-kato",
+                "unique_id": "1ecqumzdu0",
+                "full_slug": "shohei-kato-1ecqumzdu0",
+                "affiliation_full_slug": "nagoya-institute-of-technology-1x2unahs"
+              }
+            ]
+          },
+          "abstract": "Genetic algorithms (GAs) are stochastic optimization methods that mimic the evolution of living organisms and have been applied in various fields. Cooperative Coevolution (CC) is one of the methods to make GAs more efficient. CC divides a decision variable into several sub-problems and evolves the individuals independently in each of the sub-problems. Variables with dependencies need to be optimized mutually. In this paper, we focus on Linkage Tree as a method of analyzing the dependency of decision variables. Linkage Tree calculates the dependency between decision variables from the distribution of individuals as the distance between the decision variables, and builds a tree by using hierarchical clustering. We propose an algorithm that can efficiently search for problems with dependencies between variables by introducing Linkage Tree into CC methods. We evaluated the search performance of the proposed method using benchmark functions and confirmed the performance improvement by comparing it with the conventional methods."
+        },
+        {
+          "id": 4002150127,
+          "title": "Agent-based Collaborative Random Search for Hyper-parameter Tuning and Global Function Optimization",
+          "doi": "10.48550/arXiv.2303.03394",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Ahmad Esmaeili",
+                "id": 2152642015,
+                "slug": "ahmad-esmaeili",
+                "unique_id": "589lwrvoka",
+                "full_slug": "ahmad-esmaeili-589lwrvoka"
+              },
+              {
+                "display_name": "Zahra Ghorrati",
+                "id": 2796195188,
+                "slug": "zahra-ghorrati",
+                "unique_id": "3zp251buls",
+                "full_slug": "zahra-ghorrati-3zp251buls"
+              },
+              {
+                "display_name": "Eric T. Matson",
+                "id": 2167880401,
+                "slug": "eric-t-matson",
+                "unique_id": "49nerevinb",
+                "full_slug": "eric-t-matson-49nerevinb"
+              }
+            ]
+          },
+          "abstract": "Hyperparameter optimization is one of the most tedious yet crucial steps in training machine learning models. There are numerous methods for this vital model-building stage, ranging from domain-specific manual tuning guidelines suggested by the oracles to the utilization of general purpose black-box optimization techniques. This paper proposes an agent-based collaborative technique for finding near-optimal values for any arbitrary set of hyperparameters (or decision variables) in a machine learning model (or a black-box function optimization problem). The developed method forms a hierarchical agent-based architecture for the distribution of the searching operations at different dimensions and employs a cooperative searching procedure based on an adaptive width-based random sampling technique to locate the optima. The behavior of the presented model, specifically against changes in its design parameters, is investigated in both machine learning and global function optimization applications, and its performance is compared with that of two randomized tuning strategies that are commonly used in practice. Moreover, we have compared the performance of the proposed approach against particle swarm optimization (PSO) and simulated annealing (SA) methods in function optimization to provide additional insights into its exploration in the search space. According to the empirical results, the proposed model outperformed the compared random-based methods in almost all tasks conducted, notably in a higher number of dimensions and in the presence of limited on-device computational resources."
+        },
+        {
+          "id": 4018314793,
+          "title": "Agent-Based Collaborative Random Search for Hyperparameter Tuning and Global Function Optimization",
+          "doi": "10.3390/systems11050228",
+          "authors": {
+            "total": 1,
+            "data": [
+              {
+                "display_name": "Zhao Zehui",
+                "id": 4005437398,
+                "slug": "zhao-zehui",
+                "unique_id": "erv2uf6w",
+                "full_slug": "zhao-zehui-erv2uf6w",
+                "affiliation_full_slug": "purdue-university-2ddhwsmq"
+              }
+            ]
+          },
+          "abstract": "Hyperparameter optimization is one of the most tedious yet crucial steps in training machine learning models. There are numerous methods for this vital model-building stage, ranging from domain-specific manual tuning guidelines suggested by the oracles to the utilization of general purpose black-box optimization techniques. This paper proposes an agent-based collaborative technique for finding near-optimal values for any arbitrary set of hyperparameters (or decision variables) in a machine learning model (or a black-box function optimization problem). The developed method forms a hierarchical agent-based architecture for the distribution of the searching operations at different dimensions and employs a cooperative searching procedure based on an adaptive width-based random sampling technique to locate the optima. The behavior of the presented model, specifically against changes in its design parameters, is investigated in both machine learning and global function optimization applications, and its performance is compared with that of two randomized tuning strategies that are commonly used in practice. Moreover, we have compared the performance of the proposed approach against particle swarm optimization (PSO) and simulated annealing (SA) methods in function optimization to provide additional insights into its exploration in the search space. According to the empirical results, the proposed model outperformed the compared random-based methods in almost all tasks conducted, notably in a higher number of dimensions and in the presence of limited on-device computational resources. "
+        },
+        {
+          "id": 4035592546,
+          "title": "A surrogate-assisted highly cooperative coevolutionary algorithm for hyperparameter optimization in deep convolutional neural networks",
+          "doi": "10.1016/j.asoc.2023.110794",
+          "authors": {
+            "total": 6,
+            "data": [
+              {
+                "display_name": "An Chen",
+                "full_slug": null
+              },
+              {
+                "display_name": "Zhigang Ren",
+                "full_slug": null
+              },
+              {
+                "display_name": "Muyi Wang",
+                "full_slug": null
+              },
+              {
+                "display_name": "Hui Chen",
+                "full_slug": null
+              },
+              {
+                "display_name": "Haoxi Leng",
+                "full_slug": null
+              },
+              {
+                "display_name": "Shuai Liu",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Hyperparameter optimization in convolutional neural networks (CNNs) plays a vital role in ensuring the effectiveness of the models. However, with the depth of the existing CNN expanding, this task becomes very challenging due to the high-dimensional and computationally expensive characteristics. Given these difficulties, this study proposes a surrogate-assisted highly cooperative hyperparameter optimization (SHCHO) algorithm for large-scale chain-styled CNNs. SHCHO tackles the original hyperparameter optimization problem by cooperatively optimizing its subproblems. Specifically, it first decomposes the whole CNN into several overlapping sub-CNNs, which conforms to the inherent overlapping interaction structure among hyperparameters and significantly reduces the search space. The resulting hyperparameter optimization subproblems on these sub-CNNs are then coevolved collaboratively and competitively, facilitating a proper hyperparameter configuration for the whole CNN. Besides, SHCHO also employs the computationally efficient surrogate technique to assist in each subproblem optimization. As a result, the expensive computational cost can be greatly reduced. Extensive experimental results on three widely-used image classification datasets indicate that SHCHO shows competitive performance when compared with several state-of-the-art algorithms in terms of both hyperparameter superiority and computational cost. "
+        },
+        {
+          "id": 4046821081,
+          "title": "A Cooperative Co-Evolution Algorithm with Variable-Importance Grouping for Large-Scale Optimization",
+          "doi": "10.1109/cec60901.2024.10612078",
+          "authors": {
+            "total": 7,
+            "data": [
+              {
+                "display_name": "Yongfeng Li",
+                "full_slug": null
+              },
+              {
+                "display_name": "Yuze Zhang",
+                "full_slug": null
+              },
+              {
+                "display_name": "Lijia Ma",
+                "full_slug": null
+              },
+              {
+                "display_name": "Junkai Ji",
+                "full_slug": null
+              },
+              {
+                "display_name": "Dugang Liu",
+                "full_slug": null
+              },
+              {
+                "display_name": "Victor C. M. Leung",
+                "full_slug": null
+              },
+              {
+                "display_name": "Jianqiang Li",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Cooperative co-evolution (CC) is a promising direction in solving large-scale multiobjective optimization problems (LMOPs). However, most existing methods of grouping decision variables face some difficulties when searching in the huge search space. Specifically, the methods of grouping decision variables can be classified into two types, i.e., high-consumption grouping methods and non-consumption grouping methods. On the one hand, the former ones divide the decision variables into different groups based on the correlation analysis between variables, which consume much evaluation. This way may lead to premature convergence within limited computational resources. On the other hand, the later ones allocate the decision variables into sub-groups based on some metrics, e.g., order and size, which consume no evaluation while may cause the search fall into local optima. To alleviate the above issues, this paper proposes a CC-based algorithm with a variable-importance grouping (VIG) method, called VICCA. Firstly, the decision variables are classified into several subgroups according to their importance quantified by a meta-gene construction method. Secondly, a CC strategy is designed to simultaneously optimize all subgroups of decision variables formed by VIG using the differential evolution operator, which aims to accelerate the convergence speed. Thirdly, a global evolutionary strategy is proposed to optimize original decision variable space by the competitive swarm optimizer, aiming to maintain the diversity. Finally, the experiments demonstrate that our proposed VICCA has the significant advantage in solving LMOPs when compared with state-of-the-art evolutionary algorithms."
+        },
+        {
+          "id": 4015432182,
+          "title": "A Surrogate-Assisted Highly Cooperative Coevolutionary Algorithm for\n  Hyperparameter Optimization in Deep Convolutional Neural Network",
+          "doi": "10.48550/arxiv.2302.12963",
+          "abstract": "Convolutional neural networks (CNNs) have gained remarkable success in recent years. However, their performance highly relies on the architecture hyperparameters, and finding proper hyperparameters for a deep CNN is a challenging optimization problem owing to its high-dimensional and computationally expensive characteristics. Given these difficulties, this study proposes a surrogate-assisted highly cooperative hyperparameter optimization (SHCHO) algorithm for chain-styled CNNs. To narrow the large search space, SHCHO first decomposes the whole CNN into several overlapping sub-CNNs in accordance with the overlapping hyperparameter interaction structure and then cooperatively optimizes these hyperparameter subsets. Two cooperation mechanisms are designed during this process. One coordinates all the sub-CNNs to reproduce the information flow in the whole CNN and achieve macro cooperation among them, and the other tackles the overlapping components by simultaneously considering the involved two sub-CNNs and facilitates micro cooperation between them. As a result, a proper hyperparameter configuration can be effectively located for the whole CNN. Besides, SHCHO also employs the well-performing surrogate technique to assist in the hyperparameter optimization of each sub-CNN, thereby greatly reducing the expensive computational cost. Extensive experimental results on two widely-used image classification datasets indicate that SHCHO can significantly improve the performance of CNNs. "
+        },
+        {
+          "id": 4016079645,
+          "title": "Hierarchical Collaborative Hyper-parameter Tuning",
+          "doi": "10.48550/arxiv.2205.05272",
+          "abstract": "Hyper-parameter Tuning is among the most critical stages in building machine learning solutions. This paper demonstrates how multi-agent systems can be utilized to develop a distributed technique for determining near-optimal values for any arbitrary set of hyper-parameters in a machine learning model. The proposed method employs a distributedly formed hierarchical agent-based architecture for the cooperative searching procedure of tuning hyper-parameter values. The presented generic model is used to develop a guided randomized agent-based tuning technique, and its behavior is investigated in both machine learning and global function optimization applications. According the empirical results, the proposed model outperformed both of its underlying randomized tuning strategies in terms of classification error and function evaluations, notably in higher number of dimensions. "
+        },
+        {
+          "id": 4015672963,
+          "title": "Hierarchical Collaborative Hyper-Parameter Tuning",
+          "doi": "10.1007/978-3-031-18192-4_11",
+          "authors": {
+            "total": 1,
+            "data": [
+              {
+                "display_name": "Zhao Zehui",
+                "id": 4005437398,
+                "slug": "zhao-zehui",
+                "unique_id": "erv2uf6w",
+                "full_slug": "zhao-zehui-erv2uf6w",
+                "affiliation_full_slug": "purdue-university-2ddhwsmq"
+              }
+            ]
+          },
+          "abstract": "Hyper-parameter Tuning is among the most critical stages in building machine learning solutions. This paper demonstrates how multi-agent systems can be utilized to develop a distributed technique for determining near-optimal values for any arbitrary set of hyper-parameters in a machine learning model. The proposed method employs a distributedly formed hierarchical agent-based architecture for the cooperative searching procedure of tuning hyper-parameter values. The presented generic model is used to develop a guided randomized agent-based tuning technique, and its behavior is investigated in both machine learning and global function optimization applications. According the empirical results, the proposed model outperformed both of its underlying randomized tuning strategies in terms of classification error and function evaluations, notably in higher number of dimensions. "
+        },
+        {
+          "id": 4005512593,
+          "title": "Hierarchical Collaborative Hyper-parameter Tuning",
+          "doi": "10.48550/arXiv.2205.05272",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Ahmad Esmaeili",
+                "id": 2152642015,
+                "slug": "ahmad-esmaeili",
+                "unique_id": "589lwrvoka",
+                "full_slug": "ahmad-esmaeili-589lwrvoka"
+              },
+              {
+                "display_name": "Zahra Ghorrati",
+                "id": 2796195188,
+                "slug": "zahra-ghorrati",
+                "unique_id": "3zp251buls",
+                "full_slug": "zahra-ghorrati-3zp251buls"
+              },
+              {
+                "display_name": "Eric T. Matson",
+                "id": 2167880401,
+                "slug": "eric-t-matson",
+                "unique_id": "49nerevinb",
+                "full_slug": "eric-t-matson-49nerevinb"
+              }
+            ]
+          },
+          "abstract": ". Hyper-parameter Tuning is among the most critical stages in building machine learning solutions. This paper demonstrates how multi-agent systems can be utilized to develop a distributed technique for deter-mining near-optimal values for any arbitrary set of hyper-parameters in a machine learning model. The proposed method employs a distributedly formed hierarchical agent-based architecture for the cooperative searching procedure of tuning hyper-parameter values. The presented generic model is used to develop a guided randomized agent-based tuning technique, and its behavior is investigated in both machine learning and global function optimization applications. According the empirical results, the proposed model outperformed both of its underlying randomized tuning strategies in terms of classiﬁcation error and function evaluations, notably in higher number of dimensions."
+        }
+      ]
+    },
+    {
+      "provider": "Consensus",
+      "query": "ECG deep learning tuning default random search computational efficiency patient benchmark domain:cs,med year:2015-2026",
+      "returned": [
+        {
+          "id": "348a98c191cb5d23821a480c68310455",
+          "title": "Deep Learning for ECG Analysis: Benchmarks and Insights from PTB-XL",
+          "url": "https://consensus.app/papers/details/348a98c191cb5d23821a480c68310455/?utm_source=chatgpt"
+        },
+        {
+          "id": "460ac51dd4ce5113b7b9d1c1f8926e08",
+          "title": "Towards Automated Optimization of Residual Convolutional Neural Networks for Electrocardiogram Classification",
+          "url": "https://consensus.app/papers/details/460ac51dd4ce5113b7b9d1c1f8926e08/?utm_source=chatgpt"
+        },
+        {
+          "id": "29a89bafeca05aa983a44727dd3b43e7",
+          "title": "Cardiac arrhythmia detection using deep learning approach and time frequency representation of ECG signals",
+          "url": "https://consensus.app/papers/details/29a89bafeca05aa983a44727dd3b43e7/?utm_source=chatgpt"
+        },
+        {
+          "id": "7a68d3e050a65552853b0c0f3f02c06d",
+          "title": "A systematic review and Meta-data analysis on the applications of Deep Learning in Electrocardiogram",
+          "url": "https://consensus.app/papers/details/7a68d3e050a65552853b0c0f3f02c06d/?utm_source=chatgpt"
+        },
+        {
+          "id": "be41b3bb30615dd5bb6b6b331e5fb44e",
+          "title": "Deep learning and the electrocardiogram: review of the current state-of-the-art",
+          "url": "https://consensus.app/papers/details/be41b3bb30615dd5bb6b6b331e5fb44e/?utm_source=chatgpt"
+        },
+        {
+          "id": "9e6d03fca5e25f69a827751a0f804f4e",
+          "title": "A deep learning approach for real-time detection of atrial fibrillation",
+          "url": "https://consensus.app/papers/details/9e6d03fca5e25f69a827751a0f804f4e/?utm_source=chatgpt"
+        },
+        {
+          "id": "619d346446a25b2388b1d711a546e7f1",
+          "title": "Deep Learning Approach for Automatic Heartbeat Classification",
+          "url": "https://consensus.app/papers/details/619d346446a25b2388b1d711a546e7f1/?utm_source=chatgpt"
+        },
+        {
+          "id": "61de8267f61b5a5eb8b157361675ce97",
+          "title": "Transfer learning in ECG diagnosis: Is it effective?",
+          "url": "https://consensus.app/papers/details/61de8267f61b5a5eb8b157361675ce97/?utm_source=chatgpt"
+        },
+        {
+          "id": "e860353b58c259ac9224364b5a3068e8",
+          "title": "Cardiologist-Level Arrhythmia Detection and Classification in Ambulatory Electrocardiograms Using a Deep Neural Network",
+          "url": "https://consensus.app/papers/details/e860353b58c259ac9224364b5a3068e8/?utm_source=chatgpt"
+        },
+        {
+          "id": "b324b5f2ffd25c449df4607d89306c54",
+          "title": "Towards Quantitative Precision for ECG Analysis: Leveraging State Space Models, Self-Supervision and Patient Metadata",
+          "url": "https://consensus.app/papers/details/b324b5f2ffd25c449df4607d89306c54/?utm_source=chatgpt"
+        },
+        {
+          "id": "3d4268d70f0e554b9eee0315e5b07002",
+          "title": "Enhancing ECG-based heart age: impact of acquisition parameters and generalization strategies for varying signal morphologies and corruptions",
+          "url": "https://consensus.app/papers/details/3d4268d70f0e554b9eee0315e5b07002/?utm_source=chatgpt"
+        },
+        {
+          "id": "25a988b24ec85b66b9c239f500793b1c",
+          "title": "Automated ECG multi-class classification system based on combining deep learning features with HRV and ECG measures",
+          "url": "https://consensus.app/papers/details/25a988b24ec85b66b9c239f500793b1c/?utm_source=chatgpt"
+        },
+        {
+          "id": "52fe0a580dd75db6a770440eac8e40eb",
+          "title": "An enhanced ResNet-50 deep learning model for arrhythmia detection using electrocardiogram biomedical indicators",
+          "url": "https://consensus.app/papers/details/52fe0a580dd75db6a770440eac8e40eb/?utm_source=chatgpt"
+        },
+        {
+          "id": "b5cc44b02bcf5d4d893872811362c909",
+          "title": "Deep Neural Networks Generalization and Fine-Tuning for 12-lead ECG Classification",
+          "url": "https://consensus.app/papers/details/b5cc44b02bcf5d4d893872811362c909/?utm_source=chatgpt"
+        },
+        {
+          "id": "d1bb91282f565f72aac868b5563865dd",
+          "title": "Opportunities and challenges of deep learning methods for electrocardiogram data: A systematic review",
+          "url": "https://consensus.app/papers/details/d1bb91282f565f72aac868b5563865dd/?utm_source=chatgpt"
+        },
+        {
+          "id": "61b46d3286d45e93a5247533da269cbf",
+          "title": "ECG Heartbeat Classification Using Machine Learning and Metaheuristic Optimization for Smart Healthcare Systems",
+          "url": "https://consensus.app/papers/details/61b46d3286d45e93a5247533da269cbf/?utm_source=chatgpt"
+        },
+        {
+          "id": "a24e057b3382567cb1b227d44adfe1d6",
+          "title": "A Multitier Deep Learning Model for Arrhythmia Detection",
+          "url": "https://consensus.app/papers/details/a24e057b3382567cb1b227d44adfe1d6/?utm_source=chatgpt"
+        },
+        {
+          "id": "17a7f8b51ac55b2b93c37e85cf2543db",
+          "title": "Automatic diagnosis of the 12-lead ECG using a deep neural network",
+          "url": "https://consensus.app/papers/details/17a7f8b51ac55b2b93c37e85cf2543db/?utm_source=chatgpt"
+        },
+        {
+          "id": "ad0623a6ec5e5df4bafcf8f9b34659cc",
+          "title": "Efficient Deep Learning-Based Arrhythmia Detection Using Smartwatch ECG Electrocardiograms",
+          "url": "https://consensus.app/papers/details/ad0623a6ec5e5df4bafcf8f9b34659cc/?utm_source=chatgpt"
+        },
+        {
+          "id": "c23a4c323b6e599580d3216b246ba7f8",
+          "title": "ECG classification using 1-D convolutional deep residual neural network",
+          "url": "https://consensus.app/papers/details/c23a4c323b6e599580d3216b246ba7f8/?utm_source=chatgpt"
+        }
+      ]
+    },
+    {
+      "provider": "SciSpace",
+      "query": "Which studies show how training-seed variability and validation-set overfitting affect the cost-benefit of hyperparameter optimization for deep neural networks?",
+      "returned": [
+        {
+          "id": 3049161099,
+          "title": "Efficient hyperparameter optimization by way of PAC-Bayes bound minimization.",
+          "doi": null,
+          "authors": {
+            "total": 9,
+            "data": [
+              {
+                "display_name": "John J. Cherian",
+                "id": 3049302097,
+                "slug": "john-j-cherian",
+                "unique_id": "4p3upiecx0",
+                "full_slug": "john-j-cherian-4p3upiecx0"
+              },
+              {
+                "display_name": "Andrew G. Taube",
+                "id": 3024816060,
+                "slug": "andrew-g-taube",
+                "unique_id": "1tjhdwu9jn",
+                "full_slug": "andrew-g-taube-1tjhdwu9jn"
+              },
+              {
+                "display_name": "Robert T. McGibbon",
+                "id": 1984887102,
+                "slug": "robert-t-mcgibbon",
+                "unique_id": "4sf74jr7kk",
+                "full_slug": "robert-t-mcgibbon-4sf74jr7kk"
+              },
+              {
+                "display_name": "Panagiotis Angelikopoulos",
+                "id": 2012478639,
+                "slug": "panagiotis-angelikopoulos",
+                "unique_id": "2hxhymx585",
+                "full_slug": "panagiotis-angelikopoulos-2hxhymx585"
+              },
+              {
+                "display_name": "Guy Blanc",
+                "id": 2983708897,
+                "slug": "guy-blanc",
+                "unique_id": "4vwji91ldi",
+                "full_slug": "guy-blanc-4vwji91ldi"
+              },
+              {
+                "display_name": "Michael Snarski",
+                "id": 3049522305,
+                "slug": "michael-snarski",
+                "unique_id": "52547fw7zp",
+                "full_slug": "michael-snarski-52547fw7zp"
+              },
+              {
+                "display_name": "Daniel D. Richman",
+                "id": 3049600124,
+                "slug": "daniel-d-richman",
+                "unique_id": "2egq473ath",
+                "full_slug": "daniel-d-richman-2egq473ath"
+              },
+              {
+                "display_name": "John L. Klepeis",
+                "id": 2627508352,
+                "slug": "john-l-klepeis",
+                "unique_id": "4ph9kcs3j5",
+                "full_slug": "john-l-klepeis-4ph9kcs3j5"
+              },
+              {
+                "display_name": "David E. Shaw",
+                "id": 2109199729,
+                "slug": "david-e-shaw",
+                "unique_id": "5eeglehjrb",
+                "full_slug": "david-e-shaw-5eeglehjrb"
+              }
+            ]
+          },
+          "abstract": "Identifying optimal values for a high-dimensional set of hyperparameters is a problem that has received growing attention given its importance to large-scale machine learning applications such as neural architecture search. Recently developed optimization methods can be used to select thousands or even millions of hyperparameters. Such methods often yield overfit models, however, leading to poor performance on unseen data. We argue that this overfitting results from using the standard hyperparameter optimization objective function. Here we present an alternative objective that is equivalent to a Probably Approximately Correct-Bayes (PAC-Bayes) bound on the expected out-of-sample error. We then devise an efficient gradient-based algorithm to minimize this objective; the proposed method has asymptotic space and time complexity equal to or better than other gradient-based hyperparameter optimization methods. We show that this new method significantly reduces out-of-sample error when applied to hyperparameter optimization problems known to be prone to overfitting."
+        },
+        {
+          "id": 4050460845,
+          "title": "Hyperparameter Tuning Through Pessimistic Bilevel Optimization",
+          "doi": "10.48550/arxiv.2412.03666",
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Meltem Apaydin Ustun",
+                "full_slug": null
+              },
+              {
+                "display_name": "Liang Xu",
+                "full_slug": null
+              },
+              {
+                "display_name": "Bo Zeng",
+                "full_slug": null
+              },
+              {
+                "display_name": "Xiaoning Qian",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Automated hyperparameter search in machine learning, especially for deep learning models, is typically formulated as a bilevel optimization problem, with hyperparameter values determined by the upper level and the model learning achieved by the lower-level problem. Most of the existing bilevel optimization solutions either assume the uniqueness of the optimal training model given hyperparameters or adopt an optimistic view when the non-uniqueness issue emerges. Potential model uncertainty may arise when training complex models with limited data, especially when the uniqueness assumption is violated. Thus, the suitability of the optimistic view underlying current bilevel hyperparameter optimization solutions is questionable. In this paper, we propose pessimistic bilevel hyperparameter optimization to assure appropriate outer-level hyperparameters to better generalize the inner-level learned models, by explicitly incorporating potential uncertainty of the inner-level solution set. To solve the resulting computationally challenging pessimistic bilevel optimization problem, we develop a novel relaxation-based approximation method. It derives pessimistic solutions with more robust prediction models. In our empirical studies of automated hyperparameter search for binary linear classifiers, pessimistic solutions have demonstrated better prediction performances than optimistic counterparts when we have limited training data or perturbed testing data, showing the necessity of considering pessimistic solutions besides existing optimistic ones. "
+        },
+        {
+          "id": 2899960587,
+          "title": "Fast Hyperparameter Optimization of Deep Neural Networks via Ensembling Multiple Surrogates",
+          "doi": null,
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Yang Li",
+                "id": 2899683596,
+                "slug": "yang-li",
+                "unique_id": "12q13w1774",
+                "full_slug": "yang-li-12q13w1774"
+              },
+              {
+                "display_name": "Jiawei Jiang",
+                "id": 2608589378,
+                "slug": "jiawei-jiang",
+                "unique_id": "3oz1rsscjw",
+                "full_slug": "jiawei-jiang-3oz1rsscjw"
+              },
+              {
+                "display_name": "Yingxia Shao",
+                "id": 2122925794,
+                "slug": "yingxia-shao",
+                "unique_id": "f0ppc9zxi3",
+                "full_slug": "yingxia-shao-f0ppc9zxi3"
+              },
+              {
+                "display_name": "Bin Cui",
+                "id": 2070862325,
+                "slug": "bin-cui",
+                "unique_id": "3ov8n16hgw",
+                "full_slug": "bin-cui-3ov8n16hgw"
+              }
+            ]
+          },
+          "abstract": "The performance of deep neural networks crucially depends on good hyperparameter configurations. Bayesian optimization is a powerful framework for optimizing the hyperparameters of DNNs. These methods need sufficient evaluation data to approximate and minimize the validation error function of hyperparameters. However, the expensive evaluation cost of DNNs leads to very few evaluation data within a limited time, which greatly reduces the efficiency of Bayesian optimization. Besides, the previous researches focus on using the complete evaluation data to conduct Bayesian optimization, and ignore the intermediate evaluation data generated by early stopping methods. To alleviate the insufficient evaluation data problem, we propose a fast hyperparameter optimization method, HOIST, that utilizes both the complete and intermediate evaluation data to accelerate the hyperparameter optimization of DNNs. Specifically, we train multiple basic surrogates to gather information from the mixed evaluation data, and then combine all basic surrogates using weighted bagging to provide an accurate ensemble surrogate. Our empirical studies show that HOIST outperforms the state-of-the-art approaches on a wide range of DNNs, including feed forward neural networks, convolutional neural networks, recurrent neural networks, and variational autoencoder."
+        },
+        {
+          "id": 4057729719,
+          "title": "Fast Hyperparameter Optimization of Deep Neural Networks Via Ensembling Multiple Surrogates",
+          "doi": "10.48550/arxiv.1811.02319",
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Yang Li",
+                "full_slug": null
+              },
+              {
+                "display_name": "Jiawei Jiang",
+                "full_slug": null
+              },
+              {
+                "display_name": "Yingxia Shao",
+                "full_slug": null
+              },
+              {
+                "display_name": "Bin Cui",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "The performance of deep neural networks crucially depends on good hyperparameter configurations. Bayesian optimization is a powerful framework for optimizing the hyperparameters of DNNs. These methods need sufficient evaluation data to approximate and minimize the validation error function of hyperparameters. However, the expensive evaluation cost of DNNs leads to very few evaluation data within a limited time, which greatly reduces the efficiency of Bayesian optimization. Besides, the previous researches focus on using the complete evaluation data to conduct Bayesian optimization, and ignore the intermediate evaluation data generated by early stopping methods. To alleviate the insufficient evaluation data problem, we propose a fast hyperparameter optimization method, HOIST, that utilizes both the complete and intermediate evaluation data to accelerate the hyperparameter optimization of DNNs. Specifically, we train multiple basic surrogates to gather information from the mixed evaluation data, and then combine all basic surrogates using weighted bagging to provide an accurate ensemble surrogate. Our empirical studies show that HOIST outperforms the state-of-the-art approaches on a wide range of DNNs, including feed forward neural networks, convolutional neural networks, recurrent neural networks, and variational autoencoder."
+        },
+        {
+          "id": 3046174433,
+          "title": "Quantity vs. Quality: On Hyperparameter Optimization for Deep Reinforcement Learning.",
+          "doi": null,
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "L. Hertel",
+                "id": 2899672589,
+                "slug": "l-hertel",
+                "unique_id": "58sbbquset",
+                "full_slug": "l-hertel-58sbbquset",
+                "affiliation_full_slug": "university-of-california-irvine-3ptiah2u"
+              },
+              {
+                "display_name": "Pierre Baldi",
+                "id": 2060797211,
+                "slug": "pierre-baldi",
+                "unique_id": "5d80i02jqh",
+                "full_slug": "pierre-baldi-5d80i02jqh",
+                "affiliation_full_slug": "university-of-california-irvine-3ptiah2u"
+              },
+              {
+                "display_name": "Daniel L. Gillen",
+                "id": 2037106288,
+                "slug": "daniel-l-gillen",
+                "unique_id": "4s3egyohrs",
+                "full_slug": "daniel-l-gillen-4s3egyohrs",
+                "affiliation_full_slug": "university-of-california-irvine-3ptiah2u"
+              }
+            ]
+          },
+          "abstract": "Reinforcement learning algorithms can show strong variation in performance between training runs with different random seeds. In this paper we explore how this affects hyperparameter optimization when the goal is to find hyperparameter settings that perform well across random seeds. In particular, we benchmark whether it is better to explore a large quantity of hyperparameter settings via pruning of bad performers, or if it is better to aim for quality of collected results by using repetitions. For this we consider the Successive Halving, Random Search, and Bayesian Optimization algorithms, the latter two with and without repetitions. We apply these to tuning the PPO2 algorithm on the Cartpole balancing task and the Inverted Pendulum Swing-up task. We demonstrate that pruning may negatively affect the optimization and that repeated sampling does not help in finding hyperparameter settings that perform better across random seeds. From our experiments we conclude that Bayesian optimization with a noise robust acquisition function is the best choice for hyperparameter optimization in reinforcement learning tasks."
+        },
+        {
+          "id": 4089705854,
+          "title": "Rolling the dice for better deep learning performance: A study of randomness techniques in deep neural networks",
+          "doi": "10.48550/arxiv.2404.03992",
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Nowaczyk, Sławomir",
+                "full_slug": null
+              },
+              {
+                "display_name": "Pashami, Sepideh",
+                "full_slug": null
+              },
+              {
+                "display_name": "Mashhadi, Peyman Sheikholharam",
+                "full_slug": null
+              },
+              {
+                "display_name": "Handl, Julia",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "This paper investigates how various randomization techniques impact Deep Neural Networks (DNNs). Randomization, like weight noise and dropout, aids in reducing overfitting and enhancing generalization, but their interactions are poorly understood. The study categorizes randomness techniques into four types and proposes new methods: adding noise to the loss function and random masking of gradient updates. Using Particle Swarm Optimizer (PSO) for hyperparameter optimization, it explores optimal configurations across MNIST, FASHION-MNIST, CIFAR10, and CIFAR100 datasets. Over 30,000 configurations are evaluated, revealing data augmentation and weight initialization randomness as main performance contributors. Correlation analysis shows different optimizers prefer distinct randomization types. The complete implementation and dataset are available on GitHub. "
+        },
+        {
+          "id": 3123199473,
+          "title": "Automatic Setting of DNN Hyper-Parameters by Mixing Bayesian Optimization and Tuning Rules",
+          "doi": "10.1007/978-3-030-64583-0_43",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Michele Fraccaroli",
+                "id": 3032944411,
+                "slug": "michele-fraccaroli",
+                "unique_id": "2rsfq3ld61",
+                "full_slug": "michele-fraccaroli-2rsfq3ld61",
+                "affiliation_full_slug": "university-of-ferrara-23oasv7n"
+              },
+              {
+                "display_name": "Evelina Lamma",
+                "id": 2310186662,
+                "slug": "evelina-lamma",
+                "unique_id": "54bwnanmwk",
+                "full_slug": "evelina-lamma-54bwnanmwk",
+                "affiliation_full_slug": "university-of-ferrara-23oasv7n"
+              },
+              {
+                "display_name": "Fabrizio Riguzzi",
+                "id": 2964476077,
+                "slug": "fabrizio-riguzzi",
+                "unique_id": "3p5d9xxjn4",
+                "full_slug": "fabrizio-riguzzi-3p5d9xxjn4",
+                "affiliation_full_slug": "university-of-ferrara-23oasv7n"
+              }
+            ]
+          },
+          "abstract": "Deep learning techniques play an increasingly important role in industrial and research environments due to their outstanding results. However, the large number of hyper-parameters to be set may lead to errors if they are set manually. The state-of-the-art hyper-parameters tuning methods are grid search, random search, and Bayesian Optimization. The first two methods are expensive because they try, respectively, all possible combinations and random combinations of hyper-parameters. Bayesian Optimization, instead, builds a surrogate model of the objective function, quantifies the uncertainty in the surrogate using Gaussian Process Regression and uses an acquisition function to decide where to sample the new set of hyper-parameters. This work faces the field of Hyper-Parameters Optimization (HPO). The aim is to improve Bayesian Optimization applied to Deep Neural Networks. For this goal, we build a new algorithm for evaluating and analyzing the results of the network on the training and validation sets and use a set of tuning rules to add new hyper-parameters and/or to reduce the hyper-parameter search space to select a better combination."
+        },
+        {
+          "id": 3034172904,
+          "title": "Automatic Setting of DNN Hyper-Parameters by Mixing Bayesian Optimization and Tuning Rules",
+          "doi": null,
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Michele Fraccaroli",
+                "id": 3032944411,
+                "slug": "michele-fraccaroli",
+                "unique_id": "2rsfq3ld61",
+                "full_slug": "michele-fraccaroli-2rsfq3ld61",
+                "affiliation_full_slug": "university-of-ferrara-23oasv7n"
+              },
+              {
+                "display_name": "Evelina Lamma",
+                "id": 2310186662,
+                "slug": "evelina-lamma",
+                "unique_id": "54bwnanmwk",
+                "full_slug": "evelina-lamma-54bwnanmwk",
+                "affiliation_full_slug": "university-of-ferrara-23oasv7n"
+              },
+              {
+                "display_name": "Fabrizio Riguzzi",
+                "id": 2964476077,
+                "slug": "fabrizio-riguzzi",
+                "unique_id": "3p5d9xxjn4",
+                "full_slug": "fabrizio-riguzzi-3p5d9xxjn4",
+                "affiliation_full_slug": "university-of-ferrara-23oasv7n"
+              }
+            ]
+          },
+          "abstract": "Deep learning techniques play an increasingly important role in industrial and research environments due to their outstanding results. However, the large number of hyper-parameters to be set may lead to errors if they are set manually. The state-of-the-art hyper-parameters tuning methods are grid search, random search, and Bayesian Optimization. The first two methods are expensive because they try, respectively, all possible combinations and random combinations of hyper-parameters. Bayesian Optimization, instead, builds a surrogate model of the objective function, quantifies the uncertainty in the surrogate using Gaussian Process Regression and uses an acquisition function to decide where to sample the new set of hyper-parameters. This work faces the field of Hyper-Parameters Optimization (HPO). The aim is to improve Bayesian Optimization applied to Deep Neural Networks. For this goal, we build a new algorithm for evaluating and analyzing the results of the network on the training and validation sets and use a set of tuning rules to add new hyper-parameters and/or to reduce the hyper-parameter search space to select a better combination."
+        },
+        {
+          "id": 4055989624,
+          "title": "Quantity Vs. Quality: on Hyperparameter Optimization for Deep Reinforcement Learning",
+          "doi": "10.48550/arxiv.2007.14604",
+          "authors": {
+            "total": 3,
+            "data": [
+              {
+                "display_name": "Lars Hertel",
+                "full_slug": null
+              },
+              {
+                "display_name": "Pierre Baldi",
+                "full_slug": null
+              },
+              {
+                "display_name": "Daniel L. Gillen",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "Reinforcement learning algorithms can show strong variation in performance between training runs with different random seeds. In this paper we explore how this affects hyperparameter optimization when the goal is to find hyperparameter settings that perform well across random seeds. In particular, we benchmark whether it is better to explore a large quantity of hyperparameter settings via pruning of bad performers, or if it is better to aim for quality of collected results by using repetitions. For this we consider the Successive Halving, Random Search, and Bayesian Optimization algorithms, the latter two with and without repetitions. We apply these to tuning the PPO2 algorithm on the Cartpole balancing task and the Inverted Pendulum Swing-up task. We demonstrate that pruning may negatively affect the optimization and that repeated sampling does not help in finding hyperparameter settings that perform better across random seeds. From our experiments we conclude that Bayesian optimization with a noise robust acquisition function is the best choice for hyperparameter optimization in reinforcement learning tasks."
+        },
+        {
+          "id": 4055104062,
+          "title": "Sensitivity Analysis for Deep Learning: Ranking Hyper-parameter Influence",
+          "doi": "10.1109/ictai52525.2021.00083",
+          "authors": {
+            "total": 4,
+            "data": [
+              {
+                "display_name": "Rhian Taylor",
+                "full_slug": null
+              },
+              {
+                "display_name": "Varun Ojha",
+                "full_slug": null
+              },
+              {
+                "display_name": "Ivan Martino",
+                "full_slug": null
+              },
+              {
+                "display_name": "Giuseppe Nicosia",
+                "full_slug": null
+              }
+            ]
+          },
+          "abstract": "(DL)We present a novel approach to rank Deep Learning hyper-parameters through the application of Sensitivity Analysis (SA). DL hyper-parameter tuning is crucial to model accuracy however, choosing optimal values for each parameter is time and resource-intensive. SA provides a quantitative measure by which hyper-parameters can be ranked in terms of contribution to model accuracy. Learning rate decay was ranked highest, with model performance being sensitive to this parameter regardless of architecture or dataset. The influence of a model’s initial learning rate was proven to be low, contrary to the literature. Additionally, the importance of a parameter is closely linked to model architecture. Shallower models showed susceptibility to hyper-parameters affecting the stochasticity of the learning process whereas deeper models showed sensitivity to hyper-parameters affecting the convergence speed. Furthermore, the complexity of the dataset can affect the margin of separation between the sensitivity measures of the most and the least influential parameters, making the most influential hyper-parameter an ideal candidate for tuning compared to the other parameters."
+        }
+      ]
+    }
+  ]
+}

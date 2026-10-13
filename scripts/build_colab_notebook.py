@@ -50,11 +50,12 @@ def code(text: str) -> dict:
             "source": text.strip("\n").splitlines(keepends=True)}
 
 
-def common_cells(drive_dir: str, title: str, intro: str) -> list[dict]:
+def common_cells(drive_dir: str, title: str, intro: str, prepare_reference_data: bool = True) -> list[dict]:
     bundle, names = build_bundle()
     digest = hashlib.sha256(bundle).hexdigest()
-    expected = read_json(PROJECT_ROOT / "data" / "processed" / "data_report.json")["array_sha256"]
-    return [
+    expected = (read_json(PROJECT_ROOT / "data" / "processed" / "data_report.json")["array_sha256"]
+                if prepare_reference_data else {})
+    cells = [
         md(f"""
 # {title}
 
@@ -124,6 +125,15 @@ for name, digest in EXPECTED.items():
 print(f'Data ready and identical to the local arrays in {{time.time() - started:.0f}} s')
 """),
     ]
+    if not prepare_reference_data:
+        cells[-2:] = [
+            md("## Raw data for development folds\nDownload and checksum raw files. The decision scripts open waveforms only from folds 1–7."),
+            code("""
+result = subprocess.run([sys.executable, 'scripts/download_ptbxl.py', '--workers', '64'], capture_output=True, text=True)
+print(result.stdout[-2000:])
+assert result.returncode == 0, result.stderr[-3000:]
+""")]
+    return cells
 
 
 def setup_notebook() -> dict:
@@ -241,7 +251,60 @@ print('Disconnect the runtime now: G4 bills while idle.')
     return cells
 
 
-NOTEBOOKS = {"setup": ("COLAB_G4_SETUP.ipynb", setup_notebook), "pilot": ("COLAB_G4_PILOT.ipynb", pilot_notebook)}
+def decision_notebook():
+    cells = common_cells("bamo_decision", "BAMO — assessor decision phase on G4",
+                         "Run in a new G4 runtime. The drift check compares with session 1; the headroom pilot "
+                         "uses development folds and a registered plan. No confirmatory search or test evaluation "
+                         "is launched. Results persist on Drive and completed headroom trainings are skipped.",
+                         prepare_reference_data=False)
+    cells += [md("## Verify the implementation"), code("""
+result = subprocess.run([sys.executable, '-m', 'pytest', '-q', '--disable-warnings'], capture_output=True, text=True)
+print(result.stdout[-2000:])
+assert result.returncode == 0, result.stderr[-3000:]
+"""), md("## Timing drift in a fresh G4 session"), code("""
+from bamo.hardware import fingerprint
+from bamo.utils import sha256_file
+session_host = fingerprint()['host']
+drift_path = pathlib.Path(OUTPUT) / 'timing_drift' / f'{session_host}.json'
+if not drift_path.exists():
+    subprocess.run([sys.executable, '-u', 'scripts/timing_drift.py', '--out', str(drift_path)], check=True)
+drift = json.loads(drift_path.read_text())
+assert drift['hardware']['host'] == session_host, 'Drift artifact belongs to a different runtime'
+assert drift['baseline_sha256'] == sha256_file(root / 'configs/decision_timing_baseline.json'), 'Drift baseline changed'
+print(json.dumps({k: drift[k] for k in ('median_ratio', 'within_10pct')}, indent=2))
+assert drift['within_10pct'], 'Investigate session timing before calibration/freeze'
+"""), md("## Headroom (run only if G4 replication is needed)"), code("""
+RUN_HEADROOM = False  # local decision outputs are sufficient for landscape planning; G4 timing is separate
+if RUN_HEADROOM:
+    subprocess.run([sys.executable, '-u', 'scripts/decision_pilot.py', '--tasks', 'form', 'rhythm',
+                    '--out-root', f'{OUTPUT}/headroom'], check=True)
+"""), md("## Task calibration, paired precision and matched-control smoke\nRuns common-workload task calibration (1-6/7), separate precision-workload timing/noise, all four matched stopping arms, paired P/DEHB search, refit and development assessment. Select the task recommended by the local headroom decision. This is several hours on G4, depending on the task."), code("""
+RUN_PRECISION = True  # next authorized development experiment; False runs drift only
+PRECISION_TASK = 'rhythm'  # stronger fresh-seed headroom candidate; full benchmark remains gated
+if RUN_PRECISION:
+    for task in ('superclass', PRECISION_TASK):
+        subprocess.run([sys.executable, '-u', 'scripts/calibrate_task.py', '--task', task,
+                        '--out-root', f'{OUTPUT}/task_calibration'], check=True)
+    subprocess.run([sys.executable, '-u', 'scripts/precision_pilot.py', '--task', PRECISION_TASK,
+                    '--out-root', f'{OUTPUT}/precision'], check=True)
+"""), md("## Export evidence"), code("""
+output = pathlib.Path(OUTPUT)
+zip_path = output.parent / 'bamo_decision_results.zip'
+hashes = {}
+with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as result_zip:
+    for path in sorted(output.rglob('*')):
+        if path.is_file():
+            rel = path.relative_to(output).as_posix()
+            result_zip.write(path, arcname=rel)
+            hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+    result_zip.writestr('export_manifest.json', json.dumps({'bundle_sha256': BUNDLE_SHA, 'files_sha256': hashes}, indent=2))
+print('Evidence saved:', zip_path)
+""")]
+    return cells
+
+
+NOTEBOOKS = {"setup": ("COLAB_G4_SETUP.ipynb", setup_notebook), "pilot": ("COLAB_G4_PILOT.ipynb", pilot_notebook),
+             "decision": ("COLAB_G4_DECISION.ipynb", decision_notebook)}
 
 
 def main() -> None:

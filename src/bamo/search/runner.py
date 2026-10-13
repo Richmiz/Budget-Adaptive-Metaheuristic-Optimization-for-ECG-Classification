@@ -118,7 +118,7 @@ def run_job(job: Job, cfg: dict, evaluator: Evaluator, out_root: Path, time_sour
     method = build_method(job.method, cfg)
     ctx = SearchContext(
         space=space, tracker=tracker, clock=clock,
-        rng=np.random.default_rng(derive_seed("method", job.method, job.seed)),
+        rng=np.random.default_rng(derive_seed("method", cfg["methods"][job.method].get("rng_group", job.method), job.seed)),
         initial_X=initial_design(space, job.seed, cfg["initial_design"]["n_configs"]),
         t_ref=t_ref, fidelities=fidelities, train_seed=train_seed_for(job.seed),
         reeval_seeds=reeval_seeds_for(job.seed, cfg["controller"]["reeval_seeds"]), run_dir=run_dir,
@@ -131,7 +131,7 @@ def run_job(job: Job, cfg: dict, evaluator: Evaluator, out_root: Path, time_sour
         reason = method.run(ctx)
     except BudgetExhausted:
         reason = method.budget_reason()
-    elapsed = min(clock.elapsed(), budget_s)
+    elapsed = clock.elapsed()  # wall time + charged cached work; never silently clamp at the cap
 
     with (run_dir / "trajectory.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -147,9 +147,17 @@ def run_job(job: Job, cfg: dict, evaluator: Evaluator, out_root: Path, time_sour
         "job": asdict(job), "partition": partition, "config_hash": config_hash(cfg),
         "started": started, "host": platform.node(), "hardware": hardware or {},
         "budget_s": budget_s, "t_ref_s": t_ref, "fidelities": list(fidelities),
-        "termination_reason": reason, "elapsed_s": elapsed, "unused_budget_s": budget_s - elapsed,
+        "termination_reason": reason, "elapsed_s": elapsed, "unused_budget_s": max(budget_s - elapsed, 0.0),
+        "budget_overshoot_s": max(elapsed - budget_s, 0.0),
+        "nominal_elapsed_s": min(elapsed, budget_s),
         "charged_s": clock.charged_s, "evaluation_wall_s": tracker.evaluation_wall_s,
-        "overhead_s": max(elapsed - clock.charged_s - tracker.evaluation_wall_s, 0.0),
+        "physical_wall_elapsed_s": max(elapsed - clock.charged_s, 0.0),
+        "search_elapsed_definition": "physical wall time plus charged cached initialization evaluations",
+        "interrupted_evaluation_wall_s": tracker.interrupted_evaluation_wall_s,
+        "late_results_discarded": tracker.late_results,
+        "overhead_s": max(elapsed - clock.charged_s - tracker.evaluation_wall_s
+                          - tracker.interrupted_evaluation_wall_s, 0.0),
+        "overhead_definition": "residual wall time, including optimization, logging and evaluator cleanup",
         "n_evaluations": len(tracker.records), "status_counts": statuses, "source_counts": sources,
         "incumbent": tracker.incumbent,
         "anytime_efficiency_val": anytime_efficiency(tracker.trajectory, budget_s,

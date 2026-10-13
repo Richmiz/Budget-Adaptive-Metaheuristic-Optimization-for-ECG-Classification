@@ -1,0 +1,168 @@
+{
+  "design": {
+    "tasks": [
+      "form",
+      "rhythm"
+    ],
+    "train_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "validation_folds": [
+      7
+    ],
+    "min_train_label_count": 50,
+    "n_screen_configs": 24,
+    "design_seed": 2026101301,
+    "screen_seed": 2026101302,
+    "confirmation_seeds": [
+      2026101401,
+      2026101402,
+      2026101403,
+      2026101404,
+      2026101405
+    ],
+    "max_epochs": 20,
+    "patience": 5,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 2026101303,
+    "gate": {
+      "minimum_gain_over_reference": 0.002,
+      "go_gap_over_noise": 3.0,
+      "redesign_gap_over_noise": 1.5
+    }
+  },
+  "model": {
+    "n_leads": 12,
+    "base_widths": [
+      32,
+      64,
+      128
+    ],
+    "group_strides": [
+      1,
+      2,
+      2
+    ],
+    "stem_kernel": 15,
+    "channel_divisor": 8
+  },
+  "training": {
+    "optimizer": "adamw",
+    "loss": "bce_with_logits",
+    "class_weighting": "none",
+    "amp": true,
+    "drop_last": true,
+    "eval_batch_size": 1024,
+    "cudnn_benchmark": false,
+    "deterministic": false
+  },
+  "search_space": {
+    "joint_block": "J",
+    "parameters": [
+      {
+        "name": "learning_rate",
+        "block": "A",
+        "kind": "log",
+        "low": 1e-05,
+        "high": 0.003
+      },
+      {
+        "name": "batch_size",
+        "block": "A",
+        "kind": "choice",
+        "choices": [
+          32,
+          64,
+          128
+        ]
+      },
+      {
+        "name": "weight_decay",
+        "block": "B",
+        "kind": "log",
+        "low": 1e-06,
+        "high": 0.01
+      },
+      {
+        "name": "dropout",
+        "block": "B",
+        "kind": "float",
+        "low": 0.0,
+        "high": 0.5
+      },
+      {
+        "name": "width_multiplier",
+        "block": "C",
+        "kind": "choice",
+        "choices": [
+          0.5,
+          1.0,
+          1.5
+        ]
+      },
+      {
+        "name": "blocks_per_group",
+        "block": "C",
+        "kind": "choice",
+        "choices": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "name": "kernel_size",
+        "block": "C",
+        "kind": "choice",
+        "choices": [
+          5,
+          9,
+          15
+        ]
+      },
+      {
+        "name": "dilation",
+        "block": "C",
+        "kind": "choice",
+        "choices": [
+          1,
+          2
+        ]
+      },
+      {
+        "name": "stem_stride",
+        "block": "C",
+        "kind": "choice",
+        "choices": [
+          1,
+          2
+        ]
+      }
+    ],
+    "reference_config": {
+      "learning_rate": 0.001,
+      "batch_size": 64,
+      "weight_decay": 0.01,
+      "dropout": 0.2,
+      "width_multiplier": 1.0,
+      "blocks_per_group": 2,
+      "kernel_size": 9,
+      "dilation": 1,
+      "stem_stride": 2
+    }
+  },
+  "kind": "development_decision_only",
+  "code_sha256": {
+    "scripts/decision_pilot.py": "122378d7d1b39e4ff1ed6dcef8f8562d426aa18ca50c5a4aa2beba6fd3f2ec81",
+    "src/bamo/data/tasks.py": "c1da3c0a099d9022c42623644cd90aadf409e3566ba4fdb9f4c8c95bca1edecd",
+    "src/bamo/training/trainer.py": "97e8a4a75cc16185aa569478a72f3aa936f11eaa33a0803555d426c5356dcb89",
+    "src/bamo/models/resnet1d.py": "794dcba630c1a7a6d4acb20a7eaec41ea424eaf06231b1e710ead2a6f8a0571f",
+    "src/bamo/metrics.py": "677f02a0c7a7aed7efb201db606919035430cd8601270fc25b9ed9ef13be003d",
+    "src/bamo/analysis/bootstrap.py": "82110360d25e253bbd56e23cbe44afb01436a02d1d55d17879858ca908dcd93a"
+  }
+}

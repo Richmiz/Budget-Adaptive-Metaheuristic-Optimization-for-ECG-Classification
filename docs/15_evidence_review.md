@@ -1,5 +1,11 @@
 # 15 — Evidence review: is Article 1 worth pursuing? (9 Oct 2026)
 
+**13 October assessor update:** this targeted review is historical. Doc 20 adds verified
+SHCHO cooperative deep-CNN tuning with GPU-day comparisons and an earlier ECG residual-CNN BO
+study. The integration/application gap in row 6 and the absence wording in row 3 are not
+established novelty. Harder-task headroom is now being measured with fresh confirmation seeds;
+the old 45-minute estimate below did not include that confirmation design.
+
 Requested by the researcher: verify the earlier recommendation (doc 14) with evidence rather than opinion.
 
 **Sources:**

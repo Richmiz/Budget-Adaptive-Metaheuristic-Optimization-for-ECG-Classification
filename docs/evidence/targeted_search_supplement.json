@@ -1,0 +1,298 @@
+{
+  "date": "2026-10-13",
+  "provider": "SciSpace",
+  "query": "Which studies use Differential Evolution, particle swarm optimization, or Bayesian optimization to tune ECG neural classifiers and report both search time and improvement over a fixed untuned model, including PTB-XL and MIT-BIH?",
+  "returned": [
+    {
+      "id": 4023360054,
+      "title": "Binary Classification of Heart Disease Based on Differential Evolution-Optimised Machine Learning Approach",
+      "doi": "10.12720/jait.15.4.467-479",
+      "authors": {
+        "total": 2,
+        "data": [
+          {
+            "display_name": "Theodore Nicholas Richard Egling",
+            "full_slug": null
+          },
+          {
+            "display_name": "Sumbwanyambe Mbuyu",
+            "full_slug": null
+          }
+        ]
+      },
+      "abstract": "—Accurate and timely diagnosis of heart disease is a persistent challenge in healthcare, necessitating innovative diagnostic methodologies. This study investigates the efficacy of Differential Evolution (DE) for hyperparameter optimisation in machine learning algorithms, targeting improved performance in heart disease binary classification. DE was selected for its robustness and ability to efficiently navigate high-dimensional parameter spaces, essential attributes for the fine-tuning of complex models. Employing the Cleveland Heart Disease dataset, the study optimised three machine learning classifiers: Random Forest, AdaBoost, and Gradient Boosting. Post-optimization, the DE-enhanced Random Forest Classifier achieved a standout performance with an accuracy of 93.3% and an F1 − Score of 90.9%. Likewise, AdaBoost and Gradient Boosting classifiers also exhibited performance gains, reaching accuracies of 88.9% and 86.7%, and F1 − Scores of 85.7% and 83.3%, respectively. These results not only outperform various existing models but also offer insights into the differential impacts of DE on multiple algorithms. The study lays a solid foundation for future research and clinical applications, indicating that DE-optimised machine learning algorithms hold significant promise for advancements in cardiovascular disease diagnostics."
+    },
+    {
+      "id": 4087085497,
+      "title": "Single-Beat Myocardial Infarction Detection and Localization Using PSO-Optimized Extra Trees on 15-Lead ECG",
+      "doi": "10.1109/tim.2025.3617406",
+      "authors": {
+        "total": 4,
+        "data": [
+          {
+            "display_name": "Sourav Kumar Mukhopadhyay",
+            "full_slug": null
+          },
+          {
+            "display_name": "Sridhar Krishnan",
+            "full_slug": null
+          },
+          {
+            "display_name": "Sourav Kumar Mukhopadhyay",
+            "full_slug": null
+          },
+          {
+            "display_name": "Sridhar Krishnan",
+            "full_slug": null
+          }
+        ]
+      },
+      "abstract": "With the advancement of wearable healthcare devices in recent times, there is a growing potential to revolutionize the current strategies of the detection of cardiac anomalies such as myocardial infarction (MI), making it viable to monitor out-of-the-hospital patients using conventional as well as unconventional and pseudo-electrocardiogram (ECG) leads. However, most of the MI detection and localization techniques which are available in the literature to date are based on either all the 12 conventional ECG leads, or subsets thereof. A few single-lead ECG-based techniques are also there, but their accuracies are not satisfactory. On the contrary, this article demonstrates a machine learning model that classifies MI from a single ECG beat of any of the 15 ECG-leads, including the 12 conventional leads and three vectorcardiogram (VCG)-leads, as available in the publicly accessible Physikalisch-Technische Bundesanstalt (PTB) Diagnostic ECG Database. In this proposed technique, first, the R-peaks are detected, and the arrhythmic beats are identified and excluded using a Ramanujan filter bank-based periodicity estimation technique. Next, a few hand-crafted features are extracted from the detected ECG beats and a set of important features are identified. Finally, Extra Trees classifier-based machine learning models with optimized hyperparameters, obtained using the particle swarm optimization (PSO) technique, are developed utilizing these hand-crafted features for the detection and localization of MI. High $F1$ -score and Matthew’s correlation coefficient (MCC) corroborate the reliability of the proposed algorithm in both intra- and inter-patient paradigms."
+    },
+    {
+      "id": 2968665660,
+      "title": "Particle Swarm Optimization and Differential Evolution Methods Hybridized with Pattern Search for Solving Optimization Problems",
+      "doi": "10.21528/CBIC2017-121",
+      "authors": {
+        "total": 3,
+        "data": [
+          {
+            "display_name": "Viviane J. Galvão",
+            "id": 2698728887,
+            "slug": "viviane-j-galvao",
+            "unique_id": "2y75nwqqp7",
+            "full_slug": "viviane-j-galvao-2y75nwqqp7"
+          },
+          {
+            "display_name": "Helio J. C. Barbosa",
+            "id": 2303064056,
+            "slug": "helio-j-c-barbosa",
+            "unique_id": "2qyhimyofp",
+            "full_slug": "helio-j-c-barbosa-2qyhimyofp"
+          },
+          {
+            "display_name": "Heder S. Bernardino",
+            "id": 2333631188,
+            "slug": "heder-s-bernardino",
+            "unique_id": "rfyrb3oait",
+            "full_slug": "heder-s-bernardino-rfyrb3oait"
+          }
+        ]
+      },
+      "abstract": "Derivative-free methods are being explored recently due to the increased complexity of the models used in the optimization problems, and the impossibility/inconvenience of using derivatives in several situations. However, those methods show some limitations due to their low convergence rate, and when the problem is high-dimensional. Metaheuristics are another commonly adopted type of search technique. Despite their robustness, metaheuristics require a large number of objective function evaluations to find an accurate solution. The combination of derivative-free optimization methods with population-based metaheuristics is analyzed here. Specifically, Particle Swarm Optimization and Differential Evolution are hybridized with Pattern Search technique. Also, an improvement of the conventional pattern search is proposed. Finally, computational experiments are performed to comparatively analyze the hybrid methods and the proposed pattern search."
+    },
+    {
+      "id": 4051564037,
+      "title": "PSO-Pelican Arrhythmia Optimize: Revolutionizing Arrhythmia Detection via Automated Deep Learning Parameter Tuning",
+      "doi": "10.18280/ts.410619",
+      "authors": {
+        "total": 4,
+        "data": [
+          {
+            "display_name": "Jayanthi",
+            "full_slug": null
+          },
+          {
+            "display_name": "Prasanna Devi",
+            "full_slug": null
+          },
+          {
+            "display_name": "Mohammed Zakariah",
+            "full_slug": null
+          },
+          {
+            "display_name": "Abdulaziz S. Almazyad",
+            "full_slug": null
+          }
+        ]
+      },
+      "abstract": "ABSTRACT"
+    },
+    {
+      "id": 2601995554,
+      "title": "Prediction of heart abnormalities using Particle Swarm Optimization in Radial Basis Function Neural network",
+      "doi": "10.1109/ICACDOT.2016.7877696",
+      "authors": {
+        "total": 2,
+        "data": [
+          {
+            "display_name": "Jairam P. Kelwade",
+            "id": 2975866683,
+            "slug": "jairam-p-kelwade",
+            "unique_id": "4hg1gzn83n",
+            "full_slug": "jairam-p-kelwade-4hg1gzn83n",
+            "affiliation_full_slug": "rashtrasant-tukadoji-maharaj-nagpur-university-1pvfk7uc"
+          },
+          {
+            "display_name": "Suresh S. Salankar",
+            "id": 2525644273,
+            "slug": "suresh-s-salankar",
+            "unique_id": "28vv3kyyil",
+            "full_slug": "suresh-s-salankar-28vv3kyyil",
+            "affiliation_full_slug": "rashtrasant-tukadoji-maharaj-nagpur-university-1pvfk7uc"
+          }
+        ]
+      },
+      "abstract": "Early detection and prediction of fatal heart diseases can be useful for medical diagnosis and rehabilitation. In this study, a hybridized Particle Swarm Optimization (PSO) and Radial Basis Function Neural network (RBFN) model has been proposed to improve cardiac arrhythmia prediction accuracy. The performance of RBFN is very sensitive to parameter such as spread. In RBFN training process, the spread is optimized using PSO. In the proposed method a set of linear and non-linear features are extracted from the RR interval time series datasets, which are derived from the MIT-BIH arrhythmia database. Experiments are carried out on the heart rate (RR Interval) time series to predict the eight types of cardiac signals that contain normal and abnormal rhythms. The obtained results suggest that PSO-RBFN model may be an efficient tool to achieve enhancements in terms of prediction accuracy for diagnosis of cardiac disorders. The hybrid PSO-RBFN model yielded an overall prediction accuracy of 96.3%."
+    },
+    {
+      "id": 4060914716,
+      "title": "Features Selection for Cardiac Arrhythmia Diagnosis Using Multiple Objective Binary Particle Swarm Optimization",
+      "doi": "10.52547/jsdp.18.2.163",
+      "authors": {
+        "total": 2,
+        "data": [
+          {
+            "display_name": "Mahsa Vaghefi",
+            "full_slug": null
+          },
+          {
+            "display_name": "Fatemeh Jamshidi",
+            "full_slug": null
+          }
+        ]
+      },
+      "abstract": "Features selection for cardiac arrhythmia diagnosis using multiple objective binary particle swarm optimization"
+    },
+    {
+      "id": 4003986088,
+      "title": "Convolutional neural network optimized by differential evolution for electrocardiogram classification",
+      "doi": "10.1007/s11042-023-15407-9",
+      "authors": {
+        "total": 4,
+        "data": [
+          {
+            "display_name": "Shir Li Wang",
+            "id": 2195164637,
+            "slug": "shir-li-wang",
+            "unique_id": "3h1bu5yk2v",
+            "full_slug": "shir-li-wang-3h1bu5yk2v"
+          },
+          {
+            "display_name": "Xiu Zhi Qi",
+            "id": 4003405779,
+            "slug": "xiu-zhi-qi",
+            "unique_id": "2dz50j73",
+            "full_slug": "xiu-zhi-qi-2dz50j73"
+          },
+          {
+            "display_name": "Theam Foo Ng",
+            "id": 2146599094,
+            "slug": "theam-foo-ng",
+            "unique_id": "1qrczb87fl",
+            "full_slug": "theam-foo-ng-1qrczb87fl"
+          },
+          {
+            "display_name": "Haidi Ibrahim",
+            "id": 2235455066,
+            "slug": "haidi-ibrahim",
+            "unique_id": "3pf04q8lhg",
+            "full_slug": "haidi-ibrahim-3pf04q8lhg"
+          }
+        ]
+      },
+      "abstract": "The Coronavirus disease 2019, or COVID-19, has shifted the medical paradigm from face-to-face to telehealth. Telehealth has become a vital resource to contain the virus spread and ensure the continued care of patients. In terms of preventing cardiovascular diseases, automating electrocardiogram (ECG) classification is a promising telehealth intervention. The healthcare service ensures that patient care is appropriate, comfortable, and accessible. Convolutional neural networks (CNNs) have demonstrated promising results in ECG categorization, which require high accuracy and short training time to ensure healthcare quality. This study proposes a one-dimensional-CNN (1D-CNN) arrhythmia classification based on the differential evolution (DE) algorithm to optimize the accuracy of ECG classification and training time. The performance of 1D-CNNs of different activation functions are optimized based on the standard DE algorithm. Finally, based on MIT-BIH and SCDH arrhythmia databases, the performances of optimized and unoptimized 1D-CNN are compared and analysed. Results show that the 1D-CNN optimized by the DE has higher accuracy in heartbeats classification. The optimized 1D-CNN improves from 97.6% to 99.5% on MIT-BIH and from 80.2% to 88.5% on SCDH. Therefore, the optimized 1D-CNN shows improvements of 1.9% and 8.3% in the two datasets, respectively. In addition, compared with the unoptimized 1D-CNN based on the same parameter settings, the optimized 1D-CNN has less training time. Under the conditions of ReLU function and 10 epochs, the training takes 9.22 s on MIT-BIH and 10.35 s on SCDH, reducing training time by 67.2% and 64.2%, respectively. "
+    },
+    {
+      "id": 54330916,
+      "title": "Evolutionary computation approach to ecg signal classification",
+      "doi": null,
+      "authors": {
+        "total": 2,
+        "data": [
+          {
+            "display_name": "Farid Melgani",
+            "id": 104185088,
+            "slug": "farid-melgani",
+            "unique_id": "1zr0n506zw",
+            "full_slug": "farid-melgani-1zr0n506zw",
+            "affiliation_full_slug": "university-of-trento-26z50udz"
+          },
+          {
+            "display_name": "Yakoub Bazi",
+            "id": 63495556,
+            "slug": "yakoub-bazi",
+            "unique_id": "2fhb8flwkf",
+            "full_slug": "yakoub-bazi-2fhb8flwkf",
+            "affiliation_full_slug": "king-saud-university-g4zq24w0"
+          }
+        ]
+      },
+      "abstract": "In this paper, we propose a novel classification system for ECG signals based on particle swarm optimization (PSO). The main objective of this system is to optimize the performance of the support vector machine (SVM) classifier in terms of accuracy by automatically: i) searching for the best subset of features where to carry out the classification task; and ii) solving the SVM model selection issue. Experiments conducted on the basis of ECG data from the MIT-BIH arrhythmia database to classify five kinds of abnormal waveforms and normal beats confirm the effectiveness of the proposed PSO-SVM classification system."
+    },
+    {
+      "id": 2751547580,
+      "title": "Inter-Patient ECG Heartbeat Classification with Temporal VCG Optimized by PSO.",
+      "doi": "10.1038/S41598-017-09837-3",
+      "authors": {
+        "total": 4,
+        "data": [
+          {
+            "display_name": "Gabriel Carvalho Garcia",
+            "id": 2621059070,
+            "slug": "gabriel-carvalho-garcia",
+            "unique_id": "1x8l3q2etj",
+            "full_slug": "gabriel-carvalho-garcia-1x8l3q2etj"
+          },
+          {
+            "display_name": "Gladston Moreira",
+            "id": 2100062019,
+            "slug": "gladston-moreira",
+            "unique_id": "3pbzgqbrmx",
+            "full_slug": "gladston-moreira-3pbzgqbrmx",
+            "affiliation_full_slug": "universidade-federal-de-ouro-preto-2h97j8rt"
+          },
+          {
+            "display_name": "David Menotti",
+            "id": 128194971,
+            "slug": "david-menotti",
+            "unique_id": "4ylekrfqw0",
+            "full_slug": "david-menotti-4ylekrfqw0",
+            "affiliation_full_slug": "federal-university-of-parana-30qvktdr"
+          },
+          {
+            "display_name": "Eduardo Luz",
+            "id": 1978435544,
+            "slug": "eduardo-luz",
+            "unique_id": "2a9cstzx8h",
+            "full_slug": "eduardo-luz-2a9cstzx8h",
+            "affiliation_full_slug": "universidade-federal-de-ouro-preto-2h97j8rt"
+          }
+        ]
+      },
+      "abstract": "Classifying arrhythmias can be a tough task for a human being and automating this task is highly desirable. Nevertheless fully automatic arrhythmia classification through Electrocardiogram (ECG) signals is a challenging task when the inter-patient paradigm is considered. For the inter-patient paradigm, classifiers are evaluated on signals of unknown subjects, resembling the real world scenario. In this work, we explore a novel ECG representation based on vectorcardiogram (VCG), called temporal vectorcardiogram (TVCG), along with a complex network for feature extraction. We also fine-tune the SVM classifier and perform feature selection with a particle swarm optimization (PSO) algorithm. Results for the inter-patient paradigm show that the proposed method achieves the results comparable to state-of-the-art in MIT-BIH database (53% of Positive predictive (+P) for the Supraventricular ectopic beat (S) class and 87.3% of Sensitivity (Se) for the Ventricular ectopic beat (V) class) that TVCG is a richer representation of the heartbeat and that it could be useful for problems involving the cardiac signal and pattern recognition."
+    },
+    {
+      "id": 4063336621,
+      "title": "Cardiac Arrhythmia Classification Using Knn and Naive Bayes Classifiers Optimized with Differential Evolution (de) and Particle Swarm Optimization (Pso)",
+      "doi": "10.3233/978-1-61499-286-8-36",
+      "authors": {
+        "total": 5,
+        "data": [
+          {
+            "display_name": "Christian Padilla-Navarro",
+            "full_slug": null
+          },
+          {
+            "display_name": "Rosario Baltazar-Flores",
+            "full_slug": null
+          },
+          {
+            "display_name": "David Cuesta-Frau",
+            "full_slug": null
+          },
+          {
+            "display_name": "Arnulfo Alanis-Garza",
+            "full_slug": null
+          },
+          {
+            "display_name": "Victor Zamudio-Rodriguez",
+            "full_slug": null
+          }
+        ]
+      },
+      "abstract": "In the present investigation we are looking for improve the features classification of a cardiac arrhythmias database using metaheuristics (Differential Evolution and Particle Swarm Optimization) and classifiers (KNN and Naive Bayes), with the purpose of select the main features and increase the percentage of classification. The classification percentage in some cases increased until 100% and the number of features was significantly reduced."
+    }
+  ],
+  "limits": "Ranked discovery only. Not a systematic hit count; verify primary methods and distinguish search cost from selected-model training time."
+}

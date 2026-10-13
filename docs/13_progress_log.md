@@ -2,6 +2,40 @@
 
 Dated record of what was done, what was found, and what changed. Newest entries first. Numbers here come from local development runs unless stated otherwise. They are **not** confirmatory results and must not feed T_ref or any frozen value (those come from the Colab GPU, doc 06).
 
+## 2026-10-13 — Assessor decision phase implemented; actual task pilots
+
+* Preserved the post-pilot v1.1 source in baseline commit `feff26a`; revisions on
+  `codex/decision-pilot`. G2 and the original full matrix are held.
+* Recomputed the immutable pilot-export audit: 81/81 file hashes match; 9/10 sweep runs
+  confirmed a stop. Original selection was tau=0.001; retaining 0.0005 used a post-pilot
+  tie amendment. Old elapsed values were clamped, so exact cap compliance is unverified.
+* Implemented six matched allocation/stopping arms, common improvement-veto confirmation,
+  native DEHB initialization, actual deadline/overshoot accounting, separate physical versus
+  charged time, late-result rejection and a guard against premature confirmatory execution.
+  Completed 60 synthetic matched-control jobs. These establish execution, not superiority.
+* Registered form/rhythm development headroom plan `d3e8f18d5470` before training:
+  24 LHS configurations + reference per task; selected settings confirmed with five fresh seeds.
+  Training/validation folds 1-6/7 only. New task arrays use training-derived label vocabularies.
+* Form preparation: 6,231 records, 15 labels, no train/validation patient overlap. Form
+  completed: reference mean 0.89919; fixed winner 0.89449; gain -0.00470, conditional CI95
+  [-0.01294, 0.00266]; top-gap/noise 2.34; registered verdict BORDERLINE. Other repeated
+  settings perform better; they are exploratory and do not replace the registered winner.
+* Rhythm: 14,665 records, 7 labels, no patient overlap. Completed: reference mean 0.93998;
+  fixed winner 0.96166; gain +0.02168, conditional CI95 [+0.01144, +0.03225]; top-gap/noise
+  6.36; registered verdict GO. Recommend superclass + rhythm for the G4 development checks.
+  Both tasks completed 115 training evaluations (50 screening, 65 confirmation); all were valid.
+* Prepared the G4 drift and paired development precision workflow (search 1-4/5, refit 1-5/6,
+  assess 7), matched real-data smoke, default anchors and cost/precision diagnostics. A local
+  drift invocation correctly refused the RTX 3050; no G4 gate is claimed complete.
+* Targeted SciSpace/Consensus discovery and primary-source checks found SHCHO cooperative
+  deep-CNN HPO and prior ECG DE/default comparisons. The researcher requested accepting the
+  supplied SLR figures and prioritizing experiments; further review retrieval is outside scope.
+* Verification: full suite **71 tests pass**, including GPU tests, after the pilot completed.
+  All 57 Python sources parsed. G4 notebook code-cell syntax, source bytes and ZIP hash verified.
+  Formal statement, fixed-winner outcomes, all-setting figure and hashed evidence: doc 21.
+  Next notebook defaults to rhythm with development calibration/precision enabled; G4 is
+  required. G2 stays held until those results and the final inventory/analysis plan are reviewed.
+
 ## 2026-10-13 — B + C adopted; Protocol v1.1 for assessment
 
 * **Researcher chose B + C** (D43, D44):

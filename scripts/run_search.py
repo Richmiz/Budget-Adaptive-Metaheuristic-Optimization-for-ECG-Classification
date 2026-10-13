@@ -44,6 +44,8 @@ def main() -> None:
         raise SystemExit("--t-ref is only allowed with --synthetic; freeze T_ref in configs/base.yaml")
     cfg = load_config(args.experiment, overrides)
     exp = cfg["experiment"]
+    if not args.synthetic and not args.list and exp["partition"] != "pilot" and frozen_status() != "match":
+        raise SystemExit("confirmatory searches require the approved, frozen protocol; decision phase is pending")
     out_root = Path(args.out_root or ("runs_synthetic" if args.synthetic else "runs"))
     seeds = cfg["seeds"]["search"]
 

@@ -1,0 +1,19 @@
+id,title,year,primary_url,inspection,role
+CBCC,"Smart Use of Computational Resources Based on Contribution for Cooperative Co-Evolutionary Algorithms",2011,https://research.birmingham.ac.uk/en/publications/smart-use-of-computational-resources-based-on-contribution-for-co/,authors_university_abstract,variable_group_allocation
+SCC,"Sustainable Cooperative Coevolution with a Multi-Armed Bandit",2013,https://arxiv.org/abs/1304.3138,abstract,bandit_group_allocation
+BBCC,"Bandit-based cooperative coevolution for tackling contribution imbalance in large-scale optimization problems",2019,https://eprints.whiterose.ac.uk/156297/1/bbcc_paper.pdf,selected_method_sections,closest_component_attribution_precedent
+ECCRA,"Cooperative coevolutionary algorithm with resource allocation strategies to minimize unnecessary computations",2021,https://doi.org/10.1016/j.asoc.2021.108013,publisher_abstract,resource_allocation_and_pruning
+HABO,"HyperArm Bandit Optimization",2025,https://arxiv.org/html/2503.10282v1,sections_23_and_26,individual_hyperparameter_superarms_preprint
+TERM,"Automatic Termination for Hyperparameter Optimization",2022,https://proceedings.mlr.press/v188/makarova22a.html,proceedings_abstract,validation_estimation_error_stopping
+CARBS,"Tune As You Scale: Hyperparameter Optimization For Compute Efficient Training",2023,https://arxiv.org/abs/2306.08055,abstract_and_official_code,cost_performance_pareto_search
+PTBXL,"Deep Learning for ECG Analysis: Benchmarks and Insights from PTB-XL",2021,https://github.com/helme/ecg_ptbxl_benchmarking,official_mapping_and_protocol_code,task_mapping
+BOHB,"BOHB: Robust and Efficient Hyperparameter Optimization at Scale",2018,https://proceedings.mlr.press/v80/falkner18a.html,primary_record,external_baseline
+DEHB,"DEHB: Evolutionary Hyperband for Scalable Robust and Efficient Hyperparameter Optimization",2021,https://arxiv.org/abs/2105.09821,primary_record_and_installed_api,external_baseline
+SHCHO,"A Surrogate-Assisted Highly Cooperative Coevolutionary Algorithm for Hyperparameter Optimization in Deep Convolutional Neural Network",2023,https://arxiv.org/pdf/2302.12963,algorithms_2_3_and_section_4,cooperative_CNN_HPO_and_GPU_days_precedent
+CRS,"Agent-based Collaborative Random Search for Hyper-parameter Tuning and Global Function Optimization",2023,https://arxiv.org/abs/2303.03394,author_abstract,collaborative_HPO
+HCHT,"Hierarchical Collaborative Hyper-parameter Tuning",2022,https://arxiv.org/abs/2205.05272,author_abstract,collaborative_HPO
+CFO,"Frugal Optimization for Cost-related Hyperparameters",2021,https://ojs.aaai.org/index.php/AAAI/article/view/17239,proceedings_abstract,cost_frugal_randomized_direct_search
+ECGBO,"Towards Automated Optimization of Residual Convolutional Neural Networks for Electrocardiogram Classification",2023,https://link.springer.com/article/10.1007/s12559-022-10103-6,publisher_abstract_full_methods_pending_online_2023_issue_2024,close_ECG_BO_precedent
+SEEDHPO,"Quantity vs. Quality: On Hyperparameter Optimization for Deep Reinforcement Learning",2020,https://arxiv.org/abs/2007.14604,author_abstract,seed_noise_HPO_in_RL_not_ECG
+ECGDE,"Convolutional neural network optimized by differential evolution for electrocardiogram classification",2023,https://link.springer.com/article/10.1007/s11042-023-15407-9,publisher_abstract_full_methods_pending,ECG_tuned_untuned_accuracy_and_model_training_time
+ECGPSO,"PSO-Pelican Arrhythmia Optimize: Revolutionizing Arrhythmia Detection via Automated Deep Learning Parameter Tuning",2024,https://iieta.org/journals/ts/paper/10.18280/ts.410619,publisher_methods_and_table_6,ECG_training_time_and_ambiguous_search_cost_accounting

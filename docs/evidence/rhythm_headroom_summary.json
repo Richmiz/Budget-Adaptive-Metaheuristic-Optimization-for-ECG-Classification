@@ -1,0 +1,175 @@
+{
+  "task": "rhythm",
+  "plan_hash": "d3e8f18d5470",
+  "hardware": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.22621-SP0",
+    "host": "LMC-SERVER",
+    "colab": false,
+    "torch": "2.14.1+cu126",
+    "cuda": "12.6",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 3050",
+    "gpu_memory_gb": 8.0
+  },
+  "data_audit": {
+    "task": "rhythm",
+    "classes": [
+      "AFIB",
+      "PACE",
+      "SARRH",
+      "SBRAD",
+      "SR",
+      "STACH",
+      "SVARR"
+    ],
+    "min_train_count_exclusive": 50,
+    "folds": {
+      "train": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "val": [
+        7
+      ]
+    },
+    "train_positive_counts": {
+      "AFIB": 907,
+      "PACE": 178,
+      "SARRH": 463,
+      "SBRAD": 381,
+      "SR": 10056,
+      "STACH": 495,
+      "SVARR": 96
+    },
+    "val_positive_counts": {
+      "AFIB": 152,
+      "PACE": 29,
+      "SARRH": 78,
+      "SBRAD": 64,
+      "SR": 1676,
+      "STACH": 83,
+      "SVARR": 16
+    },
+    "patient_fold_audit": {
+      "n_patients": 12718,
+      "patients_in_multiple_folds": 0,
+      "examples": {}
+    },
+    "partition": {
+      "n_records": {
+        "train": 12568,
+        "val": 2097
+      },
+      "n_patients": {
+        "train": 10902,
+        "val": 1816
+      },
+      "patient_overlap": {
+        "train&val": 0
+      },
+      "ok": true
+    },
+    "source_ecg_ids_hash": "efcfe264f47e",
+    "excluded_folds": [
+      8,
+      9,
+      10
+    ],
+    "vocabulary_rule": "SCP task flag; >50 positives on train folds only; no likelihood threshold",
+    "raw_metadata_sha256": {
+      "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+      "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+    },
+    "spec_hash": "8b55f747dead",
+    "n_records": 14665,
+    "n_patients": 12718,
+    "array_sha256": {
+      "signals_100hz.npy": "b086001d4af6524540dcecd33abf8dee36810c0df72dea72396ce8ecd2ab361a",
+      "labels.npy": "cd41038df68b26d08e495dfa470f19df3172d790f3ed57e0d24f57134ce76236"
+    }
+  },
+  "selection": {
+    "winner": "lhs13",
+    "top_three": [
+      "lhs13",
+      "lhs22",
+      "lhs03"
+    ],
+    "q75": [
+      "reference",
+      "lhs23"
+    ],
+    "median": "lhs20",
+    "repeat": [
+      "lhs13",
+      "lhs22",
+      "lhs03",
+      "reference",
+      "lhs23",
+      "lhs20"
+    ]
+  },
+  "confirmation_seeds": [
+    2026101401,
+    2026101402,
+    2026101403,
+    2026101404,
+    2026101405
+  ],
+  "screening_separate_from_confirmation": true,
+  "summary": {
+    "winner_mean": 0.9616609343306681,
+    "reference_mean": 0.9399800102333457,
+    "q75_mean": 0.9315863244536736,
+    "confirmed_gain_over_reference": 0.02168092409732243,
+    "confirmed_top_gap": 0.030074609876994597,
+    "pooled_seed_sd": 0.004725503778399312,
+    "gap_over_noise": 6.3643182372360485,
+    "gain_hierarchical_ci95": [
+      0.011444008186340504,
+      0.03224728537935143
+    ],
+    "invalid_bootstrap_replicates": 0,
+    "median_evaluation_seconds": 45.844288200023584,
+    "total_training_seconds": 3689.5404097997234,
+    "verdict": "go"
+  },
+  "per_setting": {
+    "lhs13": {
+      "mean": 0.9616609343306681,
+      "sd": 0.001545919192442829
+    },
+    "lhs22": {
+      "mean": 0.9637979939978767,
+      "sd": 0.004085113175788805
+    },
+    "lhs03": {
+      "mean": 0.9609182761998518,
+      "sd": 0.0034676572525368446
+    },
+    "reference": {
+      "mean": 0.9399800102333457,
+      "sd": 0.006484262577482631
+    },
+    "lhs23": {
+      "mean": 0.9231926386740014,
+      "sd": 0.006936458224572099
+    },
+    "lhs20": {
+      "mean": 0.9253616809920941,
+      "sd": 0.003566446305972325
+    }
+  },
+  "limits": [
+    "one development validation fold",
+    "selection from 24 LHS settings",
+    "same dataset across tasks",
+    "local timing is not confirmatory G4 calibration",
+    "planning thresholds are not non-inferiority margins"
+  ]
+}

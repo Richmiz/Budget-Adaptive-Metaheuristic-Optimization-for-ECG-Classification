@@ -1,0 +1,204 @@
+{
+  "task": "form",
+  "plan_hash": "d3e8f18d5470",
+  "hardware": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.22621-SP0",
+    "host": "LMC-SERVER",
+    "colab": false,
+    "torch": "2.14.1+cu126",
+    "cuda": "12.6",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 3050",
+    "gpu_memory_gb": 8.0
+  },
+  "data_audit": {
+    "task": "form",
+    "classes": [
+      "ABQRS",
+      "DIG",
+      "INVT",
+      "LNGQT",
+      "LOWT",
+      "LPR",
+      "LVOLT",
+      "NDT",
+      "NST_",
+      "NT_",
+      "PAC",
+      "PVC",
+      "QWAVE",
+      "STD_",
+      "VCLVH"
+    ],
+    "min_train_count_exclusive": 50,
+    "folds": {
+      "train": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "val": [
+        7
+      ]
+    },
+    "train_positive_counts": {
+      "ABQRS": 2011,
+      "DIG": 109,
+      "INVT": 177,
+      "LNGQT": 71,
+      "LOWT": 263,
+      "LPR": 204,
+      "LVOLT": 109,
+      "NDT": 1096,
+      "NST_": 461,
+      "NT_": 254,
+      "PAC": 238,
+      "PVC": 685,
+      "QWAVE": 328,
+      "STD_": 605,
+      "VCLVH": 525
+    },
+    "val_positive_counts": {
+      "ABQRS": 335,
+      "DIG": 18,
+      "INVT": 29,
+      "LNGQT": 11,
+      "LOWT": 44,
+      "LPR": 34,
+      "LVOLT": 18,
+      "NDT": 182,
+      "NST_": 77,
+      "NT_": 43,
+      "PAC": 40,
+      "PVC": 115,
+      "QWAVE": 55,
+      "STD_": 101,
+      "VCLVH": 88
+    },
+    "patient_fold_audit": {
+      "n_patients": 5392,
+      "patients_in_multiple_folds": 0,
+      "examples": {}
+    },
+    "partition": {
+      "n_records": {
+        "train": 5341,
+        "val": 890
+      },
+      "n_patients": {
+        "train": 4613,
+        "val": 779
+      },
+      "patient_overlap": {
+        "train&val": 0
+      },
+      "ok": true
+    },
+    "source_ecg_ids_hash": "8ad93ad1b3a0",
+    "excluded_folds": [
+      8,
+      9,
+      10
+    ],
+    "vocabulary_rule": "SCP task flag; >50 positives on train folds only; no likelihood threshold",
+    "raw_metadata_sha256": {
+      "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+      "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+    },
+    "spec_hash": "88514f3cafdc",
+    "n_records": 6231,
+    "n_patients": 5392,
+    "array_sha256": {
+      "signals_100hz.npy": "bc149c7203b630083b94ecb983d0e1a59f3e6992b41a7a8a96cef4bd1a3e3d17",
+      "labels.npy": "f36fffae4cf17192bddd49c1fefc8324bad8c4a38cdf05b5a650e24ede9fd5aa"
+    }
+  },
+  "selection": {
+    "winner": "lhs08",
+    "top_three": [
+      "lhs08",
+      "lhs05",
+      "lhs04"
+    ],
+    "q75": [
+      "lhs13",
+      "lhs18"
+    ],
+    "median": "lhs14",
+    "repeat": [
+      "lhs08",
+      "lhs05",
+      "lhs04",
+      "lhs13",
+      "lhs18",
+      "lhs14",
+      "reference"
+    ]
+  },
+  "confirmation_seeds": [
+    2026101401,
+    2026101402,
+    2026101403,
+    2026101404,
+    2026101405
+  ],
+  "screening_separate_from_confirmation": true,
+  "summary": {
+    "winner_mean": 0.8944879935636451,
+    "reference_mean": 0.8991853857974383,
+    "q75_mean": 0.883036709902808,
+    "confirmed_gain_over_reference": -0.004697392233793396,
+    "confirmed_top_gap": 0.011451283660836985,
+    "pooled_seed_sd": 0.0048833527481409135,
+    "gap_over_noise": 2.3449634403733124,
+    "gain_hierarchical_ci95": [
+      -0.01293637956573196,
+      0.002663373672325296
+    ],
+    "invalid_bootstrap_replicates": 0,
+    "median_evaluation_seconds": 19.832406999950763,
+    "total_training_seconds": 1670.109863000107,
+    "verdict": "borderline"
+  },
+  "per_setting": {
+    "lhs08": {
+      "mean": 0.8944879935636451,
+      "sd": 0.007270366795103112
+    },
+    "lhs05": {
+      "mean": 0.9027095255759399,
+      "sd": 0.004141180500304392
+    },
+    "lhs04": {
+      "mean": 0.9013807146928571,
+      "sd": 0.002957147875087144
+    },
+    "lhs13": {
+      "mean": 0.8811538510326532,
+      "sd": 0.004998902595959437
+    },
+    "lhs18": {
+      "mean": 0.8849195687729627,
+      "sd": 0.005125915702380844
+    },
+    "lhs14": {
+      "mean": 0.8755784664073571,
+      "sd": 0.0013248040519025916
+    },
+    "reference": {
+      "mean": 0.8991853857974383,
+      "sd": 0.005929457048087478
+    }
+  },
+  "limits": [
+    "one development validation fold",
+    "selection from 24 LHS settings",
+    "same dataset across tasks",
+    "local timing is not confirmatory G4 calibration",
+    "planning thresholds are not non-inferiority margins"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "observed_difference": -0.004697392233793396,
+  "paired_seed_differences": [
+    -0.0025513095478063574,
+    -0.00015520039379168793,
+    -0.006137476553907284,
+    -0.0028205137221766208,
+    -0.01182246095128503
+  ],
+  "paired_seed_sd": 0.00451664415334704,
+  "hierarchical_ci95": [
+    -0.013275723445359214,
+    0.002904726864317593
+  ],
+  "patient_only_ci95": [
+    -0.009570694687827775,
+    -0.00031688952477105386
+  ],
+  "seed_only_ci95": [
+    -0.008831233791113747,
+    -0.0015928658862004897
+  ],
+  "invalid_hierarchical_replicates": 1,
+  "planning_projection": [
+    {
+      "n_seeds": 10,
+      "approx_one_sided_halfwidth": 0.0042520889650798435,
+      "probability_noninferiority_if_true_difference_zero": {
+        "0.002": 0.193,
+        "0.0025": 0.242,
+        "0.005": 0.606
+      }
+    },
+    {
+      "n_seeds": 20,
+      "approx_one_sided_halfwidth": 0.004026987158719659,
+      "probability_noninferiority_if_true_difference_zero": {
+        "0.002": 0.204,
+        "0.0025": 0.271,
+        "0.005": 0.664
+      }
+    },
+    {
+      "n_seeds": 30,
+      "approx_one_sided_halfwidth": 0.0041649803464959565,
+      "probability_noninferiority_if_true_difference_zero": {
+        "0.002": 0.19,
+        "0.0025": 0.26,
+        "0.005": 0.658
+      }
+    }
+  ],
+  "limits": [
+    "development assessment only, not fold-10 precision",
+    "few paired runs give an uncertain variance estimate",
+    "projection adds centered patient and seed errors and omits their interaction",
+    "bootstrap projection is a diagnostic, not validated confirmatory power",
+    "margin requires a separate practically acceptable-loss rationale"
+  ],
+  "contrast": "screening-selected setting minus reference; not P minus DEHB",
+  "selection_limit": "same development validation fold selected the winner; bootstrap is conditional"
+}

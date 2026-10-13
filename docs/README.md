@@ -1,6 +1,9 @@
 # Study documentation
 
-**Reviewers/assessors: start with [16_protocol_v1_1.md](16_protocol_v1_1.md)** (consolidated, post-pilot). Otherwise start with [00_overview.md](00_overview.md). Read in order 00 → 01 for planning, 02 → 07 for the protocol, and keep [08_decision_register.md](08_decision_register.md) open while working: it holds every open decision.
+**Current experiment result:** start with [21_decision_report.md](21_decision_report.md),
+[18_decision_phase.md](18_decision_phase.md) and
+[19_protocol_v1_2_draft.md](19_protocol_v1_2_draft.md). Protocol v1.1 (doc 16) is preserved as
+the original post-pilot design. Docs 00-12 describe that historical matrix until G2 fixes the revision.
 
 | Status | Docs |
 |---|---|

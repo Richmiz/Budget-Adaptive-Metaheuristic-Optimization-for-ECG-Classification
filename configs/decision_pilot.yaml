@@ -1,0 +1,18 @@
+# Written before the new task outcomes are observed. Development folds only.
+tasks: [form, rhythm]
+train_folds: [1, 2, 3, 4, 5, 6]
+validation_folds: [7]
+min_train_label_count: 50       # retain labels with strictly >50 training positives
+n_screen_configs: 24
+design_seed: 2026101301
+screen_seed: 2026101302
+confirmation_seeds: [2026101401, 2026101402, 2026101403, 2026101404, 2026101405]
+max_epochs: 20
+patience: 5
+bootstrap_replicates: 2000
+bootstrap_seed: 2026101303
+# Planning heuristics, not a non-inferiority margin or a statistical guarantee.
+gate:
+  minimum_gain_over_reference: 0.002
+  go_gap_over_noise: 3.0
+  redesign_gap_over_noise: 1.5

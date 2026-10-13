@@ -81,7 +81,7 @@ After the freeze, changes are allowed only as logged amendments (bottom of this 
 | Search seeds | 1001–1010 | P5 | — |
 | Non-inferiority margin | 0.005 (provisional) | D30 | — |
 
-## Amendments after freeze
+## Development amendments (G2 freeze pending)
 
 | Date | ID | Change | Reason | Impact |
 |---|---|---|---|---|
@@ -89,3 +89,21 @@ After the freeze, changes are allowed only as logged amendments (bottom of this 
 | 2026-10-13 | D43, D44 | Added floor-sensitivity runs and a naive stopping baseline (30 runs at B_mid) | Pilot decision logs showed the stop time follows the 40% floor | +30 runs, ≤ 4,800 T_ref (≈ 6–13 h on G4) |
 | 2026-10-13 | P4 | τ kept at 5e-4 although the saved pre-specified selection chose 1e-3 | A tie threshold (< 5 budget points) was defined after observing the pilot; flagged by the assessor | Not pre-specified; disclose as an amendment |
 | — | — | — | — | — |
+
+## Assessor decision phase — 13 October 2026
+
+The researcher requested continuation of the assessor's recommended work. This authorizes
+development implementation and pilots; it does not constitute approval of a confirmatory
+v1.2 protocol. D42-D44 above record the earlier design decision; the following assessment now
+holds the full matrix while the evidence is gathered.
+
+| ID | Decision | Status / reason | Artifact |
+|---|---|---|---|
+| D45 | Preserve post-pilot v1.1 before revisions | Completed: baseline commit `feff26a`; old results retained | Git; pilot export audit |
+| D46 | Register form/rhythm headroom screen and fresh-seed confirmation before training | Completed 115 evaluations: rhythm GO, form BORDERLINE; folds 1-6/7 only, fixed winner and planning gates | docs 18, 21; `decision_pilot.yaml` |
+| D47 | Replace weak cross-engine patience attribution with matched allocation x stop-proposal controls | Implemented and synthetic-tested; common any-improvement confirmation is a declared change from legacy P | doc 18; `methods.yaml` |
+| D48 | Use DEHB native initialization as the external system comparator | Implemented; real-data fairness sensitivity remains development work | `dehb_native` |
+| D49 | Report actual time and deadline overshoot; reject late incumbent updates | Implemented after finding legacy clamping; old summaries cannot certify exact cap compliance | tracker and runner |
+| D50 | Do not approve NI margin from headroom or seed SD alone | Pending acceptable-loss rationale and paired system/patient precision; v1.2 draft emphasizes gain versus compute | doc 19; precision pilot |
+| D51 | Hold confirmatory execution and freeze during decision phase | Guards implemented; G4 drift, task calibration, precision, literature screening and final inventory pending | `decision_status.yaml` |
+| D52 | Reassess novelty with primary sources | Targeted verification completed; SHCHO is a close deep-CNN coevolution precedent. Systematic export/full-text screening pending | doc 20 |

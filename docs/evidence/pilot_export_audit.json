@@ -1,0 +1,78 @@
+{
+  "source": "runs\\colab\\pilot_2026-10-13",
+  "manifest_sha256": "d1b6ed796c500b30aa30b8ea675410596cfa22476db93f8bed775556fdf8ec13",
+  "bundle_sha256": "c4c8efd3c0456f69c497d249cb274ac14cb335d0cc86c792a9304b4607ae0ae6",
+  "verified_files": 81,
+  "mismatches": [],
+  "sweep_runs": 10,
+  "sweep_termination_counts": {
+    "budget": 1,
+    "utility_stop_confirmed": 9
+  },
+  "comparator_checks": [
+    {
+      "method": "bohb",
+      "reason": "budget",
+      "reported_elapsed_within_cap": true
+    },
+    {
+      "method": "de",
+      "reason": "budget",
+      "reported_elapsed_within_cap": true
+    },
+    {
+      "method": "dehb",
+      "reason": "budget",
+      "reported_elapsed_within_cap": true
+    },
+    {
+      "method": "hyperband",
+      "reason": "budget",
+      "reported_elapsed_within_cap": true
+    },
+    {
+      "method": "mu",
+      "reason": "budget_during_warmup",
+      "reported_elapsed_within_cap": true
+    },
+    {
+      "method": "random",
+      "reason": "budget",
+      "reported_elapsed_within_cap": true
+    },
+    {
+      "method": "tpe",
+      "reason": "budget",
+      "reported_elapsed_within_cap": true
+    }
+  ],
+  "original_export_selection": {
+    "tau": 0.001,
+    "kappa": 1.0,
+    "why": "lowest budget used among 5 setting(s) within 0.002 of best AUROC 0.9423"
+  },
+  "calibration": {
+    "t_ref_seconds": 9.793523718000074,
+    "t_ref_rule": "median single-fidelity evaluation duration, 16 LHS configs (D32)",
+    "reeval_tolerance": 0.003481593837982716,
+    "reeval_rule": "95th percentile |m_seed - m_first| (D21, recommended)",
+    "pooled_seed_sd": 0.0011588044640563585,
+    "p5_warmup_confirmation_s": 502.0482895968748,
+    "p5_b_low_s": 783.4818974400059,
+    "p5_fits_in_80pct_b_low": true,
+    "hardware": {
+      "python": "3.13.15",
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+      "host": "7b5aa0d7acdc",
+      "colab": true,
+      "torch": "2.11.0+cu130",
+      "cuda": "13.0",
+      "cudnn": 92700,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "gpu_memory_gb": 95.0
+    },
+    "dev": false
+  },
+  "timing_limit": "legacy runner clamped elapsed_s to cap; exact overshoot cannot be verified from these summaries",
+  "scope": "feasibility and development calibration only; not confirmatory evidence"
+}

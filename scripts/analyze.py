@@ -97,7 +97,9 @@ def primary(out_root: Path) -> None:
     ratio = geometric_mean_ratio(t_mu, t_dehb)
     result = {"contrast": "P (mu) - DEHB at B_mid, test macro AUROC", "noninferiority": ni,
               "two_sided_95": res.interval(0.95), "search_time_ratio": ratio,
-              "efficiency_claim_supported": bool(ni["noninferior"] and ratio["one_sided_upper_95"] < 1.0)}
+              "performance_and_time_criteria_met": bool(ni["noninferior"] and ratio["one_sided_upper_95"] < 1.0),
+              "efficiency_claim_supported": None,
+              "attribution_status": "not assessed by this legacy analysis; matched allocation/stopping contrasts required"}
     write_json(out_root / "analysis" / "primary.json", result)
     print(result)
 

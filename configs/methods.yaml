@@ -21,3 +21,12 @@ methods:
   mu_floor20:   {class: mu, min_budget_fraction: 0.2}   # P with a 20% minimum-time floor
   mu_floor60:   {class: mu, min_budget_fraction: 0.6}   # P with a 60% minimum-time floor
   de_patience:  {class: de_patience, patience_evals: 16, min_budget_fraction: 0.4}   # naive stopper
+
+  # Assessor revision: 2x2 allocation/proposal controls. Identical confirmation work.
+  adaptive_utility: {class: mu, rng_group: matched_block, confirmation_rule: improvement}
+  rr_utility: {class: mu, rng_group: matched_block, adaptive: false, confirmation_rule: improvement}
+  adaptive_patience: {class: mu, rng_group: matched_block, stop_rule: patience, confirmation_rule: improvement}
+  rr_patience: {class: mu, rng_group: matched_block, adaptive: false, stop_rule: patience, confirmation_rule: improvement}
+  adaptive_full: {class: mu, rng_group: matched_block, global_termination: false, confirmation_rule: improvement}
+  rr_full: {class: mu, rng_group: matched_block, adaptive: false, global_termination: false, confirmation_rule: improvement}
+  dehb_native: {class: dehb, shared_initial: false}

@@ -1,0 +1,5 @@
+# Draft inventory only: requires final task preparation, timing and G2 approval.
+name: frontier_draft
+partition: search
+methods: [random, de, dehb_native, adaptive_full, rr_full]
+budgets: [low, mid]

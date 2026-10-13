@@ -1,0 +1,9 @@
+{
+  "notebook": "notebooks/COLAB_G4_DECISION.ipynb",
+  "notebook_sha256": "703e7208098e7105f78acfdced0b3a76cbcc309eff8e12ad85eba753b3f31028",
+  "bundle_sha256": "21dce7d41f89b606533164700606403d3b2f3a078308d2138c1aea5ff448bfaa",
+  "n_source_files": 87,
+  "n_code_cells_parsed": 9,
+  "source_bytes_match": true,
+  "limits": "Static packaging verification; G4 execution pending"
+}

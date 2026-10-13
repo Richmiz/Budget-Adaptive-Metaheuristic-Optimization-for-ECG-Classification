@@ -68,9 +68,10 @@ class DEHBAdapter(SearchMethod):
     name = "dehb"
     multi_fidelity = True
 
-    def __init__(self, eta: int = 2, output_dir: str | None = None):
+    def __init__(self, eta: int = 2, output_dir: str | None = None, shared_initial: bool = True):
         self.eta = eta
         self.output_dir = output_dir
+        self.shared_initial = shared_initial
 
     @staticmethod
     def configspace(space, seed: int):
@@ -100,7 +101,8 @@ class DEHBAdapter(SearchMethod):
         cs = self.configspace(ctx.space, seed)
         # The shared initial design is evaluated and charged first; DEHB cannot ingest it,
         # so it only contributes to the incumbent (asymmetry recorded in D10).
-        self.evaluate_initial(ctx)
+        if self.shared_initial:
+            self.evaluate_initial(ctx)
         out_dir = self.output_dir or (str(ctx.run_dir / "dehb") if ctx.run_dir else "dehb_output")
         dehb = DEHB(cs=cs, dimensions=len(ctx.space.params), min_fidelity=ctx.fidelities[0],
                     max_fidelity=ctx.max_fidelity, eta=self.eta, n_workers=1, output_path=out_dir, seed=seed,
