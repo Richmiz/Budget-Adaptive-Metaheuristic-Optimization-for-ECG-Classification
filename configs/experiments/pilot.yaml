@@ -1,0 +1,27 @@
+# Pilot calibration on policy-development partitions only (folds 1-6 train, fold 7 val).
+# See docs/06_pilot_calibration.md. Nothing here touches folds 8-10.
+name: pilot
+partition: pilot
+seeds: [9001, 9002, 9003]
+
+feasibility:            # stage P1: memory/runtime at domain corners
+  epochs: 2
+  corners:
+    - {width_multiplier: 1.5, blocks_per_group: 3, kernel_size: 15, dilation: 2, stem_stride: 1, batch_size: 128}
+    - {width_multiplier: 1.5, blocks_per_group: 3, kernel_size: 15, dilation: 2, stem_stride: 1, batch_size: 32}
+    - {width_multiplier: 0.5, blocks_per_group: 1, kernel_size: 5, dilation: 1, stem_stride: 2, batch_size: 128}
+
+t_ref:                  # stage P2: median single-fidelity evaluation duration
+  n_configs: 16
+  design_seed: 9100
+
+noise:                  # stage P3: seed-to-seed variation of search-validation AUROC
+  n_configs: 4
+  n_seeds: 5
+  design_seed: 9200
+
+controller_sweep:       # stage P4: tau and kappa on pilot partitions, budget = 160 T_ref
+  budget: mid
+  tau: [1.0e-4, 5.0e-4, 1.0e-3]
+  kappa: [0.5, 1.0, 2.0]
+  seeds: [9001, 9002]

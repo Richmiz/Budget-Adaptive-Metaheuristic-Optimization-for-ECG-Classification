@@ -1,0 +1,27 @@
+# Data (PTB-XL is downloaded, never committed)
+data/raw/
+data/processed/
+
+# Experiment outputs (live on Google Drive for Colab runs)
+runs/
+runs_synthetic/
+*.pt
+*.npz
+dehb/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+~$*.docx
+

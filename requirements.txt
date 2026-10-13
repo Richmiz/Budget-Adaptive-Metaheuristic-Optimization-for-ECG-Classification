@@ -1,0 +1,12 @@
+# Everything except PyTorch (install the CUDA build of torch separately; Colab ships with one).
+# After the first working install, freeze exact versions into requirements-lock.txt (D27).
+numpy>=1.26
+pyyaml>=6.0
+pandas>=2.1
+wfdb>=4.1
+scipy>=1.11
+matplotlib>=3.8
+optuna>=4.0
+dehb
+ConfigSpace
+pytest>=8

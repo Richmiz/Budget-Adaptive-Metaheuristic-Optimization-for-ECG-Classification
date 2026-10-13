@@ -1,0 +1,27 @@
+# Marginal-utility controller (protocol §3.3-3.4; docs/04_controller_specification.md).
+controller:
+  blocks: [A, B, C, J]
+  trials_per_round: 2
+  warmup_rounds_per_block: 3
+  window: 8                  # per-block rolling window of rounds (D15)
+  kappa: 1.0                 # sensitivity: {0.5, 1, 2} on pilot data
+  sigma_floor: 1.0e-4        # AUROC per normalized cost unit
+  tau: 5.0e-4                # FREEZE after pilot: candidates {1e-4, 5e-4, 1e-3}
+  hysteresis_factor: 0.1     # h = 0.1 * tau
+  probe_gap: 8
+  stop_consecutive: 3
+  min_rounds_per_block: 3
+  min_budget_fraction: 0.4
+  reeval_seeds: 2
+  reeval_tolerance: 0.0035   # pilot P3 on G4, 13 Oct 2026 (q95 rule, D21); FREEZE at G2
+  adaptive: true
+  global_termination: true
+  cost_normalization: true
+  mandatory_probes: true
+  confirmation: true
+
+# DE engine shared by P, its ablations and standard DE (protocol §3.2.1).
+de:
+  pop_size: 8
+  F: 0.5
+  CR: 0.7

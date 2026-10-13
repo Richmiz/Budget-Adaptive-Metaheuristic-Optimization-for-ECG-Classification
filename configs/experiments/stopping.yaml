@@ -1,0 +1,8 @@
+# Stop-rule checks added after the pilot (13 Oct 2026, D43-D44): 3 methods x 10 seeds = 30 runs at B_mid.
+#   mu_floor20 / mu_floor60: how much of P's time saving comes from the minimum-time floor (P itself = 40%)
+#   de_patience: does P beat a naive "stop after 16 evaluations without improvement" rule with the same floor?
+# The complete method P reuses its main-benchmark runs at B_mid.
+name: stopping
+partition: search
+methods: [mu_floor20, mu_floor60, de_patience]
+budgets: [mid]

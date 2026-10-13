@@ -1,0 +1,23 @@
+# Comparators (protocol §3.6; docs/05_comparators.md) and controller ablations (§3.6.1).
+methods:
+  random:     {class: random}
+  tpe:        {class: tpe, n_startup_trials: 8, multivariate: false}
+  de:         {class: standard_de}
+  hyperband:  {class: hyperband, eta: 2}
+  bohb:       {class: bohb, eta: 2, top_n_percent: 15, num_samples: 64, random_fraction: 0.3333333,
+               bandwidth_factor: 3.0, min_bandwidth: 0.001}
+  dehb:       {class: dehb, eta: 2}
+  mu:         {class: mu}                                   # proposed method P
+
+  # Ablations, run at B_mid only
+  mu_nostop:    {class: mu, global_termination: false}
+  rr_nostop:    {class: mu, adaptive: false, global_termination: false}
+  mu_nocost:    {class: mu, cost_normalization: false}
+  mu_noprobe:   {class: mu, mandatory_probes: false}
+  mu_nojoint:   {class: mu, blocks: [A, B, C]}
+  mu_noconfirm: {class: mu, confirmation: false}
+
+  # Stop-rule checks (D43, D44), run at B_mid only
+  mu_floor20:   {class: mu, min_budget_fraction: 0.2}   # P with a 20% minimum-time floor
+  mu_floor60:   {class: mu, min_budget_fraction: 0.6}   # P with a 60% minimum-time floor
+  de_patience:  {class: de_patience, patience_evals: 16, min_budget_fraction: 0.4}   # naive stopper

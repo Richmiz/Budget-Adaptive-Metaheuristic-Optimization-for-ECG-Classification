@@ -1,0 +1,25 @@
+# Provisional search domain (protocol §3.2). FREEZE after the pilot's feasibility checks (stage P1).
+search_space:
+  joint_block: J
+  parameters:
+    - {name: learning_rate,    block: A, kind: log,    low: 1.0e-5, high: 3.0e-3}
+    - {name: batch_size,       block: A, kind: choice, choices: [32, 64, 128]}
+    - {name: weight_decay,     block: B, kind: log,    low: 1.0e-6, high: 1.0e-2}
+    - {name: dropout,          block: B, kind: float,  low: 0.0,    high: 0.5}
+    - {name: width_multiplier, block: C, kind: choice, choices: [0.5, 1.0, 1.5]}
+    - {name: blocks_per_group, block: C, kind: choice, choices: [1, 2, 3]}
+    - {name: kernel_size,      block: C, kind: choice, choices: [5, 9, 15]}
+    - {name: dilation,         block: C, kind: choice, choices: [1, 2]}
+    - {name: stem_stride,      block: C, kind: choice, choices: [1, 2]}
+
+  # Untuned reference CNN (protocol §3.6 "Reference"). D05 (needs your call).
+  reference_config:
+    learning_rate: 1.0e-3
+    batch_size: 64
+    weight_decay: 1.0e-2
+    dropout: 0.2
+    width_multiplier: 1.0
+    blocks_per_group: 2
+    kernel_size: 9
+    dilation: 1
+    stem_stride: 2

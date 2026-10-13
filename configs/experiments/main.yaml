@@ -1,0 +1,5 @@
+# Main matched-budget benchmark: 7 methods x 3 budgets x 10 seeds = 210 runs (protocol §3.5.2).
+name: main
+partition: search
+methods: [random, tpe, de, hyperband, bohb, dehb, mu]
+budgets: [low, mid, high]

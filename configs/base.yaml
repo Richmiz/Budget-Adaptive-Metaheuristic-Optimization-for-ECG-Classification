@@ -1,0 +1,56 @@
+# Base configuration. Values marked FREEZE are set once after the pilot (docs/06_pilot_calibration.md)
+# and then locked in protocol/frozen_protocol.yaml before confirmatory benchmarking.
+
+data:
+  raw_root: data/raw/ptb-xl-1.0.3          # unzipped PhysioNet release (ptbxl_database.csv lives here)
+  processed_dir: data/processed
+  sampling_rate: 100                       # 12 x 1000 inputs
+  classes: [NORM, MI, STTC, CD, HYP]
+
+# Patient-separated partitions built on PTB-XL strat_fold (protocol §3.5, decision D02).
+partitions:
+  pilot:  {train: [1, 2, 3, 4, 5, 6], val: [7]}          # policy development / calibration only
+  search: {train: [1, 2, 3, 4, 5, 6, 7], val: [8]}       # candidate training / search fitness
+  final:  {train: [1, 2, 3, 4, 5, 6, 7, 8], val: [9], test: [10]}
+
+model:                                     # fixed parts of the 1-D ResNet (protocol §3.1.2, D06)
+  n_leads: 12
+  base_widths: [32, 64, 128]
+  group_strides: [1, 2, 2]
+  stem_kernel: 15
+  channel_divisor: 8
+
+training:
+  optimizer: adamw
+  loss: bce_with_logits
+  class_weighting: none                    # D03 (needs your call): none | pos_weight_from_train
+  amp: true                                # D07: fp16 autocast on CUDA for every method
+  drop_last: true
+  eval_batch_size: 1024
+  cudnn_benchmark: false                   # deterministic-leaning settings; see docs/09
+  deterministic: false
+
+evaluator:
+  single_fidelity: {max_epochs: 20, patience: 5}           # P, standard DE, random search, TPE
+  multi_fidelity: {fidelities: [5, 10, 20], eta: 2, patience: 5}   # Hyperband, BOHB, DEHB
+
+final_training: {max_epochs: 50, patience: 8}
+
+initial_design: {n_configs: 8, method: latin_hypercube}
+
+hardware:
+  required_gpu: "RTX PRO 6000"             # Colab G4 (chosen 2026-10-08, D38). FREEZE after session 1 confirms the device name
+
+budgets:
+  t_ref_seconds: 9.8                       # pilot P2 on G4, 13 Oct 2026 (median of 16); FREEZE at G2 after drift check
+  multipliers: {low: 80, mid: 160, high: 320}
+
+seeds:
+  search: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010]
+  order_seed: 20261007                     # randomizes job execution order
+
+analysis:
+  anytime_start_value: 0.5                 # D29
+  noninferiority_margin: 0.005             # provisional (D30); justify before confirmatory evaluation
+  alpha_one_sided: 0.05
+  n_bootstrap: 10000                       # reported analysis (doc 07 §7.2)

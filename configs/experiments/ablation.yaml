@@ -1,0 +1,7 @@
+# Controller ablations at B_mid: 6 variants x 10 seeds = 60 runs (protocol §3.6.1).
+# The complete method P reuses its main-benchmark runs at B_mid.
+name: ablation
+partition: search
+methods: [mu_nostop, rr_nostop, mu_nocost, mu_noprobe, mu_nojoint, mu_noconfirm]
+budgets: [mid]
+priority: [rr_nostop, mu_nostop]   # keep these if the workload must be cut (protocol §3.6.1)
