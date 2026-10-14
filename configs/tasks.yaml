@@ -1,0 +1,22 @@
+# Study plan v2 tasks (docs/25_study_plan_v2.md). A script run with --task merges the task's
+# data, budgets and controller values over base.yaml / controller.yaml.
+# T_ref and re-evaluation tolerance: G4 task calibration of 14 Oct 2026 (train 1-6 / val 7;
+# configs/calibration_definition_v1.json). Defaults: local checks in docs/24 §24.3a and docs/25 step 1.
+tasks:
+  superclass:
+    data:
+      processed_dir: data/processed
+      classes: [NORM, MI, STTC, CD, HYP]
+    budgets: {t_ref_seconds: 11.170414030500012}
+    controller: {reeval_tolerance: 0.004382495971271688}
+    defaults:
+      D0: {}                                   # search_space.reference_config; also the task default
+  rhythm:
+    data:
+      processed_dir: data/processed_rhythm
+      classes: [AFIB, PACE, SARRH, SBRAD, SR, STACH, SVARR]   # frozen; AFLT and BIGU excluded (docs/23)
+    budgets: {t_ref_seconds: 12.954911142499896}
+    controller: {reeval_tolerance: 0.011498703393912235}
+    defaults:
+      D0: {}
+      D1: {kernel_size: 15, dilation: 2}       # task default, chosen from development data (docs/24)

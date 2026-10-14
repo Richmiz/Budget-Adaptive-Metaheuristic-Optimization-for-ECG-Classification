@@ -1,6 +1,6 @@
 # 25 — Study plan v2: is tuning worth its compute? (one page)
 
-**Chosen 14 Oct 2026 (route A). This page is the current plan.** Docs 00–24 are the history that led here.
+**Chosen 14 Oct 2026 (route A). This page is the current plan.** Docs 00–24 are the history that led here. The full protocol is [doc 26](26_protocol_v2.md).
 
 **Working title.** *When is hyperparameter tuning worth its compute? A cost–benefit study of CNN-based ECG classification on PTB-XL.*
 

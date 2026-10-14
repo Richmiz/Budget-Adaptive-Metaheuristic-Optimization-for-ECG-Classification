@@ -1,0 +1,7 @@
+# Study plan v2 (docs/25): 3 tuners x 2 budgets x 10 search seeds per task = 60 runs per task, 120 in all.
+# P is adaptive_utility, the controller version tested on G4 on 14 Oct (improvement-veto confirmation).
+name: v2_main
+partition: search
+tasks: [superclass, rhythm]
+methods: [random, dehb_native, adaptive_utility]
+budgets: [low, mid]

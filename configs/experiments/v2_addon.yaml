@@ -1,0 +1,7 @@
+# Optional add-on to study plan v2 (docs/25): P without stopping at the 160-unit cap, same seeds,
+# showing directly what continuing the search would have gained. 2 tasks x 10 seeds = 20 runs.
+name: v2_addon
+partition: search
+tasks: [superclass, rhythm]
+methods: [adaptive_full]
+budgets: [mid]

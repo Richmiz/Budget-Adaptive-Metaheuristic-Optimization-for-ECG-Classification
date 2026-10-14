@@ -34,6 +34,19 @@ def map_superclasses(df, scp):
     return out
 
 
+def task_label_lists(df, scp, task: str, classes) -> list[list[str]]:
+    """Per-record labels for a study task. Superclass: benchmark mapping above. Rhythm/form: the
+    record's SCP statements of that type, restricted to a frozen class list (no likelihood threshold)."""
+    if task == "superclass":
+        return map_superclasses(df, scp)["superclasses"].tolist()
+    if task in ("rhythm", "form"):
+        eligible = set(scp.index[scp[task] == 1]) & set(classes)
+        if eligible != set(classes):
+            raise ValueError(f"{task}: classes not flagged as {task} statements: {sorted(set(classes) - eligible)}")
+        return [sorted(set(codes) & eligible) for codes in df["scp_codes"]]
+    raise ValueError(f"unknown PTB-XL task: {task}")
+
+
 def label_matrix(superclasses, classes=CLASSES) -> np.ndarray:
     Y = np.zeros((len(superclasses), len(classes)), dtype=np.uint8)
     index = {c: j for j, c in enumerate(classes)}

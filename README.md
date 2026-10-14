@@ -67,7 +67,19 @@ python -m pytest
 
 **Colab G4 (pilot, benchmark, final training):** open `notebooks/COLAB_G4_SETUP.ipynb` in VS Code, choose *Select Kernel → Colab → New Colab Server → G4*, then *Run All*. The code is embedded in the notebook and the data are rebuilt on the runtime, so nothing is uploaded. See [docs/10_compute_and_colab_workflow.md](docs/10_compute_and_colab_workflow.md).
 
-## Pipeline
+## Pipeline (study plan v2, docs/26)
+
+| Step | Command | Where |
+|---|---|---|
+| Prepare both task datasets | `python scripts/prepare_data.py` and `python scripts/prepare_data.py --task rhythm` | local |
+| Freeze protocol (after approval) | `python scripts/lock_protocol.py freeze`, then commit and tag `protocol-v2-frozen` | local |
+| All searches, then all final models | `notebooks/COLAB_G4_V2_MAIN.ipynb` (runs `scripts/v2_driver.py`; resumable) | Colab |
+| Validation summary | `python scripts/analyze_v2.py search --out-root <results>` | either |
+| Lock analysis | `python scripts/lock_protocol.py analysis`, then build `v2_test` | local |
+| One-time test on fold 10 | `notebooks/COLAB_G4_V2_TEST.ipynb` | Colab |
+| Results | `python scripts/analyze_v2.py primary --out-root <results>` | local |
+
+## Pipeline (v1, historical)
 
 | Step | Command | Where |
 |---|---|---|

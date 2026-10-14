@@ -2,6 +2,7 @@
 data/raw/
 data/processed/
 data/processed_decision/
+data/processed_rhythm/
 
 # Experiment outputs (live on Google Drive for Colab runs)
 runs/

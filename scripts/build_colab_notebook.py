@@ -18,10 +18,10 @@ import json
 import zipfile
 from pathlib import Path
 
-from bamo.config import PROJECT_ROOT
+from bamo.config import PROJECT_ROOT, load_config
 from bamo.utils import read_json
 
-BUNDLE_DIRS = ["src", "scripts", "configs", "tests"]
+BUNDLE_DIRS = ["src", "scripts", "configs", "tests", "protocol"]  # protocol/: frozen protocol and analysis lock, once written
 BUNDLE_FILES = ["pyproject.toml", "requirements-lock.txt"]
 PIP_PINS = "wfdb==4.3.1 optuna==5.0.0 dehb==0.1.1 ConfigSpace==1.2.2 pytest"
 
@@ -29,6 +29,8 @@ PIP_PINS = "wfdb==4.3.1 optuna==5.0.0 dehb==0.1.1 ConfigSpace==1.2.2 pytest"
 def build_bundle() -> tuple[bytes, list[str]]:
     paths = []
     for d in BUNDLE_DIRS:
+        if not (PROJECT_ROOT / d).exists():
+            continue
         paths += [p for p in sorted((PROJECT_ROOT / d).rglob("*"))
                   if p.is_file() and "__pycache__" not in p.parts and p.suffix not in (".pyc",)]
     paths += [PROJECT_ROOT / f for f in BUNDLE_FILES]
@@ -50,11 +52,17 @@ def code(text: str) -> dict:
             "source": text.strip("\n").splitlines(keepends=True)}
 
 
-def common_cells(drive_dir: str, title: str, intro: str, prepare_reference_data: bool = True) -> list[dict]:
+def common_cells(drive_dir: str, title: str, intro: str, prepare_reference_data: bool = True,
+                 data_tasks: list[str] | None = None) -> list[dict]:
     bundle, names = build_bundle()
     digest = hashlib.sha256(bundle).hexdigest()
-    expected = (read_json(PROJECT_ROOT / "data" / "processed" / "data_report.json")["array_sha256"]
-                if prepare_reference_data else {})
+    data_tasks = data_tasks or ["superclass"]
+    expected = {}
+    if prepare_reference_data:
+        for task in data_tasks:
+            processed = load_config(task=task)["data"]["processed_dir"]
+            expected[task] = {"dir": processed,
+                              "sha256": read_json(PROJECT_ROOT / processed / "data_report.json")["array_sha256"]}
     cells = [
         md(f"""
 # {title}
@@ -115,14 +123,16 @@ print(f'Code bundle verified ({{BUNDLE_SHA[:12]}}...). GPU: {{torch.cuda.get_dev
 import time
 EXPECTED = {json.dumps(expected)}
 started = time.time()
-for step in (['scripts/download_ptbxl.py', '--workers', '64'], ['scripts/prepare_data.py']):
+steps = [['scripts/download_ptbxl.py', '--workers', '64']] + [['scripts/prepare_data.py', '--task', task] for task in EXPECTED]
+for step in steps:
     result = subprocess.run([sys.executable, *step], capture_output=True, text=True)
     print(result.stdout[-1500:])
     assert result.returncode == 0, result.stderr[-3000:]
 from bamo.utils import sha256_file
-for name, digest in EXPECTED.items():
-    assert sha256_file(f'data/processed/{{name}}') == digest, f'{{name}} differs from the local preparation'
-print(f'Data ready and identical to the local arrays in {{time.time() - started:.0f}} s')
+for task, spec in EXPECTED.items():
+    for name, digest in spec['sha256'].items():
+        assert sha256_file(f"{{spec['dir']}}/{{name}}") == digest, f'{{task}} {{name}} differs from the local preparation'
+print(f'Data ready ({{", ".join(EXPECTED)}}) and identical to the local arrays in {{time.time() - started:.0f}} s')
 """),
     ]
     if not prepare_reference_data:
@@ -385,9 +395,160 @@ print('Evidence saved:', zip_path)
     return cells
 
 
+RUN_LOGGED = """
+def run_logged(args, log_name):
+    # The VS Code Colab kernel does not forward a child process's stdout, so relay it line by line
+    # (visible in the cell and in the saved notebook) and keep a copy on Drive for the export.
+    log_path = pathlib.Path(OUTPUT) / 'logs' / log_name
+    log_path.parent.mkdir(exist_ok=True)
+    with open(log_path, 'a') as log, subprocess.Popen([sys.executable, '-u', *args], stdout=subprocess.PIPE,
+                                                     stderr=subprocess.STDOUT, text=True, bufsize=1) as proc:
+        for line in proc.stdout:
+            print(line, end='', flush=True)
+            log.write(line)
+            log.flush()
+    if proc.returncode:
+        raise subprocess.CalledProcessError(proc.returncode, args)
+"""
+
+DRIFT_CHECK = """
+from bamo.hardware import fingerprint
+from bamo.utils import sha256_file
+session_host = fingerprint()['host']
+drift_path = pathlib.Path(OUTPUT) / 'timing_drift' / f'{session_host}.json'
+if not drift_path.exists():
+    run_logged(['scripts/timing_drift.py', '--out', str(drift_path)], 'timing_drift.txt')
+drift = json.loads(drift_path.read_text())
+assert drift['hardware']['host'] == session_host, 'Drift artifact belongs to a different runtime'
+assert drift['baseline_sha256'] == sha256_file(root / 'configs/decision_timing_baseline.json'), 'Drift baseline changed'
+print(json.dumps({k: drift[k] for k in ('median_ratio', 'within_10pct')}, indent=2))
+assert drift['within_10pct'], 'This G4 session is more than 10% off the baseline speed: stop and report it'
+"""
+
+
+def v2_main_notebook():
+    if not (PROJECT_ROOT / "protocol" / "frozen_protocol.yaml").exists():
+        print("WARNING: no frozen protocol; this notebook will refuse to start the searches until the lock")
+    cells = common_cells(
+        "bamo_v2", "BAMO study v2 — main runs on G4 (docs/25, docs/26)",
+        "Runs all 120 searches (2 tasks × 3 tuners × 2 budgets × 10 repeats) and then all 150 final models as one "
+        "background job. **About 45–50 G4 hours in total, over several sessions.** In every session: **Run All**. "
+        "Finished work is kept on Drive and skipped; an interrupted search restarts from scratch. Fold 10 (test) is "
+        "never loaded here. When the log says **V2 COMPLETE**, export the ZIP below and bring it back.",
+        data_tasks=["superclass", "rhythm"])
+    cells += [
+        md("## Implementation checks"),
+        code(RUN_LOGGED + """
+run_logged(['-m', 'pytest', '-q', '--disable-warnings'], 'tests.txt')
+"""),
+        md("## Timing check for this G4 session\nSearch budgets are wall-clock, so every session must run at the measured speed (within 10%)."),
+        code(DRIFT_CHECK),
+        md("## Start the runs in the background\nSet `STOP_AFTER_HOURS` to end the session cleanly after the current search "
+           "(for example 5). `None` runs until everything is done."),
+        code("""
+STOP_AFTER_HOURS = None
+pid_file = root / 'v2_driver.pid'
+log_path = pathlib.Path(OUTPUT) / 'v2_log.txt'
+def log_lines():
+    return log_path.read_text(encoding='utf-8').splitlines() if log_path.exists() else []
+running = pid_file.exists() and pathlib.Path(f'/proc/{pid_file.read_text().strip()}').exists()
+if running:
+    start_line = max([i for i, l in enumerate(log_lines()) if 'V2 START' in l], default=0)
+    print('Runs already in progress, PID', pid_file.read_text().strip())
+else:
+    start_line = len(log_lines())  # only this launch counts for progress and completion
+    command = [sys.executable, '-u', 'scripts/v2_driver.py', '--out-root', OUTPUT]
+    if STOP_AFTER_HOURS:
+        command += ['--stop-after-hours', str(STOP_AFTER_HOURS)]
+    job = subprocess.Popen(command, cwd=root, stdout=open(root / 'v2_stdout.txt', 'a'),
+                           stderr=subprocess.STDOUT, start_new_session=True)
+    pid_file.write_text(str(job.pid))
+    print('Runs started, PID', job.pid)
+"""),
+        md("## Progress (stopping this cell does not stop the runs)"),
+        code("""
+import time
+shown, last_beat = start_line, time.time()
+end_markers = ('V2 COMPLETE', 'V2 STOPPED', 'V2 FAILED')
+while True:
+    lines = log_lines()
+    for line in lines[shown:]:
+        print(line, flush=True)
+    shown = len(lines)
+    if any(m in line for line in lines[start_line:] for m in end_markers):
+        break
+    if not pathlib.Path(f'/proc/{pid_file.read_text().strip()}').exists():
+        print('The run process is not running. Last output:')
+        print((root / 'v2_stdout.txt').read_text()[-3000:])
+        break
+    if time.time() - last_beat > 600:
+        usage = subprocess.run(['nvidia-smi', '--query-gpu=utilization.gpu,memory.used', '--format=csv,noheader'],
+                               capture_output=True, text=True).stdout.strip()
+        print(f'  ... {time.strftime("%H:%M")} still running, GPU {usage}', flush=True)
+        last_beat = time.time()
+    time.sleep(30)
+"""),
+        md("## Validation summary (no test data)"),
+        code("""
+run_logged(['scripts/analyze_v2.py', 'search', '--out-root', OUTPUT], 'analyze_search.txt')
+"""),
+        md("## Export (model weights stay on Drive)\nDownload this ZIP and the executed notebook to the workspace."),
+        code("""
+output = pathlib.Path(OUTPUT)
+zip_path = output.parent / 'bamo_v2_results.zip'
+hashes = {}
+with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as result_zip:
+    for path in sorted(output.rglob('*')):
+        if path.is_file() and path.suffix != '.pt':
+            rel = path.relative_to(output).as_posix()
+            result_zip.write(path, arcname=rel)
+            hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+    result_zip.writestr('export_manifest.json', json.dumps({'bundle_sha256': BUNDLE_SHA, 'files_sha256': hashes}, indent=2))
+print(f'Ready in Google Drive: My Drive/{zip_path.name} ({zip_path.stat().st_size / 2**20:.1f} MiB, {len(hashes)} files)')
+print('Disconnect the runtime now: G4 bills while idle.')
+"""),
+    ]
+    return cells
+
+
+def v2_test_notebook():
+    if not (PROJECT_ROOT / "protocol" / "analysis_lock.json").exists():
+        raise SystemExit("the test notebook is built only after scripts/lock_protocol.py analysis")
+    cells = common_cells(
+        "bamo_v2", "BAMO study v2 — the one-time test on fold 10",
+        "Evaluates every final model on fold 10, once. Built after the analysis lock, which is embedded in this "
+        "notebook. About 10 minutes. Export the ZIP and bring it back.",
+        data_tasks=["superclass", "rhythm"])
+    cells += [
+        md("## Test evaluation"),
+        code(RUN_LOGGED + """
+for task in ('superclass', 'rhythm'):
+    run_logged(['scripts/evaluate_test.py', '--task', task, '--out-root', OUTPUT], f'test_{task}.txt')
+"""),
+        md("## Export test results"),
+        code("""
+output = pathlib.Path(OUTPUT)
+zip_path = output.parent / 'bamo_v2_test_results.zip'
+hashes = {}
+with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as result_zip:
+    for path in sorted(output.rglob('test_*')):
+        if path.is_file():
+            rel = path.relative_to(output).as_posix()
+            result_zip.write(path, arcname=rel)
+            hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+    result_zip.writestr('export_manifest.json', json.dumps({'bundle_sha256': BUNDLE_SHA, 'files_sha256': hashes}, indent=2))
+print(f'Ready in Google Drive: My Drive/{zip_path.name} ({len(hashes)} files)')
+print('Disconnect the runtime now: G4 bills while idle.')
+"""),
+    ]
+    return cells
+
+
 NOTEBOOKS = {"setup": ("COLAB_G4_SETUP.ipynb", setup_notebook), "pilot": ("COLAB_G4_PILOT.ipynb", pilot_notebook),
              "decision": ("COLAB_G4_DECISION.ipynb", decision_notebook),
-             "matched_followup": ("COLAB_G4_MATCHED_FOLLOWUP.ipynb", matched_followup_notebook)}
+             "matched_followup": ("COLAB_G4_MATCHED_FOLLOWUP.ipynb", matched_followup_notebook),
+             "v2_main": ("COLAB_G4_V2_MAIN.ipynb", v2_main_notebook),
+             "v2_test": ("COLAB_G4_V2_TEST.ipynb", v2_test_notebook)}
 
 
 def main() -> None:

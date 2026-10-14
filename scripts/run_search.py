@@ -5,6 +5,9 @@ Synthetic dry run on a simulated clock (no GPU, no data):
 
 Real runs (Colab, results on Google Drive), one shard per parallel session:
     python scripts/run_search.py --experiment main --out-root /content/drive/MyDrive/bamo_runs --shard 0/2
+
+Study plan v2 experiments list their tasks; choose one with --task (outputs go to <out-root>/<task>/):
+    python scripts/run_search.py --experiment v2_main --task rhythm --synthetic
 """
 
 import _paths  # noqa: F401
@@ -27,6 +30,7 @@ def parse_shard(text: str) -> tuple[int, int]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--experiment", required=True)
+    ap.add_argument("--task", default=None, help="study task (configs/tasks.yaml); required by v2 experiments")
     ap.add_argument("--out-root", default=None)
     ap.add_argument("--synthetic", action="store_true", help="synthetic objective on a simulated clock")
     ap.add_argument("--t-ref", type=float, default=None, help="override T_ref (synthetic runs only)")
@@ -42,11 +46,15 @@ def main() -> None:
                      "controller": {"reeval_tolerance": 0.004}}
     elif args.t_ref is not None:
         raise SystemExit("--t-ref is only allowed with --synthetic; freeze T_ref in configs/base.yaml")
-    cfg = load_config(args.experiment, overrides)
+    cfg = load_config(args.experiment, overrides, task=args.task)
     exp = cfg["experiment"]
-    if not args.synthetic and not args.list and exp["partition"] != "pilot" and frozen_status() != "match":
+    if exp.get("tasks") and args.task not in exp["tasks"]:
+        raise SystemExit(f"--task must be one of {exp['tasks']} for experiment {exp['name']}")
+    if not args.synthetic and not args.list and exp["partition"] != "pilot" and frozen_status(args.task) != "match":
         raise SystemExit("confirmatory searches require the approved, frozen protocol; decision phase is pending")
     out_root = Path(args.out_root or ("runs_synthetic" if args.synthetic else "runs"))
+    if args.task:
+        out_root = out_root / args.task
     seeds = cfg["seeds"]["search"]
 
     matrix_path = out_root / exp["name"] / "run_matrix.csv"
@@ -83,7 +91,7 @@ def main() -> None:
         from bamo.hardware import require_gpu
         from bamo.training.evaluator import TorchEvaluator
 
-        status = frozen_status()
+        status = frozen_status(args.task)
         if status == "mismatch":
             raise SystemExit("configs/ differ from protocol/frozen_protocol.yaml; confirmatory runs must use the frozen protocol")
         if status == "not_frozen":
