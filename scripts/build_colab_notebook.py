@@ -261,13 +261,27 @@ def decision_notebook():
 result = subprocess.run([sys.executable, '-m', 'pytest', '-q', '--disable-warnings'], capture_output=True, text=True)
 print(result.stdout[-2000:])
 assert result.returncode == 0, result.stderr[-3000:]
+
+def run_logged(args, log_name):
+    # The VS Code Colab kernel does not forward a child process's stdout, so relay it line by line
+    # (visible in the cell and in the saved notebook) and keep a copy on Drive for the export.
+    log_path = pathlib.Path(OUTPUT) / 'logs' / log_name
+    log_path.parent.mkdir(exist_ok=True)
+    with open(log_path, 'a') as log, subprocess.Popen([sys.executable, '-u', *args], stdout=subprocess.PIPE,
+                                                     stderr=subprocess.STDOUT, text=True, bufsize=1) as proc:
+        for line in proc.stdout:
+            print(line, end='', flush=True)
+            log.write(line)
+            log.flush()
+    if proc.returncode:
+        raise subprocess.CalledProcessError(proc.returncode, args)
 """), md("## Timing drift in a fresh G4 session"), code("""
 from bamo.hardware import fingerprint
 from bamo.utils import sha256_file
 session_host = fingerprint()['host']
 drift_path = pathlib.Path(OUTPUT) / 'timing_drift' / f'{session_host}.json'
 if not drift_path.exists():
-    subprocess.run([sys.executable, '-u', 'scripts/timing_drift.py', '--out', str(drift_path)], check=True)
+    run_logged(['scripts/timing_drift.py', '--out', str(drift_path)], 'timing_drift.txt')
 drift = json.loads(drift_path.read_text())
 assert drift['hardware']['host'] == session_host, 'Drift artifact belongs to a different runtime'
 assert drift['baseline_sha256'] == sha256_file(root / 'configs/decision_timing_baseline.json'), 'Drift baseline changed'
@@ -276,17 +290,17 @@ assert drift['within_10pct'], 'Investigate session timing before calibration/fre
 """), md("## Headroom (run only if G4 replication is needed)"), code("""
 RUN_HEADROOM = False  # local decision outputs are sufficient for landscape planning; G4 timing is separate
 if RUN_HEADROOM:
-    subprocess.run([sys.executable, '-u', 'scripts/decision_pilot.py', '--tasks', 'form', 'rhythm',
-                    '--out-root', f'{OUTPUT}/headroom'], check=True)
+    run_logged(['scripts/decision_pilot.py', '--tasks', 'form', 'rhythm', '--out-root', f'{OUTPUT}/headroom'],
+               'headroom.txt')
 """), md("## Task calibration, paired precision and matched-control smoke\nRuns common-workload task calibration (1-6/7), separate precision-workload timing/noise, all four matched stopping arms, paired P/DEHB search, refit and development assessment. Select the task recommended by the local headroom decision. This is several hours on G4, depending on the task."), code("""
 RUN_PRECISION = True  # next authorized development experiment; False runs drift only
 PRECISION_TASK = 'rhythm'  # stronger fresh-seed headroom candidate; full benchmark remains gated
 if RUN_PRECISION:
     for task in ('superclass', PRECISION_TASK):
-        subprocess.run([sys.executable, '-u', 'scripts/calibrate_task.py', '--task', task,
-                        '--out-root', f'{OUTPUT}/task_calibration'], check=True)
-    subprocess.run([sys.executable, '-u', 'scripts/precision_pilot.py', '--task', PRECISION_TASK,
-                    '--out-root', f'{OUTPUT}/precision'], check=True)
+        run_logged(['scripts/calibrate_task.py', '--task', task, '--out-root', f'{OUTPUT}/task_calibration'],
+                   f'calibrate_{task}.txt')
+    run_logged(['scripts/precision_pilot.py', '--task', PRECISION_TASK, '--out-root', f'{OUTPUT}/precision'],
+               f'precision_{PRECISION_TASK}.txt')
 """), md("## Export evidence"), code("""
 output = pathlib.Path(OUTPUT)
 zip_path = output.parent / 'bamo_decision_results.zip'
@@ -303,8 +317,77 @@ print('Evidence saved:', zip_path)
     return cells
 
 
+def matched_followup_notebook():
+    cells = common_cells("bamo_matched_followup_2026_10_14", "BAMO — matched-cost development follow-up",
+                         "Verify and reuse the completed 14 October decision run. Run 15 new matched searches "
+                         "(at most 5.81 search hours), assess DEHB at P's cost and two fixed 40% prefixes. "
+                         "Up to 30 additional refits plus setup, drift and analysis are extra. The seven rhythm "
+                         "labels and original settings are retained. Uses folds 1–7; full study remains gated.",
+                         prepare_reference_data=False)
+    cells[-2:-2] = [md("## Verify the previous evidence before new experiments\nThe original Drive folder is preferred. If it is absent, the previous exported ZIP is used. Edit SOURCE only if you stored the original evidence elsewhere."), code("""
+def run_logged(args, log_name):
+    log_path = pathlib.Path(OUTPUT) / 'logs' / log_name
+    log_path.parent.mkdir(exist_ok=True)
+    with open(log_path, 'a') as log, subprocess.Popen([sys.executable, '-u', *args], stdout=subprocess.PIPE,
+                                                     stderr=subprocess.STDOUT, text=True, bufsize=1) as proc:
+        for line in proc.stdout:
+            print(line, end='', flush=True)
+            log.write(line)
+            log.flush()
+    if proc.returncode:
+        raise subprocess.CalledProcessError(proc.returncode, args)
+
+SOURCE = '/content/drive/MyDrive/bamo_decision'
+if not (pathlib.Path(SOURCE) / 'precision/rhythm/plan.json').exists():
+    prior_zip = pathlib.Path('/content/drive/MyDrive/bamo_decision_results.zip')
+    assert prior_zip.exists(), 'Original evidence missing: restore bamo_decision or its exported ZIP to My Drive'
+    SOURCE = '/content/bamo_decision_source'
+    with zipfile.ZipFile(prior_zip) as archive:
+        for name in archive.namelist():
+            assert not pathlib.PurePosixPath(name).is_absolute() and '..' not in pathlib.PurePosixPath(name).parts and '\\\\' not in name
+        archive.extractall(SOURCE)
+run_logged(['scripts/matched_followup.py', '--source-root', SOURCE, '--out-root', OUTPUT, '--plan-only'],
+           'preflight.txt')
+""")]
+    cells += [md("## Implementation checks"), code("""
+run_logged(['-m', 'pytest', '-q', '--disable-warnings'], 'tests.txt')
+"""), md("## Timing drift in this G4 session"), code("""
+from bamo.hardware import fingerprint
+from bamo.utils import sha256_file
+session_host = fingerprint()['host']
+drift_path = pathlib.Path(OUTPUT) / 'timing_drift' / f'{session_host}.json'
+if not drift_path.exists():
+    run_logged(['scripts/timing_drift.py', '--out', str(drift_path)], 'timing_drift.txt')
+drift = json.loads(drift_path.read_text())
+assert drift['hardware']['host'] == session_host, 'Different runtime drift artifact'
+assert drift['baseline_sha256'] == sha256_file(root / 'configs/decision_timing_baseline.json')
+print(json.dumps({k: drift[k] for k in ('median_ratio', 'within_10pct')}, indent=2))
+assert drift['within_10pct'], 'Session speed changed; investigate before matched comparisons'
+"""), md("## Searches, preselected refits and paired assessment\nCompleted jobs resume. Original results remain unchanged. Every configuration is selected from search logs before assessment predictions are opened."), code("""
+run_logged(['scripts/matched_followup.py', '--source-root', SOURCE, '--out-root', OUTPUT,
+            '--drift', str(drift_path)], 'matched_followup.txt')
+summary = json.loads((pathlib.Path(OUTPUT) / 'followup_summary.json').read_text())
+print('Development assessment AUROC:', json.dumps(summary['mean_auroc'], indent=2))
+print('P versus DEHB at P cost:', json.dumps(summary['contrasts']['adaptive_utility-dehb_at_p_cost'], indent=2))
+"""), md("## Export evidence\nBring this ZIP and the executed notebook back to the workspace."), code("""
+output = pathlib.Path(OUTPUT)
+zip_path = output.parent / 'bamo_matched_followup_results.zip'
+hashes = {}
+with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as result_zip:
+    for path in sorted(output.rglob('*')):
+        if path.is_file():
+            rel = path.relative_to(output).as_posix()
+            result_zip.write(path, arcname=rel)
+            hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+    result_zip.writestr('export_manifest.json', json.dumps({'bundle_sha256': BUNDLE_SHA, 'files_sha256': hashes}, indent=2))
+print('Evidence saved:', zip_path)
+""")]
+    return cells
+
+
 NOTEBOOKS = {"setup": ("COLAB_G4_SETUP.ipynb", setup_notebook), "pilot": ("COLAB_G4_PILOT.ipynb", pilot_notebook),
-             "decision": ("COLAB_G4_DECISION.ipynb", decision_notebook)}
+             "decision": ("COLAB_G4_DECISION.ipynb", decision_notebook),
+             "matched_followup": ("COLAB_G4_MATCHED_FOLLOWUP.ipynb", matched_followup_notebook)}
 
 
 def main() -> None:

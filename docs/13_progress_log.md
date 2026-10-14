@@ -2,6 +2,34 @@
 
 Dated record of what was done, what was found, and what changed. Newest entries first. Numbers here come from local development runs unless stated otherwise. They are **not** confirmatory results and must not feed T_ref or any frozen value (those come from the Colab GPU, doc 06).
 
+## 2026-10-14 — G4 decision export verified; matched follow-up prepared
+
+* Reproduced the G4 development results from the researcher's completed export: 227 file hashes,
+  executed bundle `21dce7d4…`, registered precision plan `ce2f24c988f8` and 15 prediction hashes.
+  Assessment mean AUROC: reference 0.93260, P 0.95177, native DEHB 0.95910. P−DEHB −0.00733
+  [−0.02120, +0.00680]; one-sided lower −0.01870. NI is not established at any proposed margin.
+* P/DEHB accounted search-time ratio 0.572 [0.488, 0.698]. The validation difference at P's
+  stopping cost is +0.00011, but all five DEHB prefix models differ from the final models and
+  require independent assessment refits. No accepted result exceeded its cap; actual overhead
+  overshoot is reported. Confirmation did act: seven confirmations, three probe vetoes and
+  three stability rejections across 13 attempts.
+* Recorded common-workload T_ref: superclass 11.170414 s, rhythm 12.954911 s. The calibration
+  configurations and training seed were already fixed; retained their measured definition.
+  Identified that refiltering rhythm labels on 1–7 would add AFLT and BIGU. Proposed retaining
+  the seven tested labels in the final task definition.
+* Prepared a separate G4 notebook for 15 matched searches and at most 30 new refits. It reuses
+  original P/DEHB/reference evidence, original initialization and settings; preselects DEHB
+  at P's cost and fixed 40% prefixes before assessment. Search caps total 5.81 G4 hours;
+  refits/setup are extra. **The new G4 experiment has not run.**
+* Local suite: 76 tests pass. Input preflight passed. A mocked end-to-end orchestration check
+  exercised 45 prediction artifacts, reuse, seven contrasts and output handling without new GPU
+  experiments; its outputs are synthetic and cannot be used as scientific evidence. Notebook
+  packaging/static code verification passed. Script progress is now relayed into cells and
+  saved to Drive logs.
+* Revised the provisional full inventory to 180 searches, 96.50 measured search-cap hours,
+  plus up to 340 refits and other costs. Full study remains gated. Supplied review counts are
+  accepted; further literature retrieval is not requested. Formal assessor statement: doc 23.
+
 ## 2026-10-13 — Assessor decision phase implemented; actual task pilots
 
 * Preserved the post-pilot v1.1 source in baseline commit `feff26a`; revisions on

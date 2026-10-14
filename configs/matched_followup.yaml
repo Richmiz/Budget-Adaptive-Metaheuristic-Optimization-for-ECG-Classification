@@ -1,0 +1,13 @@
+# Development follow-up; does not authorize confirmatory runs or fold-10 access.
+task: rhythm
+source_plan_hash: ce2f24c988f8
+source_config_hash: 02e752905db4
+seeds: [9401, 9402, 9403, 9404, 9405]
+new_methods: [rr_utility, adaptive_patience, rr_patience]
+order_seed: 2026101801
+refit_order_seed: 2026101802
+fixed_cutoff_fraction: 0.4
+max_refit_epochs: 50
+refit_patience: 8
+bootstrap_replicates: 2000
+limits: Development assessment with five paired seeds; cross-session comparison after drift check; no confirmatory claims.

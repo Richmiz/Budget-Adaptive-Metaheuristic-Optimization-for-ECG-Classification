@@ -1,0 +1,422 @@
+{
+  "status": "measured development definition; protocol freeze pending",
+  "source_export_sha256": "910ad293c0997ae58abafe246a9da9ddea538f4c9b0a706be3a16360b63e8fdf",
+  "partition": {
+    "train": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "val": [
+      7
+    ]
+  },
+  "design_seed": 2026101701,
+  "timing_train_seed": 2026101702,
+  "n_timing_configs": 16,
+  "tasks": {
+    "superclass": {
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "vocabulary_training_folds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "label_rule": "SCP task flags; count >50 in vocabulary training folds; superclass labels fixed",
+      "configurations": [
+        {
+          "learning_rate": 0.0009558060758314022,
+          "batch_size": 32,
+          "weight_decay": 4.951932578586796e-05,
+          "dropout": 0.2896420498194546,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 1,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 2.455521920227074e-05,
+          "batch_size": 64,
+          "weight_decay": 2.5838033203659354e-05,
+          "dropout": 0.3564454066272302,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 3,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 1.3830423142502497e-05,
+          "batch_size": 64,
+          "weight_decay": 8.847286560789006e-05,
+          "dropout": 0.01280402449696786,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 2,
+          "kernel_size": 9,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 6.182171498138192e-05,
+          "batch_size": 64,
+          "weight_decay": 0.0002432944888358621,
+          "dropout": 0.4699670422655382,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 3,
+          "kernel_size": 15,
+          "dilation": 1,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.00015407724963443186,
+          "batch_size": 64,
+          "weight_decay": 0.0032482651001237988,
+          "dropout": 0.04721266371263598,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 1,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.0010939532960251791,
+          "batch_size": 64,
+          "weight_decay": 7.152349128844858e-06,
+          "dropout": 0.1189035845042094,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 2,
+          "kernel_size": 9,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 4.7080372162910884e-05,
+          "batch_size": 128,
+          "weight_decay": 0.00635609947588864,
+          "dropout": 0.25523648290224954,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 1,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.00036887068557433025,
+          "batch_size": 128,
+          "weight_decay": 1.0233019988930983e-06,
+          "dropout": 0.4317712648803801,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 2,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.00023104212216490437,
+          "batch_size": 128,
+          "weight_decay": 5.150681358221096e-06,
+          "dropout": 0.09278658372187515,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 2,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.001470952498494982,
+          "batch_size": 128,
+          "weight_decay": 0.0010302485933753355,
+          "dropout": 0.4446821272534395,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 1,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 4.053553399218475e-05,
+          "batch_size": 32,
+          "weight_decay": 1.7728934755901467e-05,
+          "dropout": 0.1273643445183216,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 1,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.00034152936386181213,
+          "batch_size": 32,
+          "weight_decay": 0.0009724279792339002,
+          "dropout": 0.24806831874147012,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 2,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.0006770413692462976,
+          "batch_size": 32,
+          "weight_decay": 0.00012065311163862155,
+          "dropout": 0.19733182253777937,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 2,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.0001112904733142502,
+          "batch_size": 32,
+          "weight_decay": 0.002605510732381158,
+          "dropout": 0.34094002442538174,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 1,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 1.4671083116922423e-05,
+          "batch_size": 128,
+          "weight_decay": 0.0004180609953685036,
+          "dropout": 0.16862436282797652,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 2,
+          "kernel_size": 5,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.002145019030325201,
+          "batch_size": 64,
+          "weight_decay": 2.2744149614809764e-06,
+          "dropout": 0.40231989155254405,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 2,
+          "stem_stride": 2
+        }
+      ],
+      "t_ref_seconds": 11.170414030500012,
+      "reeval_tolerance": 0.004382495971271688,
+      "source_summary_sha256": "b4e455832cebbb6cbb0f9f4f11d1d81fd9c45540243eab2fc4b3397a188503e6"
+    },
+    "rhythm": {
+      "classes": [
+        "AFIB",
+        "PACE",
+        "SARRH",
+        "SBRAD",
+        "SR",
+        "STACH",
+        "SVARR"
+      ],
+      "vocabulary_training_folds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "label_rule": "SCP task flags; count >50 in vocabulary training folds; superclass labels fixed",
+      "configurations": [
+        {
+          "learning_rate": 0.0009558060758314022,
+          "batch_size": 32,
+          "weight_decay": 4.951932578586796e-05,
+          "dropout": 0.2896420498194546,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 1,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 2.455521920227074e-05,
+          "batch_size": 64,
+          "weight_decay": 2.5838033203659354e-05,
+          "dropout": 0.3564454066272302,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 3,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 1.3830423142502497e-05,
+          "batch_size": 64,
+          "weight_decay": 8.847286560789006e-05,
+          "dropout": 0.01280402449696786,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 2,
+          "kernel_size": 9,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 6.182171498138192e-05,
+          "batch_size": 64,
+          "weight_decay": 0.0002432944888358621,
+          "dropout": 0.4699670422655382,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 3,
+          "kernel_size": 15,
+          "dilation": 1,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.00015407724963443186,
+          "batch_size": 64,
+          "weight_decay": 0.0032482651001237988,
+          "dropout": 0.04721266371263598,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 1,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.0010939532960251791,
+          "batch_size": 64,
+          "weight_decay": 7.152349128844858e-06,
+          "dropout": 0.1189035845042094,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 2,
+          "kernel_size": 9,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 4.7080372162910884e-05,
+          "batch_size": 128,
+          "weight_decay": 0.00635609947588864,
+          "dropout": 0.25523648290224954,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 1,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.00036887068557433025,
+          "batch_size": 128,
+          "weight_decay": 1.0233019988930983e-06,
+          "dropout": 0.4317712648803801,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 2,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.00023104212216490437,
+          "batch_size": 128,
+          "weight_decay": 5.150681358221096e-06,
+          "dropout": 0.09278658372187515,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 2,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.001470952498494982,
+          "batch_size": 128,
+          "weight_decay": 0.0010302485933753355,
+          "dropout": 0.4446821272534395,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 1,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 4.053553399218475e-05,
+          "batch_size": 32,
+          "weight_decay": 1.7728934755901467e-05,
+          "dropout": 0.1273643445183216,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 1,
+          "kernel_size": 5,
+          "dilation": 1,
+          "stem_stride": 1
+        },
+        {
+          "learning_rate": 0.00034152936386181213,
+          "batch_size": 32,
+          "weight_decay": 0.0009724279792339002,
+          "dropout": 0.24806831874147012,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 2,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.0006770413692462976,
+          "batch_size": 32,
+          "weight_decay": 0.00012065311163862155,
+          "dropout": 0.19733182253777937,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 2,
+          "kernel_size": 15,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.0001112904733142502,
+          "batch_size": 32,
+          "weight_decay": 0.002605510732381158,
+          "dropout": 0.34094002442538174,
+          "width_multiplier": 1.0,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 1,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 1.4671083116922423e-05,
+          "batch_size": 128,
+          "weight_decay": 0.0004180609953685036,
+          "dropout": 0.16862436282797652,
+          "width_multiplier": 0.5,
+          "blocks_per_group": 2,
+          "kernel_size": 5,
+          "dilation": 2,
+          "stem_stride": 2
+        },
+        {
+          "learning_rate": 0.002145019030325201,
+          "batch_size": 64,
+          "weight_decay": 2.2744149614809764e-06,
+          "dropout": 0.40231989155254405,
+          "width_multiplier": 1.5,
+          "blocks_per_group": 3,
+          "kernel_size": 9,
+          "dilation": 2,
+          "stem_stride": 2
+        }
+      ],
+      "t_ref_seconds": 12.954911142499896,
+      "reeval_tolerance": 0.011498703393912235,
+      "source_summary_sha256": "2cbfa2b2f123b5a4c7d430bf4c70d136ade388010d2de46b3b7bbfad28c55414"
+    }
+  }
+}

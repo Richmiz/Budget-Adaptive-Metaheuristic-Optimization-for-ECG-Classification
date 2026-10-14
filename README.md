@@ -1,26 +1,28 @@
 # Budget-Adaptive Metaheuristic Optimization for ECG Classification
 
-A controller that allocates Differential Evolution search time across hyperparameter blocks (training, regularization, capacity, joint) by **observed validation improvement per unit of measured compute**, and stops only after confirmation. It is benchmarked against random search, TPE, standard DE, Hyperband, BOHB and DEHB under matched search-time caps on patient-separated PTB-XL (5 diagnostic superclasses, 1-D ResNet).
+A study of ECG hyperparameter-tuning quality versus compute on patient-separated PTB-XL. The current draft compares random search, DE, official DEHB and matched block-DE controllers on five diagnostic superclasses and seven common rhythm labels, using one 1-D ResNet family.
+
+The controller allocates search time across training, regularization, capacity and joint hyperparameter blocks by **observed validation improvement per unit of measured compute**, and stops after confirmation. Development experiments support tuning gains; its advantage over simpler policies remains under assessment.
 
 * Proposal: `Proposal_Budget_Adaptive_ECG_Optimization.docx`
 * Protocol and study plan: [docs/](docs/README.md). Start at [docs/00_overview.md](docs/00_overview.md).
 * Open decisions: [docs/08_decision_register.md](docs/08_decision_register.md)
 
-## Status (13 Oct 2026)
+## Status (14 Oct 2026)
 
-**Current result: [assessor decision report](docs/21_decision_report.md); [v1.2 design draft](docs/19_protocol_v1_2_draft.md).**
-The original 300-run design is held pending the task headroom, G4 drift and paired precision checks.
+**Current result: [verified G4 results](docs/22_g4_decision_results.md); [assessor statement and next experiment](docs/23_assessor_g4_next_experiment.md); [v1.2 design draft](docs/19_protocol_v1_2_draft.md).**
+The full study is held pending equal-cost assessment, matched controls and the final analysis plan.
 
 | Phase | State |
 |---|---|
-| Code: search methods, matched controls, training, analysis | ✅ 71 tests pass |
+| Code: search methods, matched controls, training, analysis | ✅ 76 tests pass |
 | Data: PTB-XL 1.0.3 (100 Hz) downloaded, verified, patient-separated | ✅ 21,388 records, 18,617 patients, 0 overlap |
 | Colab G4 environment (VS Code, embedded-code notebooks) | ✅ data byte-identical to local |
 | Historical G4 pilot | ✅ T_ref 9.8 s; tolerance 0.0035; tau 0.0005 is a disclosed post-pilot amendment |
-| Protocol freeze (G2) | ⏳ open decisions (doc 16 §9) + timing drift check |
+| Protocol freeze (G2) | ⏳ matched follow-up + task/inventory/analysis definitions |
 | Original 300-run benchmark | Held; replaced by a focused draft pending decision evidence |
 | Fresh-seed task headroom | ✅ Rhythm GO (+0.0217 AUROC); form BORDERLINE; 115 completed training evaluations |
-| G4 task calibration, paired precision and matched real-data smoke | Prepared for rhythm; external G4 execution pending |
+| G4 task calibration, paired precision and matched real-data smoke | ✅ verified 14 Oct, [doc 22](docs/22_g4_decision_results.md): drift 1.7%; P +0.019 vs DEHB +0.027 over default at 57% of DEHB's search time; NI not established; equal-cost assessment and attribution follow-up pending |
 | Final models, locked test evaluation, analysis, manuscript | ⏳ |
 
 ## Setup
@@ -31,9 +33,12 @@ Run the authorized local decision pilot:
 D:\envs\bamo\python.exe -s scripts/decision_pilot.py --tasks form rhythm
 ```
 
-G4 drift, task calibration and paired development precision: `notebooks/COLAB_G4_DECISION.ipynb`.
-The next experiment defaults to rhythm; Run All in a fresh G4 session. It runs development
-checks and leaves the full benchmark gated.
+**Next G4 experiment:** [COLAB_G4_MATCHED_FOLLOWUP.ipynb](notebooks/COLAB_G4_MATCHED_FOLLOWUP.ipynb).
+Run All in a fresh G4 session. It verifies the original `My Drive/bamo_decision` evidence,
+runs 15 matched searches, assesses DEHB at P's stopping cost and fixed 40% prefixes, and saves
+to a separate Drive folder. Search caps total 5.81 hours; up to 30 refits and setup are extra.
+No new timing/noise sweep is required. The completed decision notebook is historical evidence;
+do not rerun it over its original output folder with a new code bundle.
 Real non-pilot searches require a matching frozen protocol; the decision-status file blocks
 freezing until the assessment is complete. Historical pilot artifacts are not overwritten.
 
@@ -69,8 +74,8 @@ python -m pytest
 | Synthetic dry run | `python scripts/run_search.py --experiment main --synthetic` | local |
 | Pilot stages P1–P4 | `python scripts/run_pilot.py {feasibility,tref,noise,sweep}` | Colab |
 | Freeze protocol (G2) | `python scripts/lock_protocol.py freeze` | local |
-| Main benchmark (210 runs) | `python scripts/run_search.py --experiment main --out-root <drive>/runs --shard i/n` | Colab |
-| Ablations (60 runs) | `python scripts/run_search.py --experiment ablation ...` | Colab |
+| Matched development follow-up | `python scripts/matched_followup.py --source-root <original-export> --out-root <new-root> --drift <session-json>` | Colab |
+| Confirmatory benchmark | 180-run draft; task-aware execution and frozen analysis plan pending | gated |
 | Final models | `python scripts/train_final.py --experiment main` (+ `--reference`, `--shadow`) | Colab |
 | Lock analysis (G4) | `python scripts/lock_protocol.py analysis` | local |
 | Test evaluation (once) | `python scripts/evaluate_test.py` | Colab |
@@ -80,7 +85,7 @@ python -m pytest
 
 ```
 configs/     base.yaml, search_space.yaml, controller.yaml, methods.yaml, experiments/
-docs/        study plan, protocols, decision evidence and progress log (00-21)
+docs/        study plan, protocols, decision evidence and progress log (00-23)
 notebooks/   COLAB_G4_*.ipynb (generated by scripts/build_colab_notebook.py)
 protocol/    frozen protocol and analysis lock (written by scripts)
 scripts/     command-line entry points

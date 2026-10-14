@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "mode": "mock search/training; real input provenance, selection, reuse and analysis orchestration",
+  "GPU_experiments_run": false,
+  "prediction_artifacts_checked": 45,
+  "contrasts_completed": 7,
+  "limits": "Synthetic orchestration outputs are not scientific results; 20 bootstrap replicates used only to exercise analysis."
+}

@@ -6,6 +6,7 @@ data/processed_decision/
 # Experiment outputs (live on Google Drive for Colab runs)
 runs/
 runs_synthetic/
+/bamo_decision_results.zip
 *.pt
 *.npz
 dehb/

@@ -1,6 +1,6 @@
 # Protocol v1.2 draft — tuning gain versus compute across ECG tasks
 
-Prepared after the assessor review, 13 October 2026. Status: **development decision phase**;
+Prepared after the assessor review, 13 October 2026; revised after the verified G4 run on 14 October. Status: **development decision phase**;
 not frozen or externally preregistered. The feasibility evidence and amendments are in doc 18.
 The new task outcomes, G4 drift, precision diagnostic and novelty review determine the final
 inventory. The source proposal and protocol v1.1 remain preserved in Git and in their documents.
@@ -24,8 +24,9 @@ with its own feasibility/calibration and protocol review before test access.
 ## Task decision and evaluation roles
 
 Completed decision pilot: rhythm GO (gain +0.02168; conditional CI95 [+0.01144, +0.03225]);
-form BORDERLINE. The next G4 development checks use **diagnostic superclasses + rhythm**.
-The precision comparison is run on rhythm; this selection does not yet approve the full matrix.
+form BORDERLINE. The completed G4 development checks calibrated **diagnostic superclasses + rhythm**.
+The rhythm precision comparison showed tuning gains, but did not establish P's non-inferiority.
+Equal-cost assessment and the matched follow-up in doc 23 remain pending before the full matrix.
 
 Use diagnostic superclasses plus one harder task that passes the registered decision pilot.
 Do not select tasks using fold 10. If both harder tasks pass, prefer the one with the larger
@@ -33,8 +34,12 @@ fresh-seed lower bound of gain over reference; a tie within 0.001 uses the cheap
 evaluation. Record this selection as development-informed design, not a preregistered result.
 If neither passes, retain the decision evidence and revisit scope before any large benchmark.
 
-The same official SCP mapping flags are used. Vocabulary for the confirmatory harder task is
-derived from its training folds only and frozen before the test is assessed. It must be audited
+The same official SCP mapping flags are used. The proposed rhythm vocabulary is the **seven
+classes already derived from development training folds 1–6**: AFIB, PACE, SARRH, SBRAD, SR,
+STACH and SVARR. These folds are a subset of the confirmatory training folds. Freeze this list
+before G2; do not reselect it using a >50 filter on folds 1–7, which would add AFLT and BIGU
+and create a different nine-label task. Report the target as seven common rhythm labels, not
+all PTB-XL rhythm labels. The fixed vocabulary must be audited
 for positive/negative label support in the validation and test roles without inspecting model
 performance. A training-only vocabulary differs from the historical benchmark count filter;
 publish the exact classes and exclusions. Do not claim direct leaderboard comparability.
@@ -61,23 +66,34 @@ Per task:
 
 | Block | Methods | Caps | Seeds | Searches | T_ref units at caps |
 |---|---|---|---|---|---|
-| Fixed-cost frontier | random, DE, official DEHB-native, adaptive_full, rr_full | 80, 160 | 10 | 100 | 12,000 |
+| Fixed-cost frontier | random, DE, official DEHB-native, adaptive_full, rr_full | 160 | 10 | 50 | 8,000 |
 | Matched stop mechanisms | adaptive_utility, rr_utility, adaptive_patience, rr_patience | 160 | 10 | 40 | 6,400 |
 | Untuned anchor | Prespecified reference, retrained with matched seeds | outside search | 10 | no search | measured separately |
 
-Two tasks: 280 search runs and **36,800 task-specific T_ref units**, replacing the original
-300-run, roughly 54,330-unit plan. The number of runs is not the cost: dropping the 320-unit caps
-and contextual methods releases compute for the additional task and cleaner controls.
+Two tasks: **180 search runs and 28,800 task-specific T_ref units**, replacing the previous
+280-run draft and the original 300-run plan. Select 80-unit incumbents from the full methods'
+160-unit trajectories, with independent refits, to report a declared intermediate prefix policy.
+This is not an independently rerun 80-unit algorithm; a separate shorter cap can change
+multi-fidelity scheduling. All matched stopping arms retain the same 160-unit cap.
 
-Search-hour cap = `18,400 * (T_ref_superclass + T_ref_harder_task) / 3600`.
-If both units were 9.8 seconds this would be about 100.2 search hours; that is an illustration,
-not a measurement for the new task. Add measured refit/reference costs, the decision/precision
-pilot, runtime setup and a 20% scheduling/retry reserve. Compare the resulting estimate with the
-original 148-hour planning envelope before G2. Reduce contextual budget levels before reducing
-the primary mechanism replication. No G4 task timing is inferred from the local RTX 3050.
+Search-hour cap = `14,400 * (11.170414 + 12.954911) / 3600` = **96.50 G4 hours** using the
+measured common-workload units. A 20% reserve on that search estimate gives 115.80 hours;
+refits, pilots, setup and analysis are additional. The discarded 280-run draft would require
+123.31 search hours, or 147.97 with the reserve, before any refits or pilots.
+
+Refit upper inventory: 180 returned models + 20 references + 100 full-method 80-unit prefixes
++ 40 adaptive/round-robin full-method 64-unit (40%) prefixes = **340 model refits**. Reuse exact
+configuration/seed/partition matches with explicit provenance and cost accounting. The 15
+development refits took 9.0–51.8 seconds each, but the final training workload is larger;
+these are observations, not final cost bounds. Add at least 7h20m already reported for the
+13/14 October G4 sessions, the new follow-up (at most 5.81 search hours plus refits), earlier
+setup usage and final refit/setup estimates. Reconcile the total with the 148-hour envelope
+before G2. No final-task runtime is inferred from the local RTX 3050.
 
 Define the confirmatory unit using the same declared calibration workload for every task
-(development folds 1-6/7, 16 LHS settings). The precision pilot separately calibrates its smaller
+(development folds 1-6/7, the exact 16 LHS settings and training seed recorded in
+`configs/calibration_definition_v1.json`). These settings were specified before the G4 run;
+no repeat timing run is needed merely to define them. The precision pilot separately calibrates its smaller
 search workload (1-4/5) for development runs. Its unit cannot silently replace the final task
 unit or certify the final inventory's cost. Confirmatory calibration and the measured refit
 costs must be written into the final compute table before G2.

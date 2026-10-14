@@ -105,5 +105,17 @@ holds the full matrix while the evidence is gathered.
 | D48 | Use DEHB native initialization as the external system comparator | Implemented; real-data fairness sensitivity remains development work | `dehb_native` |
 | D49 | Report actual time and deadline overshoot; reject late incumbent updates | Implemented after finding legacy clamping; old summaries cannot certify exact cap compliance | tracker and runner |
 | D50 | Do not approve NI margin from headroom or seed SD alone | Pending acceptable-loss rationale and paired system/patient precision; v1.2 draft emphasizes gain versus compute | doc 19; precision pilot |
-| D51 | Hold confirmatory execution and freeze during decision phase | Guards implemented; G4 drift, task calibration, precision, literature screening and final inventory pending | `decision_status.yaml` |
-| D52 | Reassess novelty with primary sources | Targeted verification completed; SHCHO is a close deep-CNN coevolution precedent. Systematic export/full-text screening pending | doc 20 |
+| D51 | Hold confirmatory execution and freeze during decision phase | Drift, calibration and precision completed and verified; matched follow-up, final inventory and analysis definitions remain pending | `decision_status.yaml`; docs 22–23 |
+| D52 | Reassess novelty with primary sources | Targeted verification completed; SHCHO is a close deep-CNN coevolution precedent. Researcher requested accepting the supplied review numbers and prioritizing experiments; no further review audit is an execution gate | doc 20; doc 19 |
+
+## Assessor decisions after verified G4 development — 14 October 2026
+
+These are development amendments and proposals, not approval of a frozen confirmatory protocol.
+
+| ID | Decision | Status / reason | Artifact |
+|---|---|---|---|
+| D53 | Verify the G4 export and reproduce estimates from saved predictions | Completed: 227 files, 15 predictions, three paired contrasts reproduced; P/DEHB time ratio 0.572, assessment difference −0.00733; NI unestablished | docs 22–23; `g4_decision_audit.json` |
+| D54 | Complete equal-cost assessment and matched stopping mechanisms before G2 | Prepared, not run: 15 searches at original settings/seeds, up to 30 additional refits; source and data identity pinned; original evidence preserved | `matched_followup.yaml`; `COLAB_G4_MATCHED_FOLLOWUP.ipynb` |
+| D55 | Replace oversized draft with one 160-unit cap and declared prefix assessments | Proposed: 180 searches, measured 96.50 search-cap hours; refits, pilots and reserve still need reconciliation before G2 | doc 19 |
+| D56 | Preserve the seven development-derived rhythm labels | Proposed for final freeze: refiltering on folds 1–7 adds two classes and changes the tested target; existing folds 1–6 vocabulary remains training-derived | `calibration_definition_v1.json`; docs 19, 23 |
+| D57 | Retain measured calibration definitions and confirmation for the follow-up | Realized 16 configurations and seeds recorded; confirmation produced three probe vetoes and three stability rejections. No repeat calibration or tolerance retuning for this comparison | docs 22–23 |
