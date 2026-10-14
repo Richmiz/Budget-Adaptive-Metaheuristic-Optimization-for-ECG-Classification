@@ -3,16 +3,23 @@
     python scripts/v2_driver.py --out-root /content/drive/MyDrive/bamo_v2
     python scripts/v2_driver.py --out-root /content/drive/MyDrive/bamo_v2 --stop-after-hours 5
     python scripts/v2_driver.py --out-root runs/v2_dev --dev      # tiny local smoke test (any GPU, not frozen)
+    python scripts/v2_driver.py --out-root ... --shard 0/2         # one of two concurrent G4 runtimes
+
+--shard i/n splits the work by search seed: runtime i runs every arm (searches and final models) of
+its seeds, so paired comparisons within a seed always share one machine. Each runtime logs to its
+own file. Runtimes never write to the same run directory.
 
 The tasks' randomized run matrices are interleaved by execution order, so methods and tasks are
 spread over Colab sessions. Completed jobs are skipped; an interrupted job restarts from scratch.
 With --stop-after-hours the driver finishes the current job and exits (resume with the same command).
-Log: <out-root>/v2_log.txt. Search uses folds 1-7 / 8, final models 1-8 / 9; fold 10 is never loaded.
+Log: <out-root>/v2_log.txt (or v2_log_shard<i>of<n>.txt). Search uses folds 1-7 / 8, final models 1-8 / 9;
+fold 10 is never loaded.
 """
 
 import _paths  # noqa: F401
 
 import argparse
+import os
 import time
 import traceback
 from pathlib import Path
@@ -22,7 +29,7 @@ import torch
 from bamo.config import frozen_status, load_config
 from bamo.data.dataset import build_tensors, load_prepared
 from bamo.hardware import fingerprint, require_gpu
-from bamo.search.runner import (budget_seconds, build_run_matrix, read_run_matrix, run_job,
+from bamo.search.runner import (budget_seconds, build_run_matrix, read_run_matrix, run_job, shard_jobs,
                                 write_run_matrix)
 from bamo.training.evaluator import TorchEvaluator
 from bamo.training.trainer import train_model
@@ -36,11 +43,13 @@ DEV = {"hardware": {"required_gpu": None},
 
 
 class Driver:
-    def __init__(self, out_root: Path, experiment: str, dev: bool):
+    def __init__(self, out_root: Path, experiment: str, dev: bool, shard: tuple[int, int] = (0, 1)):
         self.out_root = out_root
         self.experiment = experiment
         self.dev = dev
-        self.log_path = out_root / "v2_log.txt"
+        self.shard = shard
+        name = "v2_log.txt" if shard[1] == 1 else f"v2_log_shard{shard[0]}of{shard[1]}.txt"
+        self.log_path = out_root / name
         out_root.mkdir(parents=True, exist_ok=True)
         tasks = load_config(experiment)["experiment"]["tasks"]
         self.cfgs = {t: load_config(experiment, DEV if dev else None, task=t) for t in tasks}
@@ -54,16 +63,25 @@ class Driver:
     def task_root(self, task: str) -> Path:
         return self.out_root / task
 
+    def seeds(self, task: str) -> list[int]:
+        return sorted(self.cfgs[task]["seeds"]["search"])[self.shard[0]::self.shard[1]]
+
     def jobs(self, task: str):
+        """This runtime's jobs. The full matrix is deterministic; every runtime rebuilds it and checks
+        it against the shared copy, which is written atomically by whichever runtime comes first."""
         cfg = self.cfgs[task]
-        path = self.task_root(task) / self.experiment / "run_matrix.csv"
-        if path.exists():
-            return read_run_matrix(path)
         exp = cfg["experiment"]
         jobs = build_run_matrix(exp["name"], exp["methods"], exp["budgets"], cfg["seeds"]["search"],
                                 cfg["seeds"]["order_seed"])
-        write_run_matrix(jobs, path)
-        return jobs
+        path = self.task_root(task) / self.experiment / "run_matrix.csv"
+        if path.exists():
+            if read_run_matrix(path) != jobs:
+                raise ValueError(f"{path} differs from the configured run matrix")
+        else:
+            tmp = path.with_name(f"run_matrix.{os.getpid()}.tmp")
+            write_run_matrix(jobs, tmp)
+            os.replace(tmp, path)
+        return shard_jobs(jobs, cfg["seeds"]["search"], *self.shard)
 
     def pending(self):
         tasks = list(self.cfgs)
@@ -95,7 +113,8 @@ class Driver:
             self.log(f"{task}: protocol {status}; T_ref {cfg['budgets']['t_ref_seconds']:.3f}s; "
                      f"methods {cfg['experiment']['methods']} x budgets {cfg['experiment']['budgets']}")
         hardware = fingerprint() if self.dev else require_gpu(next(iter(self.cfgs.values()))["hardware"]["required_gpu"])
-        self.log(f"V2 START {self.experiment} on {hardware.get('gpu')} (host {hardware.get('host')})")
+        self.log(f"V2 START {self.experiment} shard {self.shard[0]}/{self.shard[1]} (seeds {self.seeds(next(iter(self.cfgs)))}) "
+                 f"on {hardware.get('gpu')} (host {hardware.get('host')})")
 
         pending = self.pending()
         total = sum(len(self.jobs(t)) for t in self.cfgs)
@@ -120,8 +139,7 @@ class Driver:
 
         for task, cfg in self.cfgs.items():
             tensors, normalizer = final_tensors(cfg)
-            seeds = cfg["seeds"]["search"]
-            n = train_defaults(cfg, tensors, normalizer, self.task_root(task), seeds, log=self.log)
+            n = train_defaults(cfg, tensors, normalizer, self.task_root(task), self.seeds(task), log=self.log)
             n += train_incumbents(cfg, tensors, normalizer, self.task_root(task), self.jobs(task), log=self.log)
             self.log(f"{task}: final models done ({n} trained this session)")
             del tensors
@@ -136,8 +154,12 @@ def main() -> None:
     ap.add_argument("--experiment", default="v2_main")
     ap.add_argument("--stop-after-hours", type=float, default=None)
     ap.add_argument("--dev", action="store_true")
+    ap.add_argument("--shard", default="0/1", help="i/n: this runtime's share of the search seeds")
     args = ap.parse_args()
-    driver = Driver(Path(args.out_root), args.experiment, args.dev)
+    shard = tuple(map(int, args.shard.split("/")))
+    if len(shard) != 2 or not 0 <= shard[0] < shard[1]:
+        raise SystemExit("--shard must be i/n with 0 <= i < n")
+    driver = Driver(Path(args.out_root), args.experiment, args.dev, shard)
     try:
         driver.run(args.stop_after_hours)
     except BaseException as err:  # keep the reason in the Drive log, then fail loudly

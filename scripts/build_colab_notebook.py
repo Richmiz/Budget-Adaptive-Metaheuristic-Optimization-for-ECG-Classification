@@ -443,12 +443,16 @@ run_logged(['-m', 'pytest', '-q', '--disable-warnings'], 'tests.txt')
 """),
         md("## Timing check for this G4 session\nSearch budgets are wall-clock, so every session must run at the measured speed (within 10%)."),
         code(DRIFT_CHECK),
-        md("## Start the runs in the background\nSet `STOP_AFTER_HOURS` to end the session cleanly after the current search "
-           "(for example 5). `None` runs until everything is done."),
+        md("## Start the runs in the background\n**One session:** keep `SHARD = '0/1'`. **Two sessions at once:** open this "
+           "notebook in two G4 runtimes and set `SHARD = '0/2'` in one and `'1/2'` in the other. Each session runs every "
+           "method for its half of the repeats, so it takes about half the time; the total compute is the same. Set "
+           "`STOP_AFTER_HOURS` to end a session cleanly after the current search (for example 5); `None` runs to the end."),
         code("""
+SHARD = '0/1'
 STOP_AFTER_HOURS = None
-pid_file = root / 'v2_driver.pid'
-log_path = pathlib.Path(OUTPUT) / 'v2_log.txt'
+shard_i, shard_n = map(int, SHARD.split('/'))
+pid_file = root / f'v2_driver_shard{shard_i}.pid'
+log_path = pathlib.Path(OUTPUT) / ('v2_log.txt' if shard_n == 1 else f'v2_log_shard{shard_i}of{shard_n}.txt')
 def log_lines():
     return log_path.read_text(encoding='utf-8').splitlines() if log_path.exists() else []
 running = pid_file.exists() and pathlib.Path(f'/proc/{pid_file.read_text().strip()}').exists()
@@ -457,7 +461,7 @@ if running:
     print('Runs already in progress, PID', pid_file.read_text().strip())
 else:
     start_line = len(log_lines())  # only this launch counts for progress and completion
-    command = [sys.executable, '-u', 'scripts/v2_driver.py', '--out-root', OUTPUT]
+    command = [sys.executable, '-u', 'scripts/v2_driver.py', '--out-root', OUTPUT, '--shard', SHARD]
     if STOP_AFTER_HOURS:
         command += ['--stop-after-hours', str(STOP_AFTER_HOURS)]
     job = subprocess.Popen(command, cwd=root, stdout=open(root / 'v2_stdout.txt', 'a'),
@@ -492,9 +496,15 @@ while True:
         code("""
 run_logged(['scripts/analyze_v2.py', 'search', '--out-root', OUTPUT], 'analyze_search.txt')
 """),
-        md("## Export (model weights stay on Drive)\nDownload this ZIP and the executed notebook to the workspace."),
+        md("## Export (model weights stay on Drive)\nWith two sessions, run this in whichever finishes last. Download the "
+           "ZIP and the executed notebook(s) to the workspace."),
         code("""
 output = pathlib.Path(OUTPUT)
+n_search = len(list(output.glob('*/v2_main/*/*/seed_*/summary.json')))
+n_final = len(list(output.glob('*/**/final/final.json')))
+print(f'{n_search} of 120 searches and {n_final} of 150 final models are on Drive')
+if n_search < 120 or n_final < 150:
+    print('WARNING: not everything is finished (another session may still be running); this export is partial')
 zip_path = output.parent / 'bamo_v2_results.zip'
 hashes = {}
 with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as result_zip:

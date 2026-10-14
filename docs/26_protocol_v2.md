@@ -62,6 +62,7 @@ Random search and P share each search seed's initial design. Its evaluations are
 ## 7. Replication and order
 - **Seeds:** 10 search seeds (1001–1010) per task × tuner × budget, giving **120 searches**. Final-model training seed = `derive_seed("final", search seed)`, so all arms in a task are paired by seed.
 - **Order:** each task's run matrix is randomly ordered (seed 20261007). The two tasks' matrices are interleaved, so methods and tasks are spread over sessions.
+- **Concurrent runtimes:** the work may be split by search seed across concurrent G4 runtimes (`--shard i/n`, for example two). A runtime runs every arm of its seeds, searches and final models alike, so each paired comparison within a seed shares one machine. Each runtime passes the session timing check and runs one job at a time. Several jobs never share one GPU.
 - **Interruptions:** an interrupted search restarts from scratch.
 - **Failures:** a search that ends without a valid incumbent is reported as a failure, not rerun. The analysis uses the seeds that have a test prediction for every arm of the task (complete cases), and reports which seeds were excluded.
 
@@ -101,7 +102,7 @@ Random search and P share each search seed's initial design. Its evaluations are
 | Session setup (≈ 10 sessions) | ≈ 3 |
 | **Total** | **≈ 45–53 h ≈ 400–470 compute units** |
 
-Schedule: lock by 25 Oct 2026; main runs 26 Oct–15 Nov; test by 22 Nov; analysis by 6 Dec; submission target Feb–Mar 2027.
+Schedule: lock by 25 Oct 2026; main runs 26 Oct–15 Nov (about half the calendar time with two concurrent runtimes; the compute total is unchanged); test by 22 Nov; analysis by 6 Dec; submission target Feb–Mar 2027.
 
 Not part of this protocol: P without stopping (`v2_addon`, about 11 h). If it is run, it is exploratory and reported as such.
 

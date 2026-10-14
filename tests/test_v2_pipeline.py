@@ -61,6 +61,20 @@ def test_v2_methods_respect_cap_with_task_config(tmp_path, method):
     assert s["config_hash"] == config_hash(cfg)
 
 
+def test_driver_shards_split_seeds_without_overlap(tmp_path):
+    pytest.importorskip("torch")
+    import v2_driver
+
+    shards = [v2_driver.Driver(tmp_path, "v2_main", dev=False, shard=(i, 2)) for i in range(2)]
+    for task in ("superclass", "rhythm"):
+        jobs = [set(d.jobs(task)) for d in shards]
+        assert not jobs[0] & jobs[1] and len(jobs[0]) == len(jobs[1]) == 30
+        assert {j.seed for j in jobs[0]} == {1001, 1003, 1005, 1007, 1009}
+        assert (tmp_path / task / "v2_main" / "run_matrix.csv").exists()
+    assert shards[1].log_path.name == "v2_log_shard1of2.txt"
+    assert v2_driver.Driver(tmp_path, "v2_main", dev=False).log_path.name == "v2_log.txt"
+
+
 def test_frozen_status_is_checked_per_task(tmp_path, monkeypatch):
     monkeypatch.setattr(config_module, "PROJECT_ROOT", tmp_path)
     assert config_module.frozen_status("rhythm") == "not_frozen"
