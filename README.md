@@ -10,7 +10,9 @@ The controller allocates search time across training, regularization, capacity a
 
 ## Status (14 Oct 2026)
 
-**Current result: [verified G4 results](docs/22_g4_decision_results.md); [assessor statement and next experiment](docs/23_assessor_g4_next_experiment.md); [v1.2 design draft](docs/19_protocol_v1_2_draft.md).**
+**Current plan: [docs/25_study_plan_v2.md](docs/25_study_plan_v2.md), one page (route A: is tuning worth its compute?).** Everything below and docs 00–24 are the history that led to it.
+
+**Earlier results: [verified G4 results](docs/22_g4_decision_results.md); [assessor statement and next experiment](docs/23_assessor_g4_next_experiment.md); [v1.2 design draft](docs/19_protocol_v1_2_draft.md).**
 The full study is held pending equal-cost assessment, matched controls and the final analysis plan.
 
 | Phase | State |

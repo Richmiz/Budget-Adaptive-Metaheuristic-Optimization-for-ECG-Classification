@@ -1,0 +1,142 @@
+{
+  "plan_hash": "55f4b41e3cf9",
+  "hardware": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.22621-SP0",
+    "host": "LMC-SERVER",
+    "colab": false,
+    "torch": "2.14.1+cu126",
+    "cuda": "12.6",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 3050",
+    "gpu_memory_gb": 8.0
+  },
+  "n_assessment_records": 2097,
+  "per_class_mean_auroc": {
+    "reference_local": {
+      "AFIB": 0.9934646867812205,
+      "PACE": 0.9631444674181285,
+      "SARRH": 0.7397499396756455,
+      "SBRAD": 0.9825112211018199,
+      "SR": 0.9352003129269439,
+      "STACH": 0.9932197509003242,
+      "SVARR": 0.9027540845747237
+    },
+    "task_default_local": {
+      "AFIB": 0.9963929102963064,
+      "PACE": 0.952948042419796,
+      "SARRH": 0.9181779504959298,
+      "SBRAD": 0.9788097946384653,
+      "SR": 0.9595692152449844,
+      "STACH": 0.9950856055802155,
+      "SVARR": 0.8471588178760211
+    },
+    "reference": {
+      "AFIB": 0.9935925449871466,
+      "PACE": 0.9631794837590876,
+      "SARRH": 0.751353805514281,
+      "SBRAD": 0.9816734813084113,
+      "SR": 0.9362105227353897,
+      "STACH": 0.9944484990607914,
+      "SVARR": 0.9077366650648726
+    },
+    "adaptive_utility": {
+      "AFIB": 0.9969659044784198,
+      "PACE": 0.9679750550256786,
+      "SARRH": 0.9038766335200213,
+      "SBRAD": 0.9808956898671914,
+      "SR": 0.9605648274650083,
+      "STACH": 0.9951149184623299,
+      "SVARR": 0.8569648005766458
+    },
+    "dehb_native": {
+      "AFIB": 0.9975162359626573,
+      "PACE": 0.9697008604015206,
+      "SARRH": 0.9166723816055168,
+      "SBRAD": 0.9799065420560747,
+      "SR": 0.9647937346583598,
+      "STACH": 0.9958303920747538,
+      "SVARR": 0.8892659778952428
+    }
+  },
+  "contrasts": {
+    "task_default_vs_reference": {
+      "observed_difference": 0.017135333445962585,
+      "paired_seed_differences": [
+        0.01168654228063215,
+        0.010793518716300299,
+        0.025894706468711393,
+        0.017609995229096453,
+        0.019691904535072635
+      ],
+      "hierarchical_ci95": [
+        0.0010912262364883019,
+        0.031089779734317567
+      ]
+    },
+    "task_default_vs_P": {
+      "observed_difference": -0.002030784691939469,
+      "paired_seed_differences": [
+        0.0043941440149503075,
+        0.0028440559048514835,
+        0.0043764779125679,
+        -0.009010092464685648,
+        -0.012758508827381387
+      ],
+      "hierarchical_ci95": [
+        -0.018396823471711638,
+        0.013777577338340886
+      ]
+    },
+    "task_default_vs_DEHB": {
+      "observed_difference": -0.009363398300343917,
+      "paired_seed_differences": [
+        0.006088319090070904,
+        -0.01219949156703537,
+        -0.01391127665790659,
+        -0.0067622395592603635,
+        -0.020032302807588165
+      ],
+      "hierarchical_ci95": [
+        -0.021425663055509046,
+        0.0015864599340261565
+      ]
+    },
+    "platform_control": {
+      "observed_difference": -0.0025929341501677917,
+      "paired_seed_differences": [
+        -0.003630514640413751,
+        -0.013759006670692409,
+        0.0054278076195147795,
+        -0.006423537775635535,
+        0.005420580716387957
+      ],
+      "hierarchical_ci95": [
+        -0.01365155053896364,
+        0.007790579598945421
+      ]
+    }
+  },
+  "limits": [
+    "development fold 7, already used for task selection",
+    "task default declared after seeing development results",
+    "local RTX 3050 refits compared with G4 refits; see platform_control"
+  ],
+  "added_after_registration": {
+    "task_default_vs_reference_local_same_platform": {
+      "observed_difference": 0.01972826759613038,
+      "paired_seed_differences": [
+        0.015317056921045902,
+        0.024552525386992707,
+        0.020466898849196613,
+        0.02403353300473199,
+        0.014271323818684678
+      ],
+      "hierarchical_ci95": [
+        0.004070635783299473,
+        0.03218182063532806
+      ]
+    },
+    "reason": "platform control showed same-seed local and G4 refits are not reproducible run-for-run; same-platform pairing added and labelled post hoc"
+  }
+}

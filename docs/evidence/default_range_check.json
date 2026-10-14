@@ -1,0 +1,129 @@
+{
+  "plan_hash": "55252745161e",
+  "hardware": {
+    "python": "3.12.15",
+    "platform": "Windows-11-10.0.22621-SP0",
+    "host": "LMC-SERVER",
+    "colab": false,
+    "torch": "2.14.1+cu126",
+    "cuda": "12.6",
+    "cudnn": 91002,
+    "gpu": "NVIDIA GeForce RTX 3050",
+    "gpu_memory_gb": 8.0
+  },
+  "tasks": {
+    "rhythm": {
+      "macro_auroc_mean": {
+        "k25_d2": 0.9475028745031265,
+        "k15_d4": 0.9397553281881731,
+        "D1": 0.9497346195073882
+      },
+      "per_class_mean_auroc": {
+        "k25_d2": {
+          "AFIB": 0.9964,
+          "PACE": 0.9329,
+          "SARRH": 0.9144,
+          "SBRAD": 0.9784,
+          "SR": 0.9591,
+          "STACH": 0.9969,
+          "SVARR": 0.8544
+        },
+        "k15_d4": {
+          "AFIB": 0.9944,
+          "PACE": 0.9286,
+          "SARRH": 0.9107,
+          "SBRAD": 0.9782,
+          "SR": 0.9541,
+          "STACH": 0.9951,
+          "SVARR": 0.8174
+        },
+        "D1": {
+          "AFIB": 0.9964,
+          "PACE": 0.9529,
+          "SARRH": 0.9182,
+          "SBRAD": 0.9788,
+          "SR": 0.9596,
+          "STACH": 0.9951,
+          "SVARR": 0.8472
+        }
+      },
+      "contrasts": {
+        "k25_d2_minus_D1": {
+          "observed_difference": -0.0022317450042619092,
+          "paired_seed_differences": [
+            -0.006480439019688089,
+            0.0027538105045818995,
+            0.00671775150190923,
+            -0.024832901992793865,
+            0.010683053984681279
+          ],
+          "hierarchical_ci95": [
+            -0.01775106953104231,
+            0.01442947271787336
+          ]
+        },
+        "k15_d4_minus_D1": {
+          "observed_difference": -0.009979291319215244,
+          "paired_seed_differences": [
+            -0.015404884932256446,
+            -0.0201708848762554,
+            -0.00528818675249676,
+            -0.009497412875159816,
+            0.000464912840092202
+          ],
+          "hierarchical_ci95": [
+            -0.027663764333363254,
+            0.007814787787102845
+          ]
+        }
+      }
+    },
+    "superclass": {
+      "macro_auroc_mean": {
+        "D0": 0.9319231362960524,
+        "D1": 0.9222398607423132
+      },
+      "per_class_mean_auroc": {
+        "D0": {
+          "NORM": 0.9578,
+          "MI": 0.927,
+          "STTC": 0.9251,
+          "CD": 0.9273,
+          "HYP": 0.9225
+        },
+        "D1": {
+          "NORM": 0.9528,
+          "MI": 0.9048,
+          "STTC": 0.917,
+          "CD": 0.9179,
+          "HYP": 0.9188
+        }
+      },
+      "contrasts": {
+        "D1_minus_D0": {
+          "observed_difference": -0.009683275553739268,
+          "paired_seed_differences": [
+            -0.007629636126117556,
+            -0.009202150947533072,
+            -0.016695197806124717,
+            -0.010661060061801564,
+            -0.00422833282711943
+          ],
+          "hierarchical_ci95": [
+            -0.014564017631499808,
+            -0.0052109977354226665
+          ]
+        }
+      }
+    }
+  },
+  "decisions": {
+    "widen_rhythm_range": false,
+    "shared_default": false
+  },
+  "limits": [
+    "development fold 7 reused",
+    "5 seeds",
+    "local RTX 3050 refits"
+  ]
+}
