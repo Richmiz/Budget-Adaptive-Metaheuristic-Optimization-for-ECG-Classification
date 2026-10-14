@@ -51,7 +51,7 @@ Spent so far: about 70 units (pilot plus decision run).
 ## Timeline
 | Weeks | Dates | Work | Who |
 |---|---|---|---|
-| W1–W2 | 14–25 Oct | ~~Step 1 checks~~ (done); code updates (task-aware runner, D1 baseline, new analysis, Colab notebook with live progress); full protocol; **lock (freeze + git tag)** | Claude; you approve the lock |
+| W1–W2 | 14–25 Oct | ~~Step 1 checks~~ (done); ~~code updates~~ (done); ~~protocol lock~~ (**frozen 14 Oct**, tag `protocol-v2-frozen`). Was: code updates (task-aware runner, D1 baseline, new analysis, Colab notebook with live progress); full protocol; **lock (freeze + git tag)** | Claude; you approve the lock |
 | W3–W5 | 26 Oct–15 Nov | **Main searches on Colab**, about 10 sessions of about 5 h; resumes after disconnects | You run; Claude watches and checks |
 | W6 | 16–22 Nov | Final models; lock the analysis; **one-time test on fold 10** | You run; Claude checks |
 | W7–W8 | 23 Nov–6 Dec | Analysis, figures, results write-up | Claude drafts; you review |

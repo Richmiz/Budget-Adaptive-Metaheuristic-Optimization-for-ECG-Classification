@@ -1,2 +1,2 @@
-approved_for_freeze: false
-reason: "Protocol v2 (docs/26_protocol_v2.md) drafted 14 Oct 2026; awaiting the researcher's approval before the freeze"
+approved_for_freeze: true
+reason: "Protocol v2 (docs/26_protocol_v2.md) approved by the researcher on 14 Oct 2026"

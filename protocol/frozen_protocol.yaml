@@ -1,0 +1,339 @@
+_freeze:
+  frozen_at: '2026-10-14T21:02:27'
+  config_hash: 555a7644ab75
+  task_config_hashes:
+    superclass: d7eadbff15b2
+    rhythm: c852db0a83b2
+  tasks:
+    superclass:
+      data:
+        processed_dir: data/processed
+        classes:
+        - NORM
+        - MI
+        - STTC
+        - CD
+        - HYP
+      budgets:
+        t_ref_seconds: 11.170414030500012
+      controller:
+        reeval_tolerance: 0.004382495971271688
+      defaults:
+        D0: {}
+    rhythm:
+      data:
+        processed_dir: data/processed_rhythm
+        classes:
+        - AFIB
+        - PACE
+        - SARRH
+        - SBRAD
+        - SR
+        - STACH
+        - SVARR
+      budgets:
+        t_ref_seconds: 12.954911142499896
+      controller:
+        reeval_tolerance: 0.011498703393912235
+      defaults:
+        D0: {}
+        D1:
+          kernel_size: 15
+          dilation: 2
+data:
+  raw_root: data/raw/ptb-xl-1.0.3
+  processed_dir: data/processed
+  sampling_rate: 100
+  classes:
+  - NORM
+  - MI
+  - STTC
+  - CD
+  - HYP
+partitions:
+  pilot:
+    train:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    val:
+    - 7
+  search:
+    train:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    val:
+    - 8
+  final:
+    train:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    val:
+    - 9
+    test:
+    - 10
+model:
+  n_leads: 12
+  base_widths:
+  - 32
+  - 64
+  - 128
+  group_strides:
+  - 1
+  - 2
+  - 2
+  stem_kernel: 15
+  channel_divisor: 8
+training:
+  optimizer: adamw
+  loss: bce_with_logits
+  class_weighting: none
+  amp: true
+  drop_last: true
+  eval_batch_size: 1024
+  cudnn_benchmark: false
+  deterministic: false
+evaluator:
+  single_fidelity:
+    max_epochs: 20
+    patience: 5
+  multi_fidelity:
+    fidelities:
+    - 5
+    - 10
+    - 20
+    eta: 2
+    patience: 5
+final_training:
+  max_epochs: 50
+  patience: 8
+initial_design:
+  n_configs: 8
+  method: latin_hypercube
+hardware:
+  required_gpu: RTX PRO 6000
+budgets:
+  t_ref_seconds: 9.8
+  multipliers:
+    low: 80
+    mid: 160
+    high: 320
+seeds:
+  search:
+  - 1001
+  - 1002
+  - 1003
+  - 1004
+  - 1005
+  - 1006
+  - 1007
+  - 1008
+  - 1009
+  - 1010
+  order_seed: 20261007
+analysis:
+  anytime_start_value: 0.5
+  noninferiority_margin: 0.005
+  alpha_one_sided: 0.05
+  n_bootstrap: 10000
+search_space:
+  joint_block: J
+  parameters:
+  - name: learning_rate
+    block: A
+    kind: log
+    low: 1.0e-05
+    high: 0.003
+  - name: batch_size
+    block: A
+    kind: choice
+    choices:
+    - 32
+    - 64
+    - 128
+  - name: weight_decay
+    block: B
+    kind: log
+    low: 1.0e-06
+    high: 0.01
+  - name: dropout
+    block: B
+    kind: float
+    low: 0.0
+    high: 0.5
+  - name: width_multiplier
+    block: C
+    kind: choice
+    choices:
+    - 0.5
+    - 1.0
+    - 1.5
+  - name: blocks_per_group
+    block: C
+    kind: choice
+    choices:
+    - 1
+    - 2
+    - 3
+  - name: kernel_size
+    block: C
+    kind: choice
+    choices:
+    - 5
+    - 9
+    - 15
+  - name: dilation
+    block: C
+    kind: choice
+    choices:
+    - 1
+    - 2
+  - name: stem_stride
+    block: C
+    kind: choice
+    choices:
+    - 1
+    - 2
+  reference_config:
+    learning_rate: 0.001
+    batch_size: 64
+    weight_decay: 0.01
+    dropout: 0.2
+    width_multiplier: 1.0
+    blocks_per_group: 2
+    kernel_size: 9
+    dilation: 1
+    stem_stride: 2
+controller:
+  blocks:
+  - A
+  - B
+  - C
+  - J
+  trials_per_round: 2
+  warmup_rounds_per_block: 3
+  window: 8
+  kappa: 1.0
+  sigma_floor: 0.0001
+  tau: 0.0005
+  hysteresis_factor: 0.1
+  probe_gap: 8
+  stop_consecutive: 3
+  min_rounds_per_block: 3
+  min_budget_fraction: 0.4
+  reeval_seeds: 2
+  reeval_tolerance: 0.0035
+  adaptive: true
+  global_termination: true
+  cost_normalization: true
+  mandatory_probes: true
+  confirmation: true
+de:
+  pop_size: 8
+  F: 0.5
+  CR: 0.7
+methods:
+  random:
+    class: random
+  tpe:
+    class: tpe
+    n_startup_trials: 8
+    multivariate: false
+  de:
+    class: standard_de
+  hyperband:
+    class: hyperband
+    eta: 2
+  bohb:
+    class: bohb
+    eta: 2
+    top_n_percent: 15
+    num_samples: 64
+    random_fraction: 0.3333333
+    bandwidth_factor: 3.0
+    min_bandwidth: 0.001
+  dehb:
+    class: dehb
+    eta: 2
+  mu:
+    class: mu
+  mu_nostop:
+    class: mu
+    global_termination: false
+  rr_nostop:
+    class: mu
+    adaptive: false
+    global_termination: false
+  mu_nocost:
+    class: mu
+    cost_normalization: false
+  mu_noprobe:
+    class: mu
+    mandatory_probes: false
+  mu_nojoint:
+    class: mu
+    blocks:
+    - A
+    - B
+    - C
+  mu_noconfirm:
+    class: mu
+    confirmation: false
+  mu_floor20:
+    class: mu
+    min_budget_fraction: 0.2
+  mu_floor60:
+    class: mu
+    min_budget_fraction: 0.6
+  de_patience:
+    class: de_patience
+    patience_evals: 16
+    min_budget_fraction: 0.4
+  adaptive_utility:
+    class: mu
+    rng_group: matched_block
+    confirmation_rule: improvement
+  rr_utility:
+    class: mu
+    rng_group: matched_block
+    adaptive: false
+    confirmation_rule: improvement
+  adaptive_patience:
+    class: mu
+    rng_group: matched_block
+    stop_rule: patience
+    confirmation_rule: improvement
+  rr_patience:
+    class: mu
+    rng_group: matched_block
+    adaptive: false
+    stop_rule: patience
+    confirmation_rule: improvement
+  adaptive_full:
+    class: mu
+    rng_group: matched_block
+    global_termination: false
+    confirmation_rule: improvement
+  rr_full:
+    class: mu
+    rng_group: matched_block
+    adaptive: false
+    global_termination: false
+    confirmation_rule: improvement
+  dehb_native:
+    class: dehb
+    shared_initial: false

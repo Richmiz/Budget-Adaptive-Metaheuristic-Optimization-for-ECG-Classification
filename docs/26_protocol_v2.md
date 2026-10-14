@@ -1,6 +1,6 @@
 # 26 — Protocol v2: is tuning worth its compute?
 
-**Status: draft for approval (14 Oct 2026). Not frozen.** Once approved, this file is frozen with the configs (`scripts/lock_protocol.py freeze`, git tag `protocol-v2-frozen`). Before fold 10 is opened, this file and `scripts/analyze_v2.py` are hashed into the analysis lock. Plan summary: [doc 25](25_study_plan_v2.md). Development evidence: docs 21–24. This protocol replaces protocol v1.1 (doc 16) and the v1.2 draft (doc 19).
+**Status: approved by the researcher and frozen on 14 Oct 2026** (`protocol/frozen_protocol.yaml`, git tag `protocol-v2-frozen`). Later changes are amendments, logged with their reasons. Before fold 10 is opened, this file and `scripts/analyze_v2.py` are hashed into the analysis lock. Plan summary: [doc 25](25_study_plan_v2.md). Development evidence: docs 21–24. This protocol replaces protocol v1.1 (doc 16) and the v1.2 draft (doc 19).
 
 ## 1. Questions
 1. **Gain.** How much does hyperparameter search improve held-out discrimination over (a) the original default D0 and (b) a sensible task default?
