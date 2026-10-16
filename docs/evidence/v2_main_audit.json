@@ -1,0 +1,108 @@
+{
+  "source": "runs\\colab\\v2_main_2026-10-16",
+  "export_manifest_sha256": "46a0ed671827d05dadaf2d3e977d90953ca80402bd1c4e886ed84a282d550eb4",
+  "tasks": {
+    "superclass": {
+      "searches": 60,
+      "per_arm": {
+        "adaptive_utility@low": 10,
+        "adaptive_utility@mid": 10,
+        "dehb_native@low": 10,
+        "dehb_native@mid": 10,
+        "random@low": 10,
+        "random@mid": 10
+      },
+      "gpus": [
+        "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+      ],
+      "hosts": {
+        "484732cb28f8": 19,
+        "94d3d10d1bf5": 4,
+        "0d477d40dad2": 15,
+        "506e244758af": 11,
+        "7bbfa5461b54": 8,
+        "f02081e0793d": 3
+      },
+      "termination": {
+        "utility_stop_confirmed": 17,
+        "budget": 43
+      },
+      "max_overshoot_s": 0.14891814799375425,
+      "late_results_discarded": 2,
+      "no_incumbent": 0,
+      "final_models": 70,
+      "run_config_hash_expected": "92f169de7df8",
+      "run_config_hash_all_match": true
+    },
+    "rhythm": {
+      "searches": 60,
+      "per_arm": {
+        "adaptive_utility@low": 10,
+        "adaptive_utility@mid": 10,
+        "dehb_native@low": 10,
+        "dehb_native@mid": 10,
+        "random@low": 10,
+        "random@mid": 10
+      },
+      "gpus": [
+        "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+      ],
+      "hosts": {
+        "484732cb28f8": 19,
+        "94d3d10d1bf5": 3,
+        "0d477d40dad2": 16,
+        "506e244758af": 11,
+        "7bbfa5461b54": 8,
+        "f02081e0793d": 3
+      },
+      "termination": {
+        "utility_stop_confirmed": 14,
+        "budget": 46
+      },
+      "max_overshoot_s": 0.1557801530107099,
+      "late_results_discarded": 1,
+      "no_incumbent": 0,
+      "final_models": 80,
+      "run_config_hash_expected": "a798116c7848",
+      "run_config_hash_all_match": true
+    }
+  },
+  "session_timing_checks": {
+    "0d477d40dad2": {
+      "median_ratio": 1.0029769194347822,
+      "within_10pct": true,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    },
+    "484732cb28f8": {
+      "median_ratio": 1.0078190731735244,
+      "within_10pct": true,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    },
+    "506e244758af": {
+      "median_ratio": 1.0057588169166287,
+      "within_10pct": true,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    },
+    "7bbfa5461b54": {
+      "median_ratio": 1.0197901590908858,
+      "within_10pct": true,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    },
+    "94d3d10d1bf5": {
+      "median_ratio": 1.0202335373898093,
+      "within_10pct": true,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    },
+    "f02081e0793d": {
+      "median_ratio": 1.0525467558232853,
+      "within_10pct": true,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    }
+  },
+  "all_search_hosts_passed_timing_check": true,
+  "driver_freeze_checks": {
+    "n": 12,
+    "all_match": true
+  },
+  "note": "Run summaries hash the frozen task config merged with the v2_main experiment definition; the frozen protocol stores task-config hashes, which every driver start verified (driver_freeze_checks)."
+}

@@ -1,0 +1,8 @@
+{
+  "locked_at": "2026-10-16T07:54:01",
+  "frozen_protocol_sha256": "ec9b744f0928e37ecc540b077fb79393f12abec97aa24f9d58952ac4f19af3de",
+  "analysis_files_sha256": {
+    "docs/26_protocol_v2.md": "8ffd7d15fde8df5c05606232f64fc45b764dbcf557502951a398a293edab9d69",
+    "scripts/analyze_v2.py": "9a09d67ad4dd530bde8f96b0f21fd50f822a94ad81ff2630d2c53277733fb07d"
+  }
+}

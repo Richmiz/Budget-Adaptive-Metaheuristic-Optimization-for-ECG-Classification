@@ -28,3 +28,5 @@ Thumbs.db
 .DS_Store
 ~$*.docx
 
+/bamo_v2_results.zip
+/bamo_v2_test_results.zip
