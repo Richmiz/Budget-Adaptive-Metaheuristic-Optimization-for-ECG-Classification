@@ -34,6 +34,10 @@ def save(fig, name):
         metadata = ({"CreationDate": None, "ModDate": None} if ext == "pdf"
                     else {"Date": None} if ext == "svg" else None)
         fig.savefig(OUT / f"{name}.{ext}", dpi=300, bbox_inches="tight", facecolor="white", metadata=metadata)
+        if ext == "svg":
+            path = OUT / f"{name}.{ext}"
+            path.write_text("\n".join(line.rstrip() for line in path.read_text(encoding="utf-8").splitlines()) + "\n",
+                            encoding="utf-8")
     plt.close(fig)
 
 
