@@ -1,0 +1,313 @@
+{
+  "plan_hash": "16f350b6804a",
+  "analysis_status": "supplemental reporting analyses specified after test inspection",
+  "tasks": {
+    "superclass": {
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010
+      ],
+      "n_bootstrap": 10000,
+      "absolute_auroc": {
+        "D0": {
+          "mean": 0.9236870673719573,
+          "ci95": [
+            0.9163634218396249,
+            0.9305460138347668
+          ]
+        },
+        "random@low": {
+          "mean": 0.926537274217265,
+          "ci95": [
+            0.9193568756870364,
+            0.9334823661770112
+          ]
+        },
+        "random@mid": {
+          "mean": 0.9270354308129949,
+          "ci95": [
+            0.9198688692414551,
+            0.9339670383155945
+          ]
+        },
+        "dehb_native@low": {
+          "mean": 0.9271249697475282,
+          "ci95": [
+            0.9199948793856624,
+            0.9337998035419222
+          ]
+        },
+        "dehb_native@mid": {
+          "mean": 0.927728761149794,
+          "ci95": [
+            0.9205753676091677,
+            0.9344787917935884
+          ]
+        },
+        "adaptive_utility@low": {
+          "mean": 0.9280682837212806,
+          "ci95": [
+            0.9211640631322182,
+            0.9346420632728724
+          ]
+        },
+        "adaptive_utility@mid": {
+          "mean": 0.927931959879863,
+          "ci95": [
+            0.9209920437753868,
+            0.9345592005831829
+          ]
+        }
+      },
+      "budget_contrasts": {
+        "random@mid - random@low": {
+          "difference": 0.0004981565957300927,
+          "ci95": [
+            -0.0005762760592641195,
+            0.001857136378919166
+          ],
+          "per_seed": [
+            0.0,
+            0.0,
+            0.0,
+            0.00028309395506642687,
+            0.0,
+            0.0,
+            0.0030771370356876826,
+            -0.0008763875737711757,
+            0.0,
+            0.0024977225403179926
+          ],
+          "analysis_status": "supplemental after test inspection"
+        },
+        "dehb_native@mid - dehb_native@low": {
+          "difference": 0.0006037914022657076,
+          "ci95": [
+            -0.0006135110622590965,
+            0.0019788975557819876
+          ],
+          "per_seed": [
+            0.0,
+            0.0,
+            0.00374526940996045,
+            0.0,
+            -0.0008577836033821784,
+            0.0016647475391565747,
+            0.0,
+            0.0028738969993759023,
+            0.0,
+            -0.0013882163224536725
+          ],
+          "analysis_status": "supplemental after test inspection"
+        },
+        "adaptive_utility@mid - adaptive_utility@low": {
+          "difference": -0.00013632384141778475,
+          "ci95": [
+            -0.0019250863533948738,
+            0.0015409752316441244
+          ],
+          "per_seed": [
+            0.0013307329266002421,
+            -0.004566190726292718,
+            0.0,
+            -0.0007770204456485352,
+            0.0,
+            -0.0005572384166979694,
+            0.0027473998222190543,
+            0.0006389002102675789,
+            -0.0010838249527714838,
+            0.0009040031681459837
+          ],
+          "analysis_status": "supplemental after test inspection"
+        }
+      },
+      "locked_contrasts_reproduced": 10
+    },
+    "rhythm": {
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010
+      ],
+      "n_bootstrap": 10000,
+      "absolute_auroc": {
+        "D0": {
+          "mean": 0.9486278743275346,
+          "ci95": [
+            0.9362305144524639,
+            0.9594652854921895
+          ]
+        },
+        "D1": {
+          "mean": 0.9554186040818118,
+          "ci95": [
+            0.9440739402492181,
+            0.9654261699250464
+          ]
+        },
+        "random@low": {
+          "mean": 0.9559264599299764,
+          "ci95": [
+            0.9427583245592842,
+            0.9666650715207561
+          ]
+        },
+        "random@mid": {
+          "mean": 0.956170129317489,
+          "ci95": [
+            0.9431282104374378,
+            0.96690335855855
+          ]
+        },
+        "dehb_native@low": {
+          "mean": 0.9600859453352448,
+          "ci95": [
+            0.9499553451083576,
+            0.9691152616754554
+          ]
+        },
+        "dehb_native@mid": {
+          "mean": 0.9591193932732909,
+          "ci95": [
+            0.948064503658286,
+            0.9684103654574124
+          ]
+        },
+        "adaptive_utility@low": {
+          "mean": 0.9555419034025169,
+          "ci95": [
+            0.9421914228917312,
+            0.9666758471476613
+          ]
+        },
+        "adaptive_utility@mid": {
+          "mean": 0.9560183710874384,
+          "ci95": [
+            0.9424440194462965,
+            0.9671312315358978
+          ]
+        }
+      },
+      "budget_contrasts": {
+        "random@mid - random@low": {
+          "difference": 0.00024366938751247958,
+          "ci95": [
+            -0.004935191073793959,
+            0.005282574073639456
+          ],
+          "per_seed": [
+            0.008804079493031747,
+            0.0,
+            0.011665875400589942,
+            0.0,
+            -0.010990628038450412,
+            0.0,
+            0.0,
+            -0.0029349981216972854,
+            -0.004107634858349196,
+            0.0
+          ],
+          "analysis_status": "supplemental after test inspection"
+        },
+        "dehb_native@mid - dehb_native@low": {
+          "difference": -0.0009665520619540846,
+          "ci95": [
+            -0.006187281379945068,
+            0.003608881818431371
+          ],
+          "per_seed": [
+            -0.0025093998419501995,
+            -0.0009139651714193953,
+            0.0,
+            -0.00507366807517029,
+            0.0027080058411526053,
+            0.0,
+            -0.0038040861890280553,
+            0.00201245075978862,
+            -0.010236949488661051,
+            0.00815209154574692
+          ],
+          "analysis_status": "supplemental after test inspection"
+        },
+        "adaptive_utility@mid - adaptive_utility@low": {
+          "difference": 0.00047646768492151106,
+          "ci95": [
+            -0.004912256924357962,
+            0.005946034127254482
+          ],
+          "per_seed": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0021676887612442908,
+            0.013480848330060469,
+            -0.015115193301499352,
+            0.004231333059409703
+          ],
+          "analysis_status": "supplemental after test inspection"
+        }
+      },
+      "locked_contrasts_reproduced": 17
+    }
+  },
+  "compute": {
+    "tasks": {
+      "superclass": {
+        "searches": 60,
+        "final_models": 70,
+        "accounted_search_hours": 20.204989118917773,
+        "physical_completed_search_hours": 19.31047365660361,
+        "charged_cache_hours": 0.8945154623141647,
+        "checkpoint_training_hours": 0.49183953265694474
+      },
+      "rhythm": {
+        "searches": 60,
+        "final_models": 80,
+        "accounted_search_hours": 23.219326817045832,
+        "physical_completed_search_hours": 22.258881832598334,
+        "charged_cache_hours": 0.960444984447499,
+        "checkpoint_training_hours": 0.6188324516711085
+      }
+    },
+    "totals": {
+      "searches": 120,
+      "final_models": 150,
+      "accounted_search_hours": 43.424315935963605,
+      "physical_completed_search_hours": 41.56935548920194,
+      "charged_cache_hours": 1.8549604467616638,
+      "checkpoint_training_hours": 1.1106719843280533,
+      "documented_physical_search_plus_checkpoint_training_hours": 42.68002747352999
+    },
+    "known_scope": "completed jobs only; checkpoint-training timer ends before final prediction/thresholding/model export",
+    "unavailable_or_separate": [
+      "aborted/restarted search work",
+      "runtime setup and idle billing",
+      "development experiments and default selection",
+      "test inference and export overhead"
+    ],
+    "billing_total_status": "not reconciled; no monetary or complete billed-GPU-hour total claimed"
+  },
+  "limits": [
+    "supplemental contrasts were defined after viewing test results",
+    "no new confirmatory tests, equivalence tests or NI decisions",
+    "absolute-score intervals do not replace paired contrast intervals"
+  ]
+}

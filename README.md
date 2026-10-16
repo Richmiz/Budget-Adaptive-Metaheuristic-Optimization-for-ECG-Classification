@@ -1,51 +1,47 @@
 # Budget-Adaptive Metaheuristic Optimization for ECG Classification
 
-A study of ECG hyperparameter-tuning quality versus compute on patient-separated PTB-XL. The current draft compares random search, DE, official DEHB and matched block-DE controllers on five diagnostic superclasses and seven common rhythm labels, using one 1-D ResNet family.
+A study of ECG hyperparameter-tuning quality versus compute on patient-separated PTB-XL. The completed v2 experiment compares random search, official DEHB and P (a block-DE controller with confirmed stopping) on five diagnostic superclasses and seven common rhythm labels, using one 1-D ResNet family.
 
-The controller allocates search time across training, regularization, capacity and joint hyperparameter blocks by **observed validation improvement per unit of measured compute**, and stops after confirmation. Development experiments support tuning gains; its advantage over simpler policies remains under assessment.
+The controller allocates search time across training, regularization, capacity and joint hyperparameter blocks by **observed validation improvement per unit of measured compute**, and stops after confirmation. The final study supports modest diagnosis tuning gains. Rhythm gains beyond a development-informed default and the controller's comparative quality remain uncertain.
 
 * Proposal: `Proposal_Budget_Adaptive_ECG_Optimization.docx`
-* Protocol and study plan: [docs/](docs/README.md). Start at [docs/00_overview.md](docs/00_overview.md).
-* Open decisions: [docs/08_decision_register.md](docs/08_decision_register.md)
+* Current results: [docs/27_results_v2.md](docs/27_results_v2.md).
+* Protocol and reporting: [docs/](docs/README.md), [frozen protocol v2](docs/26_protocol_v2.md).
 
 ## Status (16 Oct 2026)
 
-**Results: [docs/27_results_v2.md](docs/27_results_v2.md)** (fold-10 test under the frozen protocol v2 and locked analysis).
+**The main experiment and locked fold-10 analysis are complete. Current work: corrected reporting, publication figures and manuscript preparation.**
 
-
-**Current plan: [docs/25_study_plan_v2.md](docs/25_study_plan_v2.md), one page (route A: is tuning worth its compute?).** **Protocol v2 ([docs/26](docs/26_protocol_v2.md)) frozen 14 Oct 2026; next: main runs with `notebooks/COLAB_G4_V2_MAIN.ipynb`.** Everything below and docs 00–24 are the history that led to it.
-
-**Earlier results: [verified G4 results](docs/22_g4_decision_results.md); [assessor statement and next experiment](docs/23_assessor_g4_next_experiment.md); [v1.2 design draft](docs/19_protocol_v1_2_draft.md).**
-The full study is held pending equal-cost assessment, matched controls and the final analysis plan.
+The adopted question is [study plan v2](docs/25_study_plan_v2.md): is tuning worth its compute?
+Protocol v2 was frozen on 14 October; analysis was locked and the final test evaluated on
+16 October. The older 300-run design, matched-follow-up notebook and docs 00–24 are historical
+development work. They are outside the completed v2 study and are not the current execution queue.
 
 | Phase | State |
 |---|---|
-| Code: search methods, matched controls, training, analysis | ✅ 76 tests pass |
-| Data: PTB-XL 1.0.3 (100 Hz) downloaded, verified, patient-separated | ✅ 21,388 records, 18,617 patients, 0 overlap |
-| Colab G4 environment (VS Code, embedded-code notebooks) | ✅ data byte-identical to local |
-| Historical G4 pilot | ✅ T_ref 9.8 s; tolerance 0.0035; tau 0.0005 is a disclosed post-pilot amendment |
-| Protocol freeze (G2) | ⏳ matched follow-up + task/inventory/analysis definitions |
-| Original 300-run benchmark | Held; replaced by a focused draft pending decision evidence |
-| Fresh-seed task headroom | ✅ Rhythm GO (+0.0217 AUROC); form BORDERLINE; 115 completed training evaluations |
-| G4 task calibration, paired precision and matched real-data smoke | ✅ verified 14 Oct, [doc 22](docs/22_g4_decision_results.md): drift 1.7%; P +0.019 vs DEHB +0.027 over default at 57% of DEHB's search time; NI not established; equal-cost assessment and attribution follow-up pending |
-| Final models, locked test evaluation, analysis, manuscript | ⏳ |
+| Code and analysis verification | ✅ 90 tests pass, including reporting-supplement equivalence checks |
+| Patient-separated data | ✅ Diagnosis: 21,388 records / 18,617 patients; rhythm: 20,934 / 18,221; no fold overlap |
+| Protocol v2 freeze | ✅ 14 Oct; tag `protocol-v2-frozen` |
+| Main searches / final models | ✅ 120/120 searches; 150/150 final models |
+| Analysis lock / fold-10 evaluation | ✅ 16 Oct; tag `analysis-v2-locked`; all 10 seeds complete |
+| Independent audit | ✅ 1,081 archived files verified; all test AUROC point estimates reproduce; [assessment](docs/28_project_status_assessment.md) |
+| Reporting supplement | Paired budget effects, absolute-score intervals for figures and separate compute categories; [addendum](docs/29_reporting_addendum_v2.md) |
+| Publication package | Figures and manuscript in preparation; original checkpoint archive and complete billing reconciliation remain pending |
 
-## Setup
-
-Run the authorized local decision pilot:
+## Current reporting commands
 
 ```powershell
-D:\envs\bamo\python.exe -s scripts/decision_pilot.py --tasks form rhythm
+D:\envs\bamo\python.exe -s scripts/audit_v2_status.py
+D:\envs\bamo\python.exe -s scripts/reporting_supplement_v2.py
+D:\envs\bamo\python.exe -s scripts/prepare_publication_figures.py
 ```
 
-**Next G4 experiment:** [COLAB_G4_MATCHED_FOLLOWUP.ipynb](notebooks/COLAB_G4_MATCHED_FOLLOWUP.ipynb).
-Run All in a fresh G4 session. It verifies the original `My Drive/bamo_decision` evidence,
-runs 15 matched searches, assesses DEHB at P's stopping cost and fixed 40% prefixes, and saves
-to a separate Drive folder. Search caps total 5.81 hours; up to 30 refits and setup are extra.
-No new timing/noise sweep is required. The completed decision notebook is historical evidence;
-do not rerun it over its original output folder with a new code bundle.
-Real non-pilot searches require a matching frozen protocol; the decision-status file blocks
-freezing until the assessment is complete. Historical pilot artifacts are not overwritten.
+These use saved predictions and logs. The supplement is labelled as specified after test
+inspection; its results are separate from the locked primary analysis. Original runtime
+notebooks are retained as execution evidence. A new experiment requires a separate scope
+and output directory because fold 10 has already informed interpretation.
+
+## Environment setup
 
 **Local (Windows, RTX 3050), for development, data preparation and tests.** The environment lives on D: (`D:\envs\bamo`) because C: is nearly full. Install with `--no-cache-dir` so pip does not cache wheels on C:.
 
@@ -70,16 +66,16 @@ python -m pytest
 
 **Colab G4 (pilot, benchmark, final training):** open `notebooks/COLAB_G4_SETUP.ipynb` in VS Code, choose *Select Kernel → Colab → New Colab Server → G4*, then *Run All*. The code is embedded in the notebook and the data are rebuilt on the runtime, so nothing is uploaded. See [docs/10_compute_and_colab_workflow.md](docs/10_compute_and_colab_workflow.md).
 
-## Pipeline (study plan v2, docs/26)
+## Completed execution pipeline (study plan v2, docs/26)
 
 | Step | Command | Where |
 |---|---|---|
 | Prepare both task datasets | `python scripts/prepare_data.py` and `python scripts/prepare_data.py --task rhythm` | local |
-| Freeze protocol (after approval) | `python scripts/lock_protocol.py freeze`, then commit and tag `protocol-v2-frozen` | local |
+| Protocol freeze — completed | `protocol-v2-frozen` | local |
 | All searches, then all final models | `notebooks/COLAB_G4_V2_MAIN.ipynb` (runs `scripts/v2_driver.py`; resumable) | Colab |
 | Validation summary | `python scripts/analyze_v2.py search --out-root <results>` | either |
-| Lock analysis | `python scripts/lock_protocol.py analysis`, then build `v2_test` | local |
-| One-time test on fold 10 | `notebooks/COLAB_G4_V2_TEST.ipynb` | Colab |
+| Analysis lock — completed | `analysis-v2-locked` | local |
+| Fold-10 evaluation — completed | `notebooks/COLAB_G4_V2_TEST.ipynb` | Colab |
 | Results | `python scripts/analyze_v2.py primary --out-root <results>` | local |
 
 ## Pipeline (v1, historical)
@@ -92,7 +88,7 @@ python -m pytest
 | Pilot stages P1–P4 | `python scripts/run_pilot.py {feasibility,tref,noise,sweep}` | Colab |
 | Freeze protocol (G2) | `python scripts/lock_protocol.py freeze` | local |
 | Matched development follow-up | `python scripts/matched_followup.py --source-root <original-export> --out-root <new-root> --drift <session-json>` | Colab |
-| Confirmatory benchmark | 180-run draft; task-aware execution and frozen analysis plan pending | gated |
+| Earlier benchmark proposal | Superseded 180-run draft | historical |
 | Final models | `python scripts/train_final.py --experiment main` (+ `--reference`, `--shadow`) | Colab |
 | Lock analysis (G4) | `python scripts/lock_protocol.py analysis` | local |
 | Test evaluation (once) | `python scripts/evaluate_test.py` | Colab |
@@ -102,7 +98,8 @@ python -m pytest
 
 ```
 configs/     base.yaml, search_space.yaml, controller.yaml, methods.yaml, experiments/
-docs/        study plan, protocols, decision evidence and progress log (00-23)
+docs/        study plans, frozen protocol, results, reporting addendum and evidence
+figures/     publication figures, captions, source tables and provenance manifest
 notebooks/   COLAB_G4_*.ipynb (generated by scripts/build_colab_notebook.py)
 protocol/    frozen protocol and analysis lock (written by scripts)
 scripts/     command-line entry points

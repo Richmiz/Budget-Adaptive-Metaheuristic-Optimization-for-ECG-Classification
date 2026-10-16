@@ -1,5 +1,8 @@
 # 08 — Decision register
 
+Current status (16 Oct 2026): v2 execution and the locked test analysis are complete.
+Older rows preserve the decisions at their recorded dates. Current reporting is in docs 27–29.
+
 Every place where the proposal is silent or ambiguous, and every value that must be fixed before the confirmatory benchmark. **Status:**
 * **Adopted:** implemented as default; change only with a reason.
 * **Needs your call:** a scientific decision for the researcher, with a recommendation.
@@ -119,3 +122,11 @@ These are development amendments and proposals, not approval of a frozen confirm
 | D55 | Replace oversized draft with one 160-unit cap and declared prefix assessments | Proposed: 180 searches, measured 96.50 search-cap hours; refits, pilots and reserve still need reconciliation before G2 | doc 19 |
 | D56 | Preserve the seven development-derived rhythm labels | Proposed for final freeze: refiltering on folds 1–7 adds two classes and changes the tested target; existing folds 1–6 vocabulary remains training-derived | `calibration_definition_v1.json`; docs 19, 23 |
 | D57 | Retain measured calibration definitions and confirmation for the follow-up | Realized 16 configurations and seeds recorded; confirmation produced three probe vetoes and three stability rejections. No repeat calibration or tolerance retuning for this comparison | docs 22–23 |
+
+## Reporting addendum — 16 October 2026
+
+| ID | Decision | Status / reason | Artifact |
+|---|---|---|---|
+| R01 | Correct the interpretation and current status after the v2 audit | User authorized report corrections and figure preparation; remove equivalence/NI and component-attribution wording unsupported by the completed design | docs 27, 29; README |
+| R02 | Add paired 160-minus-80 and absolute-score intervals for reporting | Defined after test inspection, using all six task–tuner budget contrasts, existing predictions, 10,000 patient/paired-seed draws, no new confirmatory tests; preserve original lock and primary family | `reporting_supplement_v2.py`; supplemental plan and estimates |
+| R03 | Prepare figures separately from locked scientific analysis | Frozen primary/secondary results and clearly labelled supplemental intervals; PDF/SVG/PNG, plotted CSV values, captions and hash manifest | `prepare_publication_figures.py`; `figures/publication_v2/` |

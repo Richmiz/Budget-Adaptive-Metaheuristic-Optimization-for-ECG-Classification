@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "figures": 5,
+  "formats": [
+    "PDF",
+    "SVG",
+    "PNG at 300 dpi"
+  ],
+  "plotted_csv_rows_checked": {
+    "arm_summary.csv": 15,
+    "paired_gains.csv": 12,
+    "p_dehb_comparisons.csv": 4,
+    "budget_effects.csv": 6,
+    "per_class_gains.csv": 72
+  },
+  "source_numeric_tolerance": 1e-12,
+  "locked_contrasts_reproduced": 27,
+  "bootstrap_replicates_per_task": 10000,
+  "existing_and_reporting_tests_passed": 90,
+  "visual_review": "all five PNG exports inspected; overlapping per-class tick labels repaired",
+  "original_lock_hashes_match": true,
+  "figure_manifest_sha256": "2c435efd81cbf79fdf12e1b8c5b34053e7d5224e6e3c090b6014f247f6b9f3fe",
+  "remaining_package_items": [
+    "original checkpoint archive",
+    "complete billed runtime reconciliation"
+  ]
+}

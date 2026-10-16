@@ -1,5 +1,11 @@
 # Project status assessment — 16 October 2026
 
+**Follow-up:** the reporting corrections identified here are implemented in
+[doc 29](29_reporting_addendum_v2.md), the corrected results document and publication figure
+package. The supplement reproduced all 27 locked contrast intervals and bootstrap tail values.
+This assessment preserves the findings at review time; unresolved checkpoint/billing
+items remain explicit in the current reporting addendum.
+
 ## Verdict
 
 **The core v2 experiment is complete and ready for manuscript preparation. It is not yet ready

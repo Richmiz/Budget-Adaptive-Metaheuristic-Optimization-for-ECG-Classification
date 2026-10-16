@@ -1,6 +1,30 @@
 # 13 — Progress log
 
-Dated record of what was done, what was found, and what changed. Newest entries first. Numbers here come from local development runs unless stated otherwise. They are **not** confirmatory results and must not feed T_ref or any frozen value (those come from the Colab GPU, doc 06).
+Dated record of what was done, what was found, and what changed. Newest entries first.
+Entries distinguish development work, the final v2 analysis and later reporting supplements.
+Development results do not replace frozen settings or final test results.
+
+## 2026-10-16 — Reporting corrections and publication figures
+
+* Recorded completion of the adopted v2 study: 120 searches, 150 final models and the locked
+  fold-10 evaluation. Corrected README/current-plan instructions that still listed earlier
+  experiment queues as pending. Historical development decisions remain dated records.
+* Corrected results language about equivalence, accuracy loss, budget effects and controller
+  attribution. Expanded disclosure of D1's development-informed selection and its earlier
+  development cost.
+* Defined a reporting supplement after test inspection: all six paired 160-minus-80 budget
+  effects and absolute-score intervals for figures, using saved predictions. The joint
+  patient/seed bootstrap shares arm metric computations and checks the original locked
+  contrast intervals and tail values: **all 27 reproduce**. All six budget-effect intervals
+  include zero. No new confirmatory hypothesis family is added.
+* Reconciled completed-job cost categories: 43.424 accounted search hours, 41.569 physical
+  completed search hours and 1.111 checkpoint-training hours. The 42.680-hour physical subtotal
+  excludes retries, setup, development, idle billing and inference/export overhead.
+* Prepared a separate publication figure generator: cost–quality, paired gains, P/DEHB trade-off,
+  budget effects and per-class descriptive gains, with vector/raster exports, captions, source
+  CSV tables and a hash manifest. Reporting code tests and existing suite: **90 pass**.
+* Current details and remaining checkpoint/billing package items: doc 29. The frozen protocol,
+  lock and original primary analysis remain the historical scientific definitions.
 
 ## 2026-10-14 — G4 decision export verified; matched follow-up prepared
 
