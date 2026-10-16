@@ -8,7 +8,10 @@ The controller allocates search time across training, regularization, capacity a
 * Protocol and study plan: [docs/](docs/README.md). Start at [docs/00_overview.md](docs/00_overview.md).
 * Open decisions: [docs/08_decision_register.md](docs/08_decision_register.md)
 
-## Status (14 Oct 2026)
+## Status (16 Oct 2026)
+
+**Results: [docs/27_results_v2.md](docs/27_results_v2.md)** (fold-10 test under the frozen protocol v2 and locked analysis).
+
 
 **Current plan: [docs/25_study_plan_v2.md](docs/25_study_plan_v2.md), one page (route A: is tuning worth its compute?).** **Protocol v2 ([docs/26](docs/26_protocol_v2.md)) frozen 14 Oct 2026; next: main runs with `notebooks/COLAB_G4_V2_MAIN.ipynb`.** Everything below and docs 00–24 are the history that led to it.
 

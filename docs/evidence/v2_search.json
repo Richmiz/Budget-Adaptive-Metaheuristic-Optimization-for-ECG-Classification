@@ -1,0 +1,417 @@
+{
+  "superclass": {
+    "random@low": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.24826519588522214,
+        "sd": 2.481427673776176e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.000136054431898,
+        "sd": 9.9964285132968e-06
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9439466665085551,
+        "sd": 0.0011085858088124689
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9361132230163245,
+        "sd": 0.002853677485116387
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.930816433940409,
+        "sd": 0.0022577421679901423
+      }
+    },
+    "random@mid": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.4964968545273887,
+        "sd": 2.6984878458593106e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.000068502059471,
+        "sd": 5.4354275827185185e-06
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9443056536887959,
+        "sd": 0.0012986365103002907
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.940100421395628,
+        "sd": 0.001485711948332145
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.931134295640613,
+        "sd": 0.0022236693095580317
+      }
+    },
+    "dehb_native@low": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.24826695803666676,
+        "sd": 1.8823049770027439e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.000143153256954,
+        "sd": 7.582863422416243e-06
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.944616828817998,
+        "sd": 0.0011810066909348422
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9166201686797881,
+        "sd": 0.008068821770327401
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9317131529128287,
+        "sd": 0.0011911746571310452
+      }
+    },
+    "dehb_native@mid": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.49649854200416654,
+        "sd": 2.7763917648339937e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.0000719010585948,
+        "sd": 5.592345506444739e-06
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9450325522689424,
+        "sd": 0.0009357085039864187
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9307052394733558,
+        "sd": 0.004269711107664389
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9321856555042407,
+        "sd": 0.0011592435629004703
+      }
+    },
+    "adaptive_utility@low": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.20982685750333321,
+        "sd": 0.032418126740911546
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 0.8452872527257023,
+        "sd": 0.13059638607466367
+      },
+      "termination": {
+        "utility_stop_confirmed": 7,
+        "budget": 3
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9441200811770886,
+        "sd": 0.0010984695126561078
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9365956653142721,
+        "sd": 0.002713035359486268
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9318977438600331,
+        "sd": 0.001246976486495786
+      }
+    },
+    "adaptive_utility@mid": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.321144503935,
+        "sd": 0.05175060340670334
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 0.6468651313020364,
+        "sd": 0.10423862297955523
+      },
+      "termination": {
+        "utility_stop_confirmed": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9450040417458766,
+        "sd": 0.0012317034473248052
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9408101144944478,
+        "sd": 0.0013020401664408617
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.932108601927283,
+        "sd": 0.0010746341517588612
+      }
+    },
+    "D0": {
+      "finals_completed": 10,
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9281855859951852,
+        "sd": 0.0006585626940787466
+      }
+    }
+  },
+  "rhythm": {
+    "random@low": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.2879210170639719,
+        "sd": 4.234849236798711e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.0001184589660215,
+        "sd": 1.4710113682735919e-05
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9682965763481783,
+        "sd": 0.0025378227653806637
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9588288252991575,
+        "sd": 0.003052273703195679
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9712156752907761,
+        "sd": 0.005577671592962712
+      }
+    },
+    "random@mid": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.5758048086207221,
+        "sd": 1.0370314105118218e-05
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.000053805962749,
+        "sd": 1.8011089755711382e-05
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9692319243942681,
+        "sd": 0.002213186542833845
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9639063695048266,
+        "sd": 0.002337531219708193
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9695766522155308,
+        "sd": 0.0064207067991316775
+      }
+    },
+    "dehb_native@low": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.287922685015528,
+        "sd": 1.6457220781669631e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.000124252739456,
+        "sd": 5.716557427756015e-06
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9668429217325607,
+        "sd": 0.0016052115423503487
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9375497288267357,
+        "sd": 0.00751851857706121
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9727020602069906,
+        "sd": 0.002451432019688773
+      }
+    },
+    "dehb_native@mid": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.5758109821214998,
+        "sd": 2.7421550506255347e-06
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 1.0000645280561677,
+        "sd": 4.76255591104504e-06
+      },
+      "termination": {
+        "budget": 10
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9689831618425961,
+        "sd": 0.001497060009139599
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9530072800911751,
+        "sd": 0.003352746245456071
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9727060687133848,
+        "sd": 0.0034652063395487157
+      }
+    },
+    "adaptive_utility@low": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.2471738365198612,
+        "sd": 0.04688194721692156
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 0.858579616721894,
+        "sd": 0.1628484828306098
+      },
+      "termination": {
+        "utility_stop_confirmed": 5,
+        "budget": 5
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9678697542604148,
+        "sd": 0.0026765252869407163
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9583348910014207,
+        "sd": 0.004501182143288931
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9715313068452699,
+        "sd": 0.007176423098390219
+      }
+    },
+    "adaptive_utility@mid": {
+      "searches_completed": 10,
+      "finals_completed": 10,
+      "search_hours": {
+        "n": 10,
+        "mean": 0.3472993523630002,
+        "sd": 0.10365551319227398
+      },
+      "budget_used": {
+        "n": 10,
+        "mean": 0.6031871112208648,
+        "sd": 0.18002817782169006
+      },
+      "termination": {
+        "utility_stop_confirmed": 9,
+        "budget": 1
+      },
+      "search_val_auroc": {
+        "n": 10,
+        "mean": 0.9686463278612325,
+        "sd": 0.0019211126048564022
+      },
+      "anytime_efficiency_val": {
+        "n": 10,
+        "mean": 0.9635040416777371,
+        "sd": 0.0028065262922984794
+      },
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9714975922977432,
+        "sd": 0.006831339300478129
+      }
+    },
+    "D0": {
+      "finals_completed": 10,
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.9598831969758946,
+        "sd": 0.0039738215903071215
+      }
+    },
+    "D1": {
+      "finals_completed": 10,
+      "final_val_auroc": {
+        "n": 10,
+        "mean": 0.970495357808082,
+        "sd": 0.002954863074218867
+      }
+    }
+  }
+}

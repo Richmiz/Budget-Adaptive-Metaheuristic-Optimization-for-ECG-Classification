@@ -1,5 +1,7 @@
 # Study documentation
 
+**Results:** [27_results_v2.md](27_results_v2.md) (16 Oct 2026, fold-10 test).
+
 **Current plan:** [25_study_plan_v2.md](25_study_plan_v2.md), one page, chosen 14 Oct 2026. Evidence behind it: [24_response_to_assessor_g4.md](24_response_to_assessor_g4.md) (task-default check), [22_g4_decision_results.md](22_g4_decision_results.md).
 
 **Earlier results:** [23_assessor_g4_next_experiment.md](23_assessor_g4_next_experiment.md)
