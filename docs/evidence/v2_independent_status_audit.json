@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-16",
+  "archives": {
+    "bamo_v2_results.zip": {
+      "files_verified_in_zip": 779,
+      "sha256": "1bbbf376f631097fd5c7b80278c6144af0261513a9cc018eb2fcd88e766d1aa5",
+      "changed_extracted_files": [
+        "analysis_v2/search.json"
+      ]
+    },
+    "bamo_v2_test_results.zip": {
+      "files_verified_in_zip": 302,
+      "sha256": "81cff9af6a8947d3e64ff4dc22024a71cdd1a72453e84a2ccdb63211901e835f",
+      "changed_extracted_files": []
+    }
+  },
+  "bundles": {
+    "COLAB_G4_V2_MAIN_SESSION_A_executed.ipynb": {
+      "bundle_sha256": "2bf53b799f566211050f07cd043f5c54b124b01076fed4a97aaf16cd82b6647a",
+      "core_files_match": 36,
+      "recorded_errors": []
+    },
+    "COLAB_G4_V2_MAIN_SESSION_B_executed.ipynb": {
+      "bundle_sha256": "2bf53b799f566211050f07cd043f5c54b124b01076fed4a97aaf16cd82b6647a",
+      "core_files_match": 36,
+      "recorded_errors": []
+    },
+    "COLAB_G4_V2_TEST.ipynb": {
+      "bundle_sha256": "75acacf538f7b42f10eb44e53edff4c52275ed73f55a86ab1f8dad3feb441cd4",
+      "core_files_match": 36,
+      "recorded_errors": []
+    }
+  },
+  "tasks": {
+    "superclass": {
+      "searches": 60,
+      "finals_and_test_predictions": 70,
+      "accepted_evaluations_checked": 5981,
+      "all_point_and_per_class_estimates_match": true,
+      "arms": {
+        "D0": {
+          "mean_auroc": 0.9236870673719573
+        },
+        "random@low": {
+          "mean_auroc": 0.926537274217265
+        },
+        "random@mid": {
+          "mean_auroc": 0.9270354308129949
+        },
+        "dehb_native@low": {
+          "mean_auroc": 0.9271249697475282
+        },
+        "dehb_native@mid": {
+          "mean_auroc": 0.927728761149794
+        },
+        "adaptive_utility@low": {
+          "mean_auroc": 0.9280682837212806
+        },
+        "adaptive_utility@mid": {
+          "mean_auroc": 0.927931959879863
+        }
+      },
+      "accounted_search_hours": 20.204989118917773,
+      "physical_completed_search_hours": 19.31047365660361,
+      "final_training_hours": 0.49183953265694474,
+      "exported_model_checkpoints": 0,
+      "all_six_arms_on_one_host_seed_count": 1,
+      "budget_mean_differences_mid_minus_low": {
+        "random": 0.0004981565957299372,
+        "dehb_native": 0.0006037914022657409,
+        "adaptive_utility": -0.00013632384141759601
+      }
+    },
+    "rhythm": {
+      "searches": 60,
+      "finals_and_test_predictions": 80,
+      "accepted_evaluations_checked": 6167,
+      "all_point_and_per_class_estimates_match": true,
+      "arms": {
+        "D0": {
+          "mean_auroc": 0.9486278743275346
+        },
+        "D1": {
+          "mean_auroc": 0.9554186040818118
+        },
+        "random@low": {
+          "mean_auroc": 0.9559264599299764
+        },
+        "random@mid": {
+          "mean_auroc": 0.956170129317489
+        },
+        "dehb_native@low": {
+          "mean_auroc": 0.9600859453352448
+        },
+        "dehb_native@mid": {
+          "mean_auroc": 0.9591193932732909
+        },
+        "adaptive_utility@low": {
+          "mean_auroc": 0.9555419034025169
+        },
+        "adaptive_utility@mid": {
+          "mean_auroc": 0.9560183710874384
+        }
+      },
+      "accounted_search_hours": 23.219326817045832,
+      "physical_completed_search_hours": 22.258881832598334,
+      "final_training_hours": 0.6188324516711085,
+      "exported_model_checkpoints": 0,
+      "all_six_arms_on_one_host_seed_count": 1,
+      "budget_mean_differences_mid_minus_low": {
+        "random": 0.000243669387512635,
+        "dehb_native": -0.0009665520619539514,
+        "adaptive_utility": 0.00047646768492148883
+      }
+    }
+  },
+  "analysis_lock_hashes_match": true,
+  "lock": {
+    "locked_at": "2026-10-16T07:54:01",
+    "frozen_protocol_sha256": "ec9b744f0928e37ecc540b077fb79393f12abec97aa24f9d58952ac4f19af3de",
+    "analysis_files_sha256": {
+      "docs/26_protocol_v2.md": "8ffd7d15fde8df5c05606232f64fc45b764dbcf557502951a398a293edab9d69",
+      "scripts/analyze_v2.py": "9a09d67ad4dd530bde8f96b0f21fd50f822a94ad81ff2630d2c53277733fb07d"
+    }
+  },
+  "bootstrap_spot_check": {
+    "contrast": "superclass random@low - D0",
+    "n_bootstrap": 10000,
+    "observed": 0.002850206845307768,
+    "ci95": [
+      7.707317723852664e-05,
+      0.005774040892943821
+    ],
+    "p_tail": 0.0225,
+    "matches_locked_output": true,
+    "scope": "one full bootstrap contrast replay; all primary arithmetic and Holm adjustments checked"
+  },
+  "limits": [
+    "Does not retrain models or repeat GPU test evaluation.",
+    "All point/per-class estimates checked. One 10,000-replicate contrast replayed separately; other intervals not replayed.",
+    "Completed-job timing excludes failed attempts, runtime setup and idle billing."
+  ]
+}
